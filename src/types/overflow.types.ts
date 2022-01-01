@@ -1,13 +1,13 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
 export type OverFlowType = Pick<
   CSSProperties,
-  | "overflow"
-  | "overflowAnchor"
-  | "overflowBlock"
-  | "overflowClipBox"
-  | "overflowInline"
-  | "overflowWrap"
-  | "overflowX"
-  | "overflowY"
+  | 'overflow'
+  | 'overflowAnchor'
+  | 'overflowBlock'
+  | 'overflowClipBox'
+  | 'overflowInline'
+  | 'overflowWrap'
+  | 'overflowX'
+  | 'overflowY'
 >;

@@ -1,5 +1,5 @@
-import { css } from "styled-components";
-import { GridContainerType, GridItemType } from "../../types";
+import { css } from 'styled-components';
+import { GridContainerType, GridItemType } from '../../types';
 
 export const StyledGridItem = css<GridItemType>`
   grid-column-start: ${({ gridColumnStart }) => gridColumnStart};

@@ -1,21 +1,21 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
 export type FlexContainerType = Pick<
   CSSProperties,
-  | "flexDirection"
-  | "flexWrap"
-  | "flexFlow"
-  | "alignItems"
-  | "justifyContent"
-  | "alignContent"
-  | "gap"
-  | "rowGap"
-  | "columnGap"
+  | 'flexDirection'
+  | 'flexWrap'
+  | 'flexFlow'
+  | 'alignItems'
+  | 'justifyContent'
+  | 'alignContent'
+  | 'gap'
+  | 'rowGap'
+  | 'columnGap'
 >;
 
 export type FlexItemType = Pick<
   CSSProperties,
-  "order" | "flexGrow" | "flexShrink" | "flexBasis" | "flex" | "alignSelf"
+  'order' | 'flexGrow' | 'flexShrink' | 'flexBasis' | 'flex' | 'alignSelf'
 >;
 
 // export type FlexItem = {

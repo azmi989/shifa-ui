@@ -1,6 +1,6 @@
-import { css } from "styled-components";
-import { getColor } from "../../theme/getColors";
-import { ButtonProps } from "../Button/Button.types";
+import { css } from 'styled-components';
+import { getColor } from '../../theme/utils';
+import { ButtonProps } from '../Button/Button.types';
 
 export const StyledButtonBackground = css<ButtonProps>`
   background: ${({ background }) => background};
@@ -9,12 +9,12 @@ export const StyledButtonBackground = css<ButtonProps>`
   background-clip: ${({ backgroundClip }) => backgroundClip};
   background-color: ${({ varient, backgroundColor, disabled }) =>
     !disabled
-      ? varient === "contained"
+      ? varient === 'contained'
         ? getColor(backgroundColor)
-        : "transparent"
-      : varient === "contained"
-      ? getColor("paper", 500)
-      : "transparent"};
+        : 'transparent'
+      : varient === 'contained'
+      ? getColor('paper', 500)
+      : 'transparent'};
   background-image: ${({ backgroundImage }) => backgroundImage};
   background-origin: ${({ backgroundOrigin }) => backgroundOrigin};
   background-position: ${({ backgroundPosition }) => backgroundPosition};
@@ -25,9 +25,9 @@ export const StyledButtonBackground = css<ButtonProps>`
   &:hover {
     background-color: ${({ backgroundColor, varient, disabled }) =>
       !disabled
-        ? varient === "contained"
+        ? varient === 'contained'
           ? getColor(backgroundColor, 700)
-          : getColor(backgroundColor, undefined, "20%")
+          : getColor(backgroundColor, undefined, '20%')
         : undefined};
   }
 `;

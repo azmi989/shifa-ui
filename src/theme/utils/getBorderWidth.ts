@@ -1,5 +1,5 @@
-import { defaultTheme } from ".";
-import { BorderWidthType } from "./theme.types";
+import { defaultTheme } from '..';
+import { BorderWidthType } from '../theme.types';
 
 export const getBorderWidth = (width?: BorderWidthType) => {
   if (width) {

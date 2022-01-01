@@ -1,6 +1,6 @@
-import { CSSProperties } from "react";
-import { Variations } from "../../styled";
-import { ColorsType, OpacityType } from "../theme/theme.types";
+import { CSSProperties } from 'react';
+import { ColorsType, OpacityType } from '../theme/theme.types';
+import { Variations } from '.';
 
 export type BackgroundType = {
   backgroundColorVarient?: Variations;
@@ -8,15 +8,15 @@ export type BackgroundType = {
   backgroundColorOpacity?: OpacityType;
 } & Pick<
   CSSProperties,
-  | "background"
-  | "backgroundAttachment"
-  | "backgroundBlendMode"
-  | "backgroundClip"
-  | "backgroundImage"
-  | "backgroundOrigin"
-  | "backgroundPosition"
-  | "backgroundPositionX"
-  | "backgroundPositionY"
-  | "backgroundRepeat"
-  | "backgroundSize"
+  | 'background'
+  | 'backgroundAttachment'
+  | 'backgroundBlendMode'
+  | 'backgroundClip'
+  | 'backgroundImage'
+  | 'backgroundOrigin'
+  | 'backgroundPosition'
+  | 'backgroundPositionX'
+  | 'backgroundPositionY'
+  | 'backgroundRepeat'
+  | 'backgroundSize'
 >;

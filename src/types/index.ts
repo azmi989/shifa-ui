@@ -1,3 +1,7 @@
+/// <reference types="react" />
+/// <reference types="react-dom" />
+/// <reference types="styled-components" />
+
 export type { BackgroundType } from "./background.types";
 export type { BorderType } from "./border.types";
 export type { CursorType } from "./cursor.types";
@@ -8,7 +12,9 @@ export type {
   FontUnitsType,
   HeightUnitsType,
   UnitsType,
-  WidthUnitsType,
+  WidthUnitsType,AlertDirectionType,
+  ButtonSizeProps,CircleRecType,DirectionType
+  ,DirectionsLR,DirectionsTB,SeverityType,TransformOrigin,Screens,Variations,Colors,Elevation,Opacity,
 } from "./generics.types";
 export type { GridContainerType, GridItemType } from "./grid.types";
 export type { GutterAndSizeType } from "./gutterAndSize.types";

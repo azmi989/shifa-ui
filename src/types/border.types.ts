@@ -1,9 +1,9 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 import {
   BorderRadiusType,
   BorderWidthType,
   ColorsType,
-} from "../theme/theme.types";
+} from '../theme/theme.types';
 
 export type BorderType = {
   borderBottomLeftRadius?: BorderRadiusType;
@@ -40,32 +40,32 @@ export type BorderType = {
   borderWidth?: BorderWidthType;
 } & Pick<
   CSSProperties,
-  | "borderBlock"
-  | "borderBlockEnd"
-  | "borderBlockStart"
-  | "borderBottom"
-  | "borderCollapse"
-  | "borderImage"
-  | "borderImageOutset"
-  | "borderImageRepeat"
-  | "borderImageSlice"
-  | "borderImageSource"
-  | "borderInline"
-  | "borderInlineEnd"
-  | "borderInlineStart"
-  | "borderLeft"
-  | "borderRight"
-  | "borderSpacing"
-  | "borderTop"
-  | "borderBlockEndStyle"
-  | "borderBlockStartStyle"
-  | "borderBlockStyle"
-  | "borderBottomStyle"
-  | "borderInlineEndStyle"
-  | "borderInlineStartStyle"
-  | "borderInlineStyle"
-  | "borderLeftStyle"
-  | "borderRightStyle"
-  | "borderStyle"
-  | "borderTopStyle"
+  | 'borderBlock'
+  | 'borderBlockEnd'
+  | 'borderBlockStart'
+  | 'borderBottom'
+  | 'borderCollapse'
+  | 'borderImage'
+  | 'borderImageOutset'
+  | 'borderImageRepeat'
+  | 'borderImageSlice'
+  | 'borderImageSource'
+  | 'borderInline'
+  | 'borderInlineEnd'
+  | 'borderInlineStart'
+  | 'borderLeft'
+  | 'borderRight'
+  | 'borderSpacing'
+  | 'borderTop'
+  | 'borderBlockEndStyle'
+  | 'borderBlockStartStyle'
+  | 'borderBlockStyle'
+  | 'borderBottomStyle'
+  | 'borderInlineEndStyle'
+  | 'borderInlineStartStyle'
+  | 'borderInlineStyle'
+  | 'borderLeftStyle'
+  | 'borderRightStyle'
+  | 'borderStyle'
+  | 'borderTopStyle'
 >;

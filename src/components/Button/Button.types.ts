@@ -1,14 +1,14 @@
-import { ButtonHTMLAttributes } from "react";
-import { ElevationProp } from "../../theme/theme.types";
+import { ButtonHTMLAttributes } from 'react';
+import { ElevationProp } from '../../theme/theme.types';
 import {
   BackgroundType,
+  ButtonSizeProps,
   CursorType,
   GutterAndSizeType,
   InsetType,
   TransformType,
   TransitionType,
-} from "../../types";
-import { ButtonSizeProps } from "../../types/generics.types";
+} from '../../types';
 
 type Ripple =
   | {
@@ -19,13 +19,13 @@ type Ripple =
       ripple?: never;
       rippleDuration?: never;
     };
-export type ButtonVarientType = "contained" | "outlined" | "base";
+export type ButtonVarientType = 'contained' | 'outlined' | 'base';
 export type ButtonProps = {
   varient?: ButtonVarientType;
   fitContainer?: true;
   pill?: true;
   disableRipple?: boolean;
-} & Omit<Ripple, "ripple"> &
+} & Omit<Ripple, 'ripple'> &
   CursorType &
   BackgroundType &
   ElevationProp &

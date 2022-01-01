@@ -1,5 +1,5 @@
-import { css } from "styled-components";
-import { FlexContainerType, FlexItemType } from "../../types";
+import { css } from 'styled-components';
+import { FlexContainerType, FlexItemType } from '../../types';
 
 export const StyledFlexItem = css<FlexItemType>`
   order: ${({ order }) => order};

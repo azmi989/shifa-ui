@@ -1,9 +1,9 @@
-import React, { FC, MouseEvent, useState } from "react";
-import { StyledRipple } from "../Styles";
-import { RippleProps } from "./Ripple.types";
-import { useDebouncedRippleCleanUp } from "./useDebouncedRippleCleanUp";
+import React, { FC, MouseEvent, useState } from 'react';
+import { StyledRipple } from '../Styles';
+import { RippleProps } from './Ripple.types';
+import { useDebouncedRippleCleanUp } from './useDebouncedRippleCleanUp';
 
-const Ripple: FC<RippleProps> = ({ color = "primary", duration = 850 }) => {
+const Ripple: FC<RippleProps> = ({ color = 'primary', duration = 850 }) => {
   const [rippleArray, setRippleArray] = useState<
     {
       x: number;
@@ -26,7 +26,7 @@ const Ripple: FC<RippleProps> = ({ color = "primary", duration = 850 }) => {
       size,
     };
 
-    setRippleArray((prevState) => [...prevState, newRipple]);
+    setRippleArray(prevState => [...prevState, newRipple]);
   };
   useDebouncedRippleCleanUp(rippleArray.length, duration, () => {
     setRippleArray([]);

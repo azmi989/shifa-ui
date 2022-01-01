@@ -1,16 +1,4 @@
 import { themeExtention } from '../theme.config';
-export * from './animations.styled';
-export * from './getBorderRadius';
-export { getColor } from './getColors';
-export { getBorderWidth } from './getBorderWidth';
-export { getBorderRadius } from './getBorderRadius';
-export { getIconSize } from './getIconSize';
-export { getRandomNumber } from './getRandomNumber';
-export { getScaledOpen } from './getScaledOpen';
-export { getInsetFromDirection } from './getInsetFromDirection';
-export { getInputBorder } from './getInputBorder';
-export { hexToRGPA } from './hexToRGPA';
-export { getTextProps } from './getTextProps';
 
 export const defaultTheme = {
   rootFontSize: themeExtention.rootFontSize || 16,

@@ -1,5 +1,5 @@
-import { ThemeTextType } from "./theme.types";
-import { defaultTheme } from ".";
+import { ThemeTextType } from '../theme.types';
+import { defaultTheme } from '..';
 
 export const getTextProps = (text: ThemeTextType) => {
   return {

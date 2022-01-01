@@ -1,6 +1,6 @@
-import { CSSProperties } from "react";
-import { Variations } from "../../styled";
-import { ColorsType, OpacityType } from "../theme/theme.types";
+import { CSSProperties } from 'react';
+import { ColorsType, OpacityType } from '../theme/theme.types';
+import { Variations } from './generics.types';
 
 export type FillAndStrokeType = {
   fill?: ColorsType;
@@ -11,11 +11,11 @@ export type FillAndStrokeType = {
   strokeOpacity?: OpacityType;
 } & Pick<
   CSSProperties,
-  | "fillRule"
-  | "strokeDasharray"
-  | "strokeDashoffset"
-  | "strokeLinecap"
-  | "strokeLinejoin"
-  | "strokeMiterlimit"
-  | "strokeWidth"
+  | 'fillRule'
+  | 'strokeDasharray'
+  | 'strokeDashoffset'
+  | 'strokeLinecap'
+  | 'strokeLinejoin'
+  | 'strokeMiterlimit'
+  | 'strokeWidth'
 >;

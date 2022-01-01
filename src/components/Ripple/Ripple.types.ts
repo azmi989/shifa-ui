@@ -1,5 +1,5 @@
-import { ColorsType } from "../../theme/theme.types";
-import { ButtonVarientType } from "../Button/Button.types";
+import { ColorsType } from '../../theme/theme.types';
+import { ButtonVarientType } from '../Button/Button.types';
 
 export type RippleProps = {
   color: ColorsType;

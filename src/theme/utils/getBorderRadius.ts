@@ -1,5 +1,5 @@
-import { defaultTheme } from ".";
-import { BorderRadiusType } from "./theme.types";
+import { defaultTheme } from '..';
+import { BorderRadiusType } from '../theme.types';
 
 export const getBorderRadius = (radius?: BorderRadiusType) => {
   if (radius) {

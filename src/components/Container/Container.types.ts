@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react";
+import { HTMLAttributes } from 'react';
 import {
   BackgroundType,
   BorderType,
@@ -11,7 +11,7 @@ import {
   InsetType,
   OverFlowType,
   TransitionType,
-} from "../../types";
+} from '../../types';
 
 type Container = BackgroundType &
   BorderType &
@@ -24,14 +24,14 @@ type Container = BackgroundType &
   HTMLAttributes<HTMLDivElement>;
 
 type Flex =
-  | ({ elementType?: "container" } & FlexItemType)
-  | ({ elementType?: "item" } & FlexContainerType);
+  | ({ elementType?: 'container' } & FlexItemType)
+  | ({ elementType?: 'item' } & FlexContainerType);
 type Grid =
-  | ({ elementType?: "container" } & GridItemType)
-  | ({ elementType?: "item" } & GridContainerType);
+  | ({ elementType?: 'container' } & GridItemType)
+  | ({ elementType?: 'item' } & GridContainerType);
 type ElementFlowType =
-  | ({ flowType?: "grid" } & Grid)
-  | ({ flowType?: "flex" } & Flex);
+  | ({ flowType?: 'grid' } & Grid)
+  | ({ flowType?: 'flex' } & Flex);
 
 export type ContainerProps = ElementFlowType &
   BackgroundType &

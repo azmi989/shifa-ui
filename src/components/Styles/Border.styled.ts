@@ -1,6 +1,6 @@
-import { css } from "styled-components";
-import { getBorderRadius, getBorderWidth } from "../../theme";
-import { BorderType } from "../../types";
+import { css } from 'styled-components';
+import { getBorderRadius, getBorderWidth } from '../../theme/utils';
+import { BorderType } from '../../types';
 
 export const StyledBorder = css<BorderType>`
   border-block: ${({ borderBlock }) => borderBlock};

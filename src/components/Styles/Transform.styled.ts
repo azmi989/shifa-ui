@@ -1,5 +1,5 @@
-import { css } from "styled-components";
-import { TransformType } from "../../types";
+import { css } from 'styled-components';
+import { TransformType } from '../../types';
 
 export const StyledTransform = css<TransformType>`
   transform: ${({ transform }) => transform};

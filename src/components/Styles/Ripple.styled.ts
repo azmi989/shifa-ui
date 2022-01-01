@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { getColor } from "../../theme";
-import { RippleProps } from "../Ripple/Ripple.types";
+import styled from 'styled-components';
+import { getColor } from '../../theme/utils';
+import { RippleProps } from '../Ripple/Ripple.types';
 
 export const StyledRipple = styled.div<RippleProps>`
   position: absolute;
@@ -16,9 +16,9 @@ export const StyledRipple = styled.div<RippleProps>`
     position: absolute;
     opacity: 0.75;
     background-color: ${({ color, buttonVarient }) =>
-      buttonVarient === "contained"
+      buttonVarient === 'contained'
         ? getColor(color, 900)
-        : getColor(color, undefined, "50%")};
+        : getColor(color, undefined, '50%')};
     animation-name: ripple;
     animation-duration: ${({ duration }) => duration}ms;
   }

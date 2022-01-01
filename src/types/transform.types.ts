@@ -1,6 +1,6 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
 export type TransformType = Pick<
   CSSProperties,
-  "transform" | "transformBox" | "transformOrigin" | "transformStyle"
+  'transform' | 'transformBox' | 'transformOrigin' | 'transformStyle'
 >;

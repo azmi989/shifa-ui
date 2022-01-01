@@ -1,6 +1,6 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
 export type InsetType = Pick<
   CSSProperties,
-  "inset" | "position" | "top" | "bottom" | "left" | "right" | "zIndex"
+  'inset' | 'position' | 'top' | 'bottom' | 'left' | 'right' | 'zIndex'
 >;

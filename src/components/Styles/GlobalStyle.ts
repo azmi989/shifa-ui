@@ -1,5 +1,6 @@
-import { createGlobalStyle } from "styled-components";
-import { defaultTheme, getColor } from ".";
+import { createGlobalStyle } from 'styled-components';
+import { defaultTheme } from '../../theme';
+import { getColor } from '../../theme/utils';
 
 const GlobalStyle = createGlobalStyle`
 :root{
@@ -39,15 +40,15 @@ caption, th, td, center {
 body { 
 	min-height:100vh;
 	line-height: 1; 
-	color: ${getColor("mainTextColor")};
+	color: ${getColor('mainTextColor')};
 	padding-bottom:10rem;
-	background-color: ${getColor("mainBgColor")};
+	background-color: ${getColor('mainBgColor')};
 	padding:0 1rem;
 }
 #root{
 		position:relative;
 		min-height:100vh;
-		max-width:${defaultTheme.screens["2xl"]};
+		max-width:${defaultTheme.screens['2xl']};
 	}
 q { 
 	quotes: "" ""; 

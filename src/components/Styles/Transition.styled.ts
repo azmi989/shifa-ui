@@ -1,5 +1,5 @@
-import { css } from "styled-components";
-import { TransitionType } from "../../types";
+import { css } from 'styled-components';
+import { TransitionType } from '../../types';
 
 export const StyledTransition = css<TransitionType>`
   transition: ${({ transition }) => transition};

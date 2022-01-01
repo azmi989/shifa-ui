@@ -1,6 +1,7 @@
-import { Variations } from "../../styled";
-import { ColorsType, OpacityType } from "./theme.types";
-import { defaultTheme, hexToRGPA } from ".";
+import { ColorsType, OpacityType } from '../theme.types';
+import { Variations } from '../../types';
+import { defaultTheme } from '..';
+import { hexToRGPA } from './hexToRGPA';
 
 export const getColor = (
   color?: ColorsType,
@@ -8,8 +9,8 @@ export const getColor = (
   opacity?: OpacityType
 ) => {
   if (color) {
-    if (color === "transparent") {
-      return "transparent";
+    if (color === 'transparent') {
+      return 'transparent';
     }
     if (opacity) {
       if (varient) {
@@ -19,7 +20,7 @@ export const getColor = (
           defaultTheme.opacity[opacity]
         );
       } else {
-        if (typeof defaultTheme.colors[color] === "string") {
+        if (typeof defaultTheme.colors[color] === 'string') {
           return hexToRGPA(
             //@ts-ignore
             defaultTheme.colors[color],
@@ -37,17 +38,17 @@ export const getColor = (
         return hexToRGPA(
           //@ts-ignore
           defaultTheme.colors[color].variations[varient],
-          "1"
+          '1'
         );
       } else {
-        if (typeof defaultTheme.colors[color] === "string") {
+        if (typeof defaultTheme.colors[color] === 'string') {
           //@ts-ignore
-          return hexToRGPA(defaultTheme.colors[color], "1");
+          return hexToRGPA(defaultTheme.colors[color], '1');
         } else
           return hexToRGPA(
             //@ts-ignore
             defaultTheme.colors[color].main,
-            "1"
+            '1'
           );
       }
     }
