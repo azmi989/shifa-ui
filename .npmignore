@@ -1,0 +1,7 @@
+*.log
+.DS_Store
+.github
+node_modules
+src
+example
+test
