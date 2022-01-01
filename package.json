@@ -1,5 +1,5 @@
 {
-  "version": "0.1.13",
+  "version": "0.1.14",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -9,7 +9,7 @@
   },
   "files": [
     "dist",
-    "src"
+    "types"
   ],
   "engines": {
     "node": ">=10"
