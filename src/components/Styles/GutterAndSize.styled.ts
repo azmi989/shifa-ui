@@ -1,0 +1,33 @@
+import { css } from "styled-components";
+import { GutterAndSizeType } from "../../types";
+
+export const StyledGutterAndSize = css<GutterAndSizeType>`
+  margin: ${({ margin }) => margin};
+  margin-block: ${({ marginBlock }) => marginBlock};
+  margin-block-end: ${({ marginBlockEnd }) => marginBlockEnd};
+  margin-block-start: ${({ marginBlockStart }) => marginBlockStart};
+  margin-bottom: ${({ marginBottom }) => marginBottom};
+  margin-inline: ${({ marginInline }) => marginInline};
+  margin-inline-end: ${({ marginInlineEnd }) => marginInlineEnd};
+  margin-inline-start: ${({ marginInlineStart }) => marginInlineStart};
+  margin-left: ${({ marginLeft }) => marginLeft};
+  margin-right: ${({ marginRight }) => marginRight};
+  margin-top: ${({ marginTop }) => marginTop};
+  padding: ${({ padding }) => padding};
+  padding-block: ${({ paddingBlock }) => paddingBlock};
+  padding-block-end: ${({ paddingBlockEnd }) => paddingBlockEnd};
+  padding-block-start: ${({ paddingBlockStart }) => paddingBlockStart};
+  padding-bottom: ${({ paddingBottom }) => paddingBottom};
+  padding-inline: ${({ paddingInline }) => paddingInline};
+  padding-inline-end: ${({ paddingInlineEnd }) => paddingInlineEnd};
+  padding-inline-start: ${({ paddingInlineStart }) => paddingInlineStart};
+  padding-left: ${({ paddingLeft }) => paddingLeft};
+  padding-right: ${({ paddingRight }) => paddingRight};
+  padding-top: ${({ paddingTop }) => paddingTop};
+  height: ${({ height }) => height};
+  max-height: ${({ maxHeight }) => maxHeight};
+  min-height: ${({ minHeight }) => minHeight};
+  width: ${({ width }) => width};
+  max-width: ${({ maxWidth }) => maxWidth};
+  min-width: ${({ minWidth }) => minWidth};
+`;
