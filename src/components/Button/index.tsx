@@ -17,6 +17,7 @@ const Button: FC<ButtonProps> = props => {
         <Ripple
           duration={rippleDuration}
           color={defaultProps.backgroundColor || 'primary'}
+          borderRadius={defaultProps.pill ? 'lg' : 's'}
         />
       )}
       {children}

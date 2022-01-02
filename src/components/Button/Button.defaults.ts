@@ -6,6 +6,7 @@ export const buttonDefaults = ({
   backgroundColor = 'primary',
   height = 'fit-content',
   transition = 'background 200ms, color 200ms ease',
+  type = 'button',
   disableRipple = false,
   ...props
 }: ButtonProps): ButtonProps => {
@@ -18,6 +19,7 @@ export const buttonDefaults = ({
     width: props.fitContainer ? '100%' : 'fit-content',
     height,
     disableRipple,
+    type,
     position: !disableRipple ? 'relative' : undefined,
     padding:
       size === 'xs'

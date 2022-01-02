@@ -8,25 +8,16 @@ import {
   InsetType,
   TransformType,
   TransitionType,
-} from '../../types';
+} from '../../../types';
 
-type Ripple =
-  | {
-      ripple?: true;
-      rippleDuration?: number;
-    }
-  | {
-      ripple?: never;
-      rippleDuration?: never;
-    };
 export type ButtonVarientType = 'contained' | 'outlined' | 'base';
 export type ButtonProps = {
   varient?: ButtonVarientType;
   fitContainer?: true;
   pill?: true;
   disableRipple?: boolean;
-} & Omit<Ripple, 'ripple'> &
-  CursorType &
+  rippleDuration?: never;
+} & CursorType &
   BackgroundType &
   ElevationProp &
   GutterAndSizeType &

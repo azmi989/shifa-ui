@@ -1,9 +1,9 @@
 import { CSSProperties } from 'react';
 import {
   BorderRadiusType,
-  BorderWidthType,
   ColorsType,
-} from '../theme/theme.types';
+  BorderWidthType,
+} from '../src/theme/theme.types';
 
 export type BorderType = {
   borderBottomLeftRadius?: BorderRadiusType;

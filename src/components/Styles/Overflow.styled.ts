@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { OverFlowType } from '../../types';
+import { OverFlowType } from '../../../types';
 
 export const StyledOverflow = css<OverFlowType>`
   overflow: ${({ overflow }) => overflow};

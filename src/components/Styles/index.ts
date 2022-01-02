@@ -9,6 +9,7 @@ export { StyledFillAndStroke } from './FillAndStroke.styled';
 export { StyledFlexContainer, StyledFlexItem } from './Flex.styled';
 export { StyledGridContainer, StyledGridItem } from './Grid.styled';
 export { StyledGutterAndSize } from './GutterAndSize.styled';
+export { StyledIconButtonBorder } from './IconButtonBorder.styled';
 export { StyledInset } from './Inset.styled';
 export { StyledOverflow } from './Overflow.styled';
 export { StyledText } from './Text.styled';

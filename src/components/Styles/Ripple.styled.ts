@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getColor } from '../../theme/utils';
+import { getBorderRadius, getColor } from '../../theme/utils';
 import { RippleProps } from '../Ripple/Ripple.types';
 
 export const StyledRipple = styled.div<RippleProps>`
@@ -9,7 +9,7 @@ export const StyledRipple = styled.div<RippleProps>`
   bottom: 0;
   left: 0;
   overflow: hidden;
-
+  border-radius: ${({ borderRadius }) => getBorderRadius(borderRadius)};
   span {
     transform: scale(0);
     border-radius: 100%;

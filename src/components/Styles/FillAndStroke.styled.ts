@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { defaultTheme } from '../../theme';
 import { getColor } from '../../theme/utils';
-import { FillAndStrokeType } from '../../types';
+import { FillAndStrokeType } from '../../../types';
 
 export const StyledFillAndStroke = css<FillAndStrokeType>`
   fill: ${({ fill, fillVarient }) => getColor(fill, fillVarient)};

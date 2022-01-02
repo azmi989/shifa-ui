@@ -1,4 +1,4 @@
-import { ButtonSizeProps } from '../../types';
+import { ButtonSizeProps } from '../../../types';
 
 export const getIconSize = (size?: ButtonSizeProps) => {
   switch (size) {

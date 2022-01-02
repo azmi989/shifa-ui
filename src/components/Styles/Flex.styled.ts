@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { FlexContainerType, FlexItemType } from '../../types';
+import { FlexContainerType, FlexItemType } from '../../../types';
 
 export const StyledFlexItem = css<FlexItemType>`
   order: ${({ order }) => order};
@@ -11,6 +11,7 @@ export const StyledFlexItem = css<FlexItemType>`
 `;
 
 export const StyledFlexContainer = css<FlexContainerType>`
+  display: flex;
   flex-direction: ${({ flexDirection }) => flexDirection};
   flex-wrap: ${({ flexWrap }) => flexWrap};
   flex-flow: ${({ flexFlow }) => flexFlow};

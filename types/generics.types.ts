@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type FontUnitsType =
   | `${number}px`
   | `${number}em`
@@ -32,14 +34,13 @@ type OriginYType = "top" | "center" | "bottom";
 export type TransformOrigin =
   | `${OriginXType} ${OriginYType} ${`${UnitsType | "initial" | "inherit"}`}`
   | `${OriginXType} ${OriginYType}`;
-export type SeverityType = "error" | "warning" | "info" | "success" | "paper";
+export type SeverityType = "error" | "warning" | "info" | "success" 
 export type CircleRecType = "circle" | "rectangle";
 export type DirectionsTB = "top" | "bottom";
 export type DirectionsLR = "left" | "right";
-export type DirectionType = DirectionsLR | DirectionsTB;
-export type AlertDirectionType =
+export type DirectionType =
   | `${DirectionsTB}-${DirectionsLR}`
-  | DirectionType;
+  |  DirectionsLR | DirectionsTB;
 
 export type ButtonSizeProps = {
   size?: "xs" | "s" | "md" | "lg" | "xl";
@@ -91,3 +92,7 @@ export type Opacity =
   | '90%'
   | '100%';
 export type Screens = 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+export type WithOpenState = {
+  open:boolean
+  setOpen:Dispatch<SetStateAction<boolean>>
+}

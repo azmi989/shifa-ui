@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
-import { ColorsType, OpacityType } from '../theme/theme.types';
-import { Variations } from './generics.types';
+import { Variations } from '.';
+import { ColorsType, OpacityType } from '../src/theme/theme.types';
 
 export type FillAndStrokeType = {
   fill?: ColorsType;

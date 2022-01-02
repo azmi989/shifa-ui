@@ -1,18 +1,19 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
-  "include": ["src", "src/types", "styled.d.ts"],
+  "include": ["./src", "./types", "custom.d.ts"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
     "importHelpers": true,
     "allowJs": true,
-    "typeRoots": ["sec/types"],
+    "typeRoots": ["./types"],
     // output .d.ts declaration files for consumers
     "declaration": true,
     // output .js.map sourcemap files for consumers
     "sourceMap": true,
+    "declarationMap": true,
     // match output dir to input dir. e.g. dist/index instead of dist/src/index
-    "rootDir": "src",
+    "rootDir": "./src",
     // stricter type-checking for stronger correctness. Recommended by TS
     "strict": true,
     // linter checks for common issues
@@ -33,6 +34,6 @@
     // error out if import and file system have a casing mismatch. Recommended by TS
     "forceConsistentCasingInFileNames": true,
     // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
-    "noEmit": true
+    "noEmit": false
   }
 }

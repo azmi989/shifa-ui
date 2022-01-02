@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { InsetType } from '../../types';
+import { InsetType } from '../../../types';
 
 export const StyledInset = css<InsetType>`
   inset: ${({ inset }) => inset};

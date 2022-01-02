@@ -3,7 +3,11 @@ import { StyledRipple } from '../Styles';
 import { RippleProps } from './Ripple.types';
 import { useDebouncedRippleCleanUp } from './useDebouncedRippleCleanUp';
 
-const Ripple: FC<RippleProps> = ({ color = 'primary', duration = 850 }) => {
+const Ripple: FC<RippleProps> = ({
+  color = 'primary',
+  duration = 850,
+  ...props
+}) => {
   const [rippleArray, setRippleArray] = useState<
     {
       x: number;
@@ -32,7 +36,12 @@ const Ripple: FC<RippleProps> = ({ color = 'primary', duration = 850 }) => {
     setRippleArray([]);
   });
   return (
-    <StyledRipple onMouseDown={addRipple} duration={duration} color={color}>
+    <StyledRipple
+      onMouseDown={addRipple}
+      duration={duration}
+      color={color}
+      {...props}
+    >
       {rippleArray.length > 0 &&
         rippleArray.map((ripple, index) => (
           <span

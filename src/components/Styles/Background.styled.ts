@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import { getColor } from '../../theme/utils';
-import { BackgroundType } from '../../types';
+import { BackgroundType } from '../../../types';
 
 export const StyledBackground = css<BackgroundType>`
   background: ${({ background }) => background};

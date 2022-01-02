@@ -1,9 +1,15 @@
 import { ContainerProps } from './Container.types';
 
-export const containerDefaults = (props: ContainerProps): ContainerProps => {
+export const containerDefaults = ({
+  flowType = 'flex',
+  elementType = 'container',
+  width = '100%',
+  ...props
+}: ContainerProps): ContainerProps => {
   return {
-    flowType: 'flex',
-    elementType: 'container',
+    flowType,
+    elementType,
+    width,
     ...props,
   };
 };

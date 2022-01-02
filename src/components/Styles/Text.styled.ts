@@ -1,7 +1,8 @@
 import { css } from 'styled-components';
 import { getColor } from '../../theme/utils/getColors';
 import { getTextProps } from '../../theme/utils';
-import { TextType } from '../../types';
+import { TextType } from '../../../types';
+import { defaultTheme } from '../../theme';
 
 export const StyledText = css<TextType>`
   text-align: ${({ textAlign }) => textAlign};
@@ -59,9 +60,10 @@ export const StyledText = css<TextType>`
   word-wrap: ${({ wordWrap }) => wordWrap};
   letter-spacing: ${({ textProps }) =>
     textProps ? getTextProps(textProps).letterSpacing : undefined};
-  font-weight: ${({ textProps }) =>
-    textProps ? getTextProps(textProps).weight : undefined};
-  color: ${({ textColor }) => (textColor ? getColor(textColor) : undefined)};
-  font-size: ${({ textProps }) =>
-    textProps ? getTextProps(textProps).size : undefined};
+  font-weight: ${({ textProps, fontWeight }) =>
+    textProps ? getTextProps(textProps).weight : fontWeight};
+  color: ${({ textColor }) =>
+    textColor ? getColor(textColor) : getColor('mainTextColor')};
+  font-size: ${({ textProps, fontSize }) =>
+    textProps ? getTextProps(textProps).size : fontSize};
 `;

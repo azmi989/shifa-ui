@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { ColorsType, ThemeTextType } from '../theme/theme.types';
+import { ThemeTextType, ColorsType } from '../src/theme/theme.types';
 
 export type TextType = {
   textProps?: ThemeTextType;
@@ -53,4 +53,6 @@ export type TextType = {
   | 'wordBreak'
   | 'wordSpacing'
   | 'wordWrap'
+  | 'fontSize'
+  | 'fontWeight'
 >;

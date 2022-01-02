@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { ColorsType, OpacityType } from '../theme/theme.types';
+import { ColorsType, OpacityType } from '../src/theme/theme.types';
 import { Variations } from '.';
 
 export type BackgroundType = {

@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { GutterAndSizeType } from '../../types';
+import { GutterAndSizeType } from '../../../types';
 
 export const StyledGutterAndSize = css<GutterAndSizeType>`
   margin: ${({ margin }) => margin};

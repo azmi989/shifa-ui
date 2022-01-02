@@ -1,5 +1,5 @@
 import { ColorsType, OpacityType } from '../theme.types';
-import { Variations } from '../../types';
+import { Variations } from '../../../types';
 import { defaultTheme } from '..';
 import { hexToRGPA } from './hexToRGPA';
 

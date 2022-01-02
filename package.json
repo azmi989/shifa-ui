@@ -9,8 +9,9 @@
   },
   "files": [
     "dist",
-    "types"
+    "src/types"
   ],
+  "types": "dist/types",
   "engines": {
     "node": ">=10"
   },
@@ -52,6 +53,7 @@
     }
   ],
   "devDependencies": {
+    "@rollup/plugin-image": "^2.1.1",
     "@size-limit/preset-small-lib": "^7.0.5",
     "@types/jest": "^27.4.0",
     "@types/mocha": "^9.0.0",

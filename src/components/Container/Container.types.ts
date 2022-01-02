@@ -11,7 +11,7 @@ import {
   InsetType,
   OverFlowType,
   TransitionType,
-} from '../../types';
+} from '../../../types';
 
 type Container = BackgroundType &
   BorderType &
@@ -24,15 +24,14 @@ type Container = BackgroundType &
   HTMLAttributes<HTMLDivElement>;
 
 type Flex =
-  | ({ elementType?: 'container' } & FlexItemType)
-  | ({ elementType?: 'item' } & FlexContainerType);
+  | ({ elementType?: 'item' } & FlexItemType)
+  | ({ elementType?: 'container' } & FlexContainerType);
 type Grid =
-  | ({ elementType?: 'container' } & GridItemType)
-  | ({ elementType?: 'item' } & GridContainerType);
+  | ({ elementType?: 'item' } & GridItemType)
+  | ({ elementType?: 'container' } & GridContainerType);
 type ElementFlowType =
   | ({ flowType?: 'grid' } & Grid)
   | ({ flowType?: 'flex' } & Flex);
-
 export type ContainerProps = ElementFlowType &
   BackgroundType &
   BorderType &

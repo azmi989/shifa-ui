@@ -1,4 +1,4 @@
-import { DirectionType } from '../../types';
+import { DirectionType } from '../../../types';
 
 export const getInsetFromDirection = (direction?: DirectionType): string => {
   switch (direction) {

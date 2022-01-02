@@ -1,18 +1,19 @@
 import { css } from 'styled-components';
-import { getBorderRadius, getBorderWidth } from '../../theme/utils';
-import { BorderType } from '../../types';
+import { getBorderRadius, getBorderWidth, getColor } from '../../theme/utils';
+import { BorderType } from '../../../types';
 
 export const StyledBorder = css<BorderType>`
   border-block: ${({ borderBlock }) => borderBlock};
-  border-block-color: ${({ borderBlockColor }) => borderBlockColor};
+  border-block-color: ${({ borderBlockColor }) => getColor(borderBlockColor)};
   border-block-end: ${({ borderBlockEnd }) => borderBlockEnd};
-  border-block-end-color: ${({ borderBlockEndColor }) => borderBlockEndColor};
+  border-block-end-color: ${({ borderBlockEndColor }) =>
+    getColor(borderBlockEndColor)};
   border-block-end-style: ${({ borderBlockEndStyle }) => borderBlockEndStyle};
   border-block-end-width: ${({ borderBlockEndWidth }) =>
     getBorderWidth(borderBlockEndWidth)};
   border-block-start: ${({ borderBlockStart }) => borderBlockStart};
   border-block-start-color: ${({ borderBlockStartColor }) =>
-    borderBlockStartColor};
+    getColor(borderBlockStartColor)};
   border-block-start-style: ${({ borderBlockStartStyle }) =>
     borderBlockStartStyle};
   border-block-start-width: ${({ borderBlockStartWidth }) =>
@@ -21,7 +22,8 @@ export const StyledBorder = css<BorderType>`
   border-block-width: ${({ borderBlockWidth }) =>
     getBorderWidth(borderBlockWidth)};
   border-bottom: ${({ borderBottom }) => borderBottom};
-  border-bottom-color: ${({ borderBottomColor }) => borderBottomColor};
+  border-bottom-color: ${({ borderBottomColor }) =>
+    getColor(borderBottomColor)};
   border-bottom-left-radius: ${({ borderBottomLeftRadius }) =>
     getBorderRadius(borderBottomLeftRadius)};
   border-bottom-right-radius: ${({ borderBottomRightRadius }) =>
@@ -30,7 +32,7 @@ export const StyledBorder = css<BorderType>`
   border-bottom-width: ${({ borderBottomWidth }) =>
     getBorderWidth(borderBottomWidth)};
   border-collapse: ${({ borderCollapse }) => borderCollapse};
-  border-color: ${({ borderColor }) => borderColor};
+  border-color: ${({ borderColor }) => getColor(borderColor)};
   border-end-end-radius: ${({ borderEndEndRadius }) =>
     getBorderRadius(borderEndEndRadius)};
   border-end-start-radius: ${({ borderEndStartRadius }) =>
@@ -43,17 +45,18 @@ export const StyledBorder = css<BorderType>`
   border-image-width: ${({ borderImageWidth }) =>
     getBorderWidth(borderImageWidth)};
   border-inline: ${({ borderInline }) => borderInline};
-  border-inline-color: ${({ borderInlineColor }) => borderInlineColor};
+  border-inline-color: ${({ borderInlineColor }) =>
+    getColor(borderInlineColor)};
   border-inline-end: ${({ borderInlineEnd }) => borderInlineEnd};
   border-inline-end-color: ${({ borderInlineEndColor }) =>
-    borderInlineEndColor};
+    getColor(borderInlineEndColor)};
   border-inline-end-style: ${({ borderInlineEndStyle }) =>
     borderInlineEndStyle};
   border-inline-end-width: ${({ borderInlineEndWidth }) =>
     getBorderWidth(borderInlineEndWidth)};
   border-inline-start: ${({ borderInlineStart }) => borderInlineStart};
   border-inline-start-color: ${({ borderInlineStartColor }) =>
-    borderInlineStartColor};
+    getColor(borderInlineStartColor)};
   border-inline-start-style: ${({ borderInlineStartStyle }) =>
     borderInlineStartStyle};
   border-inline-start-width: ${({ borderInlineStartWidth }) =>
@@ -62,13 +65,13 @@ export const StyledBorder = css<BorderType>`
   border-inline-width: ${({ borderInlineWidth }) =>
     getBorderWidth(borderInlineWidth)};
   border-left: ${({ borderLeft }) => borderLeft};
-  border-left-color: ${({ borderLeftColor }) => borderLeftColor};
+  border-left-color: ${({ borderLeftColor }) => getColor(borderLeftColor)};
   border-left-style: ${({ borderLeftStyle }) => borderLeftStyle};
   border-left-width: ${({ borderLeftWidth }) =>
     getBorderWidth(borderLeftWidth)};
   border-radius: ${({ borderRadius }) => getBorderRadius(borderRadius)};
   border-right: ${({ borderRight }) => borderRight};
-  border-right-color: ${({ borderRightColor }) => borderRightColor};
+  border-right-color: ${({ borderRightColor }) => getColor(borderRightColor)};
   border-right-style: ${({ borderRightStyle }) => borderRightStyle};
   border-right-width: ${({ borderRightWidth }) =>
     getBorderWidth(borderRightWidth)};
@@ -79,7 +82,7 @@ export const StyledBorder = css<BorderType>`
     getBorderRadius(borderStartStartRadius)};
   border-style: ${({ borderStyle }) => borderStyle};
   border-top: ${({ borderTop }) => borderTop};
-  border-top-color: ${({ borderTopColor }) => borderTopColor};
+  border-top-color: ${({ borderTopColor }) => getColor(borderTopColor)};
   border-top-left-radius: ${({ borderTopLeftRadius }) =>
     getBorderRadius(borderTopLeftRadius)};
   border-top-right-radius: ${({ borderTopRightRadius }) =>
