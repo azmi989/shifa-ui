@@ -1,15 +1,38 @@
-import {
-  BorderType,
-  DirectionType,
-  SeverityType,
-  WithOpenState,
-} from '../../../types';
+import { ForwardedRef } from 'react';
+import { BorderType, DirectionType, SeverityType } from '../../../types';
+import { ContainerProps } from '../Container/Container.types';
+export type Alerts = {
+  id: string;
+  severity?: SeverityType;
+  title?: string;
+  message?: string;
+  detailed?: boolean;
+};
 
 export type AlertProps = {
-  direction?: DirectionType;
-  timeout?: number | null;
-  haveBody?: boolean;
+  id: string;
+  detailed?: boolean;
+  title?: string;
+  message?: string;
+  closeButton?: boolean;
   severity?: SeverityType;
   varient?: 'outline' | 'basic';
-} & WithOpenState &
-  Pick<BorderType, 'borderRadius'>;
+  onClose: (e: string) => void;
+  container?: ContainerProps;
+  origin?: DirectionType;
+} & Pick<BorderType, 'borderRadius'>;
+
+export type AlertFunctionProps = {
+  addAlert: (e: Omit<Alerts, 'id'>) => void | null;
+};
+export type AlertPortalProps = {
+  container?: ContainerProps;
+  autoClose?: boolean;
+  timeout?: number;
+  alertProps?: AlertProps;
+  origin?: DirectionType;
+};
+
+export type UseAlertsProps = {
+  ref?: ForwardedRef<AlertFunctionProps>;
+} & Pick<AlertPortalProps, 'timeout' | 'autoClose'>;

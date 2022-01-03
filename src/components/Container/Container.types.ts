@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import { ForwardedRef, HTMLAttributes } from 'react';
 import {
   BackgroundType,
   BorderType,
@@ -10,18 +10,10 @@ import {
   GutterAndSizeType,
   InsetType,
   OverFlowType,
+  TransformType,
   TransitionType,
 } from '../../../types';
-
-type Container = BackgroundType &
-  BorderType &
-  CursorType &
-  GutterAndSizeType &
-  InsetType &
-  OverFlowType &
-  TransitionType &
-  TransitionType &
-  HTMLAttributes<HTMLDivElement>;
+import { ElevationProp } from '../../theme/theme.types';
 
 type Flex =
   | ({ elementType?: 'item' } & FlexItemType)
@@ -32,13 +24,16 @@ type Grid =
 type ElementFlowType =
   | ({ flowType?: 'grid' } & Grid)
   | ({ flowType?: 'flex' } & Flex);
-export type ContainerProps = ElementFlowType &
+export type ContainerProps = {
+  ref?: ForwardedRef<HTMLDivElement>;
+} & ElementFlowType &
   BackgroundType &
   BorderType &
   CursorType &
   GutterAndSizeType &
   InsetType &
   OverFlowType &
+  TransformType &
   TransitionType &
-  TransitionType &
+  ElevationProp &
   HTMLAttributes<HTMLDivElement>;

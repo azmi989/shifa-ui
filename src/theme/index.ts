@@ -270,10 +270,15 @@ export const defaultTheme = {
     },
     body1: {
       letterSpacing: '0.5px',
-      size: '1rem',
+      size: '1.2rem',
       weight: 'normal',
     },
     body2: {
+      letterSpacing: '0.5px',
+      size: '1rem',
+      weight: 'normal',
+    },
+    body3: {
       letterSpacing: '0.25px',
       size: '0.875rem',
       weight: 'normal',

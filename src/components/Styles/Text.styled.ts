@@ -2,7 +2,6 @@ import { css } from 'styled-components';
 import { getColor } from '../../theme/utils/getColors';
 import { getTextProps } from '../../theme/utils';
 import { TextType } from '../../../types';
-import { defaultTheme } from '../../theme';
 
 export const StyledText = css<TextType>`
   text-align: ${({ textAlign }) => textAlign};

@@ -69,6 +69,7 @@
   },
   "dependencies": {
     "@types/styled-components": "^5.1.19",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "usehooks-ts": "^2.1.1"
   }
 }

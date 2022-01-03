@@ -1,8 +1,10 @@
 import { CSSProperties } from 'react';
+import { Variations } from '.';
 import {
   BorderRadiusType,
   ColorsType,
   BorderWidthType,
+  OpacityType,
 } from '../src/theme/theme.types';
 
 export type BorderType = {
@@ -38,6 +40,8 @@ export type BorderType = {
   borderRightWidth?: BorderWidthType;
   borderTopWidth?: BorderWidthType;
   borderWidth?: BorderWidthType;
+  borderOpacity?: OpacityType;
+  borderColorVarient?: Variations;
 } & Pick<
   CSSProperties,
   | 'borderBlock'

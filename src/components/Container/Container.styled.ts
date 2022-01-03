@@ -15,6 +15,7 @@ import {
   StyledText,
   StyledTransform,
   StyledTransition,
+  StyledElevation,
 } from '../Styles';
 
 export const StyledContainer = styled.div<ContainerProps>`
@@ -46,4 +47,5 @@ export const StyledContainer = styled.div<ContainerProps>`
   ${StyledText};
   ${StyledTransform};
   ${StyledTransition};
+  ${StyledElevation}
 `;

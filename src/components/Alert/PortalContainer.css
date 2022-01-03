@@ -1,0 +1,98 @@
+.portal-top-right {
+  top: 1rem;
+  right: 1rem;
+}
+.portal-top-left {
+  top: 1rem;
+  left: 1rem;
+}
+.portal-bottom-left {
+  bottom: 1rem;
+  left: 1rem;
+}
+.portal-bottom-right {
+  bottom: 1rem;
+  right: 1rem;
+}
+.portal-bottom {
+  bottom: 1rem;
+  right: 50%;
+  transform: translateX(50%);
+}
+.portal-top {
+  top: 1rem;
+  right: 50%;
+  transform: translateX(50%);
+}
+.top {
+  transform-origin: center top;
+}
+.bottom {
+  transform-origin: center bottom;
+}
+,
+.left,
+.bottom-left,
+.top-left {
+  transform-origin: left center;
+  animation-name: left;
+}
+.right,
+.bottom-right,
+.top-right {
+  transform-origin: right center;
+  animation-name: right;
+}
+
+.top-right,
+.top-left,
+.bottom-right,
+.bottom-left,
+.top,
+.bottom,
+.left,
+.right {
+  animation-duration: 200ms;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.top {
+  animation-name: top;
+}
+.bottom {
+  animation-name: bottom;
+}
+
+@keyframes right {
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes left {
+  from {
+    transform: translateX(-200%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes top {
+  from {
+    transform: translateY(-200%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes bottom {
+  from {
+    transform: translateY(200%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
