@@ -1,57 +1,59 @@
 import React, { forwardRef } from 'react';
 import ReactDOM from 'react-dom';
 import AlertBase from './AlertBase';
-import { Container } from '..';
 import { AlertFunctionProps, AlertPortalProps } from './Alert.types';
 import { useAlerts } from '../../hooks';
-import './PortalContainer.css';
+import { StyledPortal } from './AlertPortal.styled';
 
 const AlertPortal = forwardRef<AlertFunctionProps, AlertPortalProps>(
   (
     {
       container,
-      autoClose = false,
+      autoClose = true,
       alertProps,
       timeout = 5000,
-      origin = 'left',
+      origin = 'bottom-right',
+      maxAlerts = 5,
     },
     ref
   ) => {
     const { alerts, loaded, portal, removeAlert } = useAlerts({
       autoClose,
       timeout,
+      maxAlerts,
       ref,
     });
     return loaded && portal ? (
       ReactDOM.createPortal(
-        <Container
-          className={`portal-${origin}`}
+        <StyledPortal
           flowType="flex"
           elementType="container"
           flexDirection={
-            origin.slice(0, 5) === 'bottom' ? 'column-reverse' : 'column'
+            origin.slice(0, 6) === 'bottom' ? 'column-reverse' : 'column'
           }
           rowGap="0.5rem"
           width="fit-content"
           position="fixed"
-          zIndex={10000}
+          zIndex="max"
+          origin={origin}
           {...container}
         >
           {alerts.map(item => (
             <AlertBase
+              key={item.id}
               onClose={removeAlert}
               detailed={item.detailed || true}
               closeButton={!autoClose}
               id={item.id}
-              key={item.id}
               severity={item.severity}
               title={item.title}
               message={item.message}
               origin={origin}
               {...alertProps}
+              container={{ ...alertProps?.container, className: 'alertBase' }}
             />
           ))}
-        </Container>,
+        </StyledPortal>,
         portal
       )
     ) : (

@@ -31,8 +31,9 @@ export type AlertPortalProps = {
   timeout?: number;
   alertProps?: AlertProps;
   origin?: DirectionType;
+  maxAlerts?: number;
 };
 
 export type UseAlertsProps = {
   ref?: ForwardedRef<AlertFunctionProps>;
-} & Pick<AlertPortalProps, 'timeout' | 'autoClose'>;
+} & Required<Pick<AlertPortalProps, 'timeout' | 'autoClose' | 'maxAlerts'>>;

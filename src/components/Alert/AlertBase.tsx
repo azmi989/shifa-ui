@@ -3,7 +3,6 @@ import { Container, Divider, IconButton, Typography } from '..';
 import Close from '../icons/Close';
 import { defaultAlertProps } from './Alert.defaults';
 import { AlertProps } from './Alert.types';
-import './PortalContainer.css';
 
 const AlertBase: FC<AlertProps> = ({
   children,

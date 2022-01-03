@@ -3,7 +3,12 @@ import { useAlertPortal } from '../hooks';
 import { Alerts, UseAlertsProps } from '../components/Alert/Alert.types';
 import { generateUID } from '../utils';
 
-export const useAlerts = ({ autoClose, ref, timeout }: UseAlertsProps) => {
+export const useAlerts = ({
+  autoClose,
+  ref,
+  timeout,
+  maxAlerts,
+}: UseAlertsProps) => {
   const { loaded, portalID } = useAlertPortal();
   const portal = document.getElementById(portalID);
   const [alerts, setAlerts] = useState<Alerts[]>([]);
@@ -14,6 +19,7 @@ export const useAlerts = ({ autoClose, ref, timeout }: UseAlertsProps) => {
 
   useImperativeHandle(ref, () => ({
     addAlert: (item: Omit<Alerts, 'id'>) => {
+      alerts.length === maxAlerts ? removeAlert(alerts[0].id) : undefined;
       setAlerts(prev => [...prev, { ...item, id: generateUID() }]);
     },
   }));

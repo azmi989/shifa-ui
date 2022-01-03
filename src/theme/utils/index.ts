@@ -1,13 +1,4 @@
-export {
-  CarouselInAnimation,
-  CarouselOutAnimation,
-  CircleProgressSVGAnimation,
-  LineProgressAnimation,
-  SwitchOffAnimation,
-  SwitchOnAnimation,
-  TabsEnterAnimation,
-  TabsExitAnimation,
-} from './animations.styled';
+export * from './animations.styled';
 export { getBorderRadius } from './getBorderRadius';
 export { getBorderWidth } from './getBorderWidth';
 export { getColor } from './getColors';

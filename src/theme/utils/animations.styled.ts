@@ -70,3 +70,35 @@ export const SwitchOffAnimation = keyframes`
   transform: translateX(0%) scale(0.8)
 }
 `;
+export const AlertToRightAnimation = keyframes`
+from {
+  transform: translateX(200%)
+}
+to {
+  transform: translateX(0%)
+}
+`;
+export const AlertToLeftAnimation = keyframes`
+from {
+  transform: translateX(-200%)
+}
+to {
+  transform: translateX(0%)
+}
+`;
+export const AlertToTopAnimation = keyframes`
+from {
+  transform: translateY(200%)
+}
+to {
+  transform: translateY(0%)
+}
+`;
+export const AlertToBottomAnimation = keyframes`
+from {
+  transform: translateY(-200%)
+}
+to {
+  transform: translateY(0%)
+}
+`;

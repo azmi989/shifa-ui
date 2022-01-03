@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { generateUID } from '../utils';
-import '../components/Alert/PortalContainer.css';
+import { AlertFunctionProps } from '../components/Alert/Alert.types';
 
 export const useAlertPortal = () => {
   const [loaded, setLoaded] = useState(false);
@@ -20,3 +20,4 @@ export const useAlertPortal = () => {
     portalID,
   };
 };
+export const useAlertPortalRef = () => useRef<AlertFunctionProps>(null);
