@@ -7,15 +7,17 @@ const Close: FunctionComponent<SVGAttributes<SVGElement>> = ({
   className,
   ...props
 }) => {
+  const classes = ['icon', className].join('');
   return (
     <svg
-      className={`icon${className ? ' ' : ''}${className ? className : ''}`}
+      className={classes}
       height={height}
       width={width}
       viewBox={viewBox}
       {...props}
     >
-      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path d="M19 13H5v-2h14v2z" />
     </svg>
   );
 };

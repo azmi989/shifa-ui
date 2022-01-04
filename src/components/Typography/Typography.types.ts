@@ -16,7 +16,6 @@ export type TypographyComponentType =
   | 'p';
 type TypographyOwnProps<E extends ElementType> = {
   as?: E;
-  ref?: ForwardedRef<HTMLElement>;
 } & TextType &
   FlexContainerType;
 type TypographyNewProps<E extends ElementType> = TypographyOwnProps<E> &

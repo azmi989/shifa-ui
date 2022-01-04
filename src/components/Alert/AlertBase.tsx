@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Container, Divider, IconButton, Typography } from '..';
-import Close from '../icons/Close';
+import Close from '../../icons/Close';
 import { defaultAlertProps } from './Alert.defaults';
 import { AlertProps } from './Alert.types';
 

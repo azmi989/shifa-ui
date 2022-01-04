@@ -3,6 +3,7 @@ export { Appbar } from './Appbar';
 export { default as Button } from './Button';
 export { Container } from './Container';
 export { default as Divider } from './Divider';
+export * from './Forms';
 export { default as GlobalStyle } from './GlobalStyle';
 export { default as IconButton } from './IconButton';
 export * from './Modal';
