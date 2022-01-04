@@ -16,12 +16,12 @@ export const useAlerts = ({
   const removeAlert = (id: string) => {
     setAlerts(prev => prev.filter(item => item.id !== id));
   };
-
+  const addAlert = (item: Omit<Alerts, 'id'>) => {
+    alerts.length === maxAlerts ? removeAlert(alerts[0].id) : undefined;
+    setAlerts(prev => [...prev, { ...item, id: generateUID() }]);
+  };
   useImperativeHandle(ref, () => ({
-    addAlert: (item: Omit<Alerts, 'id'>) => {
-      alerts.length === maxAlerts ? removeAlert(alerts[0].id) : undefined;
-      setAlerts(prev => [...prev, { ...item, id: generateUID() }]);
-    },
+    addAlert,
   }));
   useEffect(() => {
     if (alerts.length && autoClose) {

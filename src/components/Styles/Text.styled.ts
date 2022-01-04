@@ -57,12 +57,12 @@ export const StyledText = css<TextType>`
   word-break: ${({ wordBreak }) => wordBreak};
   word-spacing: ${({ wordSpacing }) => wordSpacing};
   word-wrap: ${({ wordWrap }) => wordWrap};
-  letter-spacing: ${({ textProps }) =>
-    textProps ? getTextProps(textProps).letterSpacing : undefined};
   font-weight: ${({ textProps, fontWeight }) =>
     textProps ? getTextProps(textProps).weight : fontWeight};
   color: ${({ textColor }) =>
     textColor ? getColor(textColor) : getColor('mainTextColor')};
   font-size: ${({ textProps, fontSize }) =>
     textProps ? getTextProps(textProps).size : fontSize};
+  letter-spacing: ${({ textProps }) =>
+    textProps ? getTextProps(textProps).letterSpacing : undefined};
 `;

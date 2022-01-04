@@ -1,14 +1,14 @@
 import styled, { css } from 'styled-components';
-import { Container } from '..';
 import {
   AlertToBottomAnimation,
   AlertToLeftAnimation,
   AlertToRightAnimation,
   AlertToTopAnimation,
 } from '../../theme/utils';
+import { StyledContainer } from '../Container/Container.styled';
 import { AlertPortalProps } from './Alert.types';
 
-export const StyledPortal = styled(Container)<AlertPortalProps>`
+export const StyledPortal = styled(StyledContainer)<AlertPortalProps>`
   & > .alertBase {
     animation-duration: 200ms;
     animation-timing-function: ease;

@@ -26,13 +26,12 @@ export type AlertFunctionProps = {
   addAlert: (e: Omit<Alerts, 'id'>) => void | null;
 };
 export type AlertPortalProps = {
-  container?: ContainerProps;
   autoClose?: boolean;
   timeout?: number;
   alertProps?: AlertProps;
   origin?: DirectionType;
   maxAlerts?: number;
-};
+} & ContainerProps;
 
 export type UseAlertsProps = {
   ref?: ForwardedRef<AlertFunctionProps>;

@@ -1,23 +1,13 @@
-import React, { useState } from 'react';
-import { Button, Alert, GlobalStyle, useAlertPortalRef } from '../../src';
+import React from 'react';
+import { TextInputField } from '../../src/components/Forms';
+import { GlobalStyle } from '../../src/components';
 
 const App = () => {
-  const [state, setstate] = useState(false);
-  const ref = useAlertPortalRef();
-  // const ref = useRef<AlertFunctionProps>(null);
   return (
-    <>
+    <div style={{ padding: '2rem' }}>
       <GlobalStyle />
-      <Button
-        onClick={() =>
-          ref.current?.addAlert({ severity: 'error', message: 'hi' })
-        }
-      >
-        hi
-      </Button>
-      <Alert ref={ref} maxAlerts={7} />
-      {/* <Alert detailed>hihi</Alert> */}
-    </>
+      <TextInputField name="test" label="test" varient="filled" isError />
+    </div>
   );
 };
 

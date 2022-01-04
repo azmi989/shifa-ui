@@ -601,6 +601,11 @@ react-refresh@^0.11.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.11.0.tgz#77198b944733f0f1f1a90e791de4541f9f074046"
   integrity sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==
 
+react-taqweem@^0.1.83:
+  version "0.1.83"
+  resolved "https://registry.yarnpkg.com/react-taqweem/-/react-taqweem-0.1.83.tgz#146a44b905e0c981ea30cb1a57009e5718da69bc"
+  integrity sha512-cTDSsr0sovXVb123Y/rA1J9NI8dWCLTWsuuPRkg5KjA2LgK2gu+CchKERZPnUk9g3lL2BmziKZk2bHBRlhFLbg==
+
 react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"

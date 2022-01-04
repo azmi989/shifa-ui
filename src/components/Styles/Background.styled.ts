@@ -20,4 +20,5 @@ export const StyledBackground = css<BackgroundType>`
   background-position-y: ${({ backgroundPositionY }) => backgroundPositionY};
   background-repeat: ${({ backgroundRepeat }) => backgroundRepeat};
   background-size: ${({ backgroundSize }) => backgroundSize};
+  filter: ${({ backgroundBlur }) => backgroundBlur};
 `;

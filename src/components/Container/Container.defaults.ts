@@ -3,13 +3,14 @@ import { ContainerProps } from './Container.types';
 export const containerDefaults = ({
   flowType = 'flex',
   elementType = 'container',
-  width = '100%',
+  fillContainer = true,
   ...props
 }: ContainerProps): ContainerProps => {
   return {
     flowType,
     elementType,
-    width,
+    height: fillContainer ? '100%' : props.height,
+    width: fillContainer ? '100%' : props.width,
     ...props,
   };
 };

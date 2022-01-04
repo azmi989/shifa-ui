@@ -8,12 +8,12 @@ import { StyledPortal } from './AlertPortal.styled';
 const AlertPortal = forwardRef<AlertFunctionProps, AlertPortalProps>(
   (
     {
-      container,
       autoClose = true,
       alertProps,
       timeout = 5000,
       origin = 'bottom-right',
       maxAlerts = 5,
+      ...container
     },
     ref
   ) => {

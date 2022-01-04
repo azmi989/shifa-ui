@@ -26,6 +26,7 @@ type ElementFlowType =
   | ({ flowType?: 'flex' } & Flex);
 export type ContainerProps = {
   ref?: ForwardedRef<HTMLDivElement>;
+  fillContainer?: boolean;
 } & ElementFlowType &
   BackgroundType &
   BorderType &

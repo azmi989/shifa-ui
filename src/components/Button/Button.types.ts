@@ -6,6 +6,7 @@ import {
   CursorType,
   GutterAndSizeType,
   InsetType,
+  TextType,
   TransformType,
   TransitionType,
 } from '../../../types';
@@ -25,4 +26,5 @@ export type ButtonProps = {
   InsetType &
   TransformType &
   TransitionType &
+  TextType &
   ButtonHTMLAttributes<HTMLButtonElement>;

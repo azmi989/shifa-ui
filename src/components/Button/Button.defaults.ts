@@ -8,6 +8,7 @@ export const buttonDefaults = ({
   transition = 'background 200ms, color 200ms ease',
   type = 'button',
   disableRipple = false,
+  textTransform = 'uppercase',
   ...props
 }: ButtonProps): ButtonProps => {
   return {
@@ -20,6 +21,7 @@ export const buttonDefaults = ({
     height,
     disableRipple,
     type,
+    textTransform,
     position: !disableRipple ? 'relative' : undefined,
     padding:
       size === 'xs'

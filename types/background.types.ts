@@ -6,6 +6,7 @@ export type BackgroundType = {
   backgroundColorVarient?: Variations;
   backgroundColor?: ColorsType;
   backgroundColorOpacity?: OpacityType;
+  backgroundBlur?: 0 | string;
 } & Pick<
   CSSProperties,
   | 'background'

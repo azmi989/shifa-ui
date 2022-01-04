@@ -13,13 +13,13 @@ import {
 import { ButtonProps } from './Button.types';
 
 export const StyledButton = styled.button<ButtonProps>`
-  ${() => StyledButtonBackground};
-  ${() => StyledButtonBorder};
-  ${() => StyledCursor};
-  ${() => StyledElevation};
-  ${() => StyledGutterAndSize};
-  ${() => StyledButtonText};
-  ${() => StyledInset};
-  ${() => StyledTransform};
-  ${() => StyledTransition};
+  ${StyledButtonBackground};
+  ${StyledButtonBorder};
+  ${StyledCursor};
+  ${StyledElevation};
+  ${StyledGutterAndSize};
+  ${StyledButtonText};
+  ${StyledInset};
+  ${StyledTransform};
+  ${StyledTransition};
 `;

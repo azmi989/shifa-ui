@@ -93,6 +93,9 @@ button {
 	input[type="file"] {
 		display:none;
 	}
+	input {
+		all:unset;
+	}
 
 `;
 
