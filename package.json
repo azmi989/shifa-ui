@@ -45,11 +45,11 @@
   "size-limit": [
     {
       "path": "dist/shifa-ui.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "100 KB"
     },
     {
       "path": "dist/shifa-ui.esm.js",
-      "limit": "10 KB"
+      "limit": "100 KB"
     }
   ],
   "devDependencies": {
@@ -70,6 +70,7 @@
   "dependencies": {
     "@types/styled-components": "^5.1.19",
     "formik": "^2.2.9",
+    "libphonenumber-js": "^1.9.44",
     "react-image-crop": "^9.0.5",
     "styled-components": "^5.3.3",
     "usehooks-ts": "^2.1.1"

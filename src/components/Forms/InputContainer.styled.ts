@@ -65,6 +65,14 @@ export const StyledInputContainer = styled(Container)<Props>`
     bottom: -30%;
     transition: opacity 200ms ease;
   }
+  ${({ forceFocus }) =>
+    forceFocus
+      ? css`
+          &::after {
+            transform: scale(1, 1);
+          }
+        `
+      : undefined}
 `;
 export const StyledInput = styled.input<Props>`
   height: 2rem;
@@ -93,12 +101,22 @@ export const StyledFieldset = styled.fieldset<Props>`
       isError ? getColor('error') : getColor('mainTextColor')};
   border-radius: ${getBorderRadius('xs')};
   height: 3.5rem;
+  input:focus + .legend,
+  input:not(:placeholder-shown) + .legend,
   &:focus-within > .legend {
     width: fit-content;
   }
+
+  input:focus ~ .float-legend,
+  input:not(:placeholder-shown) ~ .float-legend,
   &:focus-within > .float-legend {
     transform: translateY(-130%);
+    color: ${({ isError }) =>
+      isError ? getColor('error') : getColor('primary')};
   }
+
+  input:focus,
+  input:not(:placeholder-shown),
   &:focus-within {
     border-color: ${({ isError }) =>
       isError ? getColor('error') : getColor('primary')};
@@ -123,7 +141,7 @@ export const StyledLegend = styled.legend<Props>`
         ? css`
             width: fit-content;
             transform: translateY(-10%);
-            color: ${isError ? getColor('error') : getColor('mainTextColor')};
+            color: ${isError ? getColor('error') : getColor('primary')};
           `
         : css`
             color: transparent;

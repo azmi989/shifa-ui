@@ -6,6 +6,7 @@ import {
 } from 'react';
 import { FlexContainerType, TextType } from '../../../types';
 
+// export type TypographyComponentType = HTMLHeadingElement | HTMLParagraphElement;
 export type TypographyComponentType =
   | 'h1'
   | 'h2'
@@ -14,12 +15,15 @@ export type TypographyComponentType =
   | 'h5'
   | 'h6'
   | 'p';
+
 type TypographyOwnProps<E extends ElementType> = {
   as?: E;
 } & TextType &
   FlexContainerType;
+
 type TypographyNewProps<E extends ElementType> = TypographyOwnProps<E> &
-  Omit<ComponentProps<E>, keyof TypographyOwnProps<E>>;
+  Omit<Omit<ComponentProps<E>, 'ref'>, keyof TypographyOwnProps<E>>;
+
 export type TypographyProps<
   E extends TypographyComponentType
 > = TypographyNewProps<E>;

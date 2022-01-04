@@ -41,7 +41,9 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
             backgroundColor={isError ? 'error' : 'primary'}
             elevation="none"
             icon={<Add />}
-            onClick={() => setValue(prev => prev + 1)}
+            onClick={() =>
+              setValue(prev => (prev === props.max ? prev : prev + 1))
+            }
           />
           <IconButton
             position="absolute"
@@ -52,7 +54,9 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
             backgroundColor={isError ? 'error' : 'primary'}
             elevation="none"
             icon={<Remove />}
-            onClick={() => setValue(prev => prev - 1)}
+            onClick={() =>
+              setValue(prev => (prev === props.min ? prev : prev - 1))
+            }
           />
           <StyledLegend disableFloat className="legend" isError={isError}>
             {label}
@@ -87,7 +91,9 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
             backgroundColor={isError ? 'error' : 'primary'}
             elevation="none"
             icon={<Add />}
-            onClick={() => setValue(prev => prev + 1)}
+            onClick={() =>
+              setValue(prev => (prev === props.max ? prev : prev + 1))
+            }
           />
           <IconButton
             position="absolute"
@@ -98,7 +104,9 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
             backgroundColor={isError ? 'error' : 'primary'}
             elevation="none"
             icon={<Remove />}
-            onClick={() => setValue(prev => prev - 1)}
+            onClick={() =>
+              setValue(prev => (prev === props.min ? prev : prev - 1))
+            }
           />
           <StyledInput
             type="number"

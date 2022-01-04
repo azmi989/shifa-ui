@@ -10,5 +10,4 @@ const TypographyBase = ({
   const defaultProps = defaultTypographyProps({ as, ...props });
   return <Component {...defaultProps}></Component>;
 };
-
 export default TypographyBase;
