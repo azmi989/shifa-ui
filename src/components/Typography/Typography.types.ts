@@ -18,15 +18,14 @@ export type TypographyComponentType =
 
 type TypographyOwnProps<E extends ElementType> = {
   as?: E;
-} & TextType &
-  FlexContainerType;
+} & FlexContainerType;
 
 type TypographyNewProps<E extends ElementType> = TypographyOwnProps<E> &
   Omit<Omit<ComponentProps<E>, 'ref'>, keyof TypographyOwnProps<E>>;
 
 export type TypographyProps<
   E extends TypographyComponentType
-> = TypographyNewProps<E>;
+> = TypographyNewProps<E> & TextType;
 
 export type LabelProps = TextType &
   FlexContainerType &

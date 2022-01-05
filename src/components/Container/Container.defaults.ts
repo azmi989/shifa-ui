@@ -4,6 +4,7 @@ export const containerDefaults = ({
   flowType = 'flex',
   elementType = 'container',
   fillContainer = true,
+  cursor = 'default',
   ...props
 }: ContainerProps): ContainerProps => {
   return {

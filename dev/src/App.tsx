@@ -1,6 +1,7 @@
 import React from 'react';
 import { PhoneInputField, SelectField } from '../../src/components';
 import { GlobalStyle } from '../../src/components';
+import { generateUID } from '../../src/utils';
 
 const App = () => {
   return (
@@ -26,14 +27,14 @@ const App = () => {
       <SelectField
         name="test4"
         label="test4"
-        isError
-        errorMessage="an error"
         defaultValue="Select a value"
+        onChange={e => console.log(e)}
         options={[
-          { id: 1, value: 'hi' },
-          { id: 2, value: 'hihi' },
-          { id: 3, value: 'hihi' },
-          { id: 4, value: 'hihi' },
+          { id: `${generateUID()}-1`, value: 'hi' },
+          { id: `${generateUID()}-2`, value: 'hihi' },
+          { id: `${generateUID()}-3`, value: 'hihi' },
+          { id: `${generateUID()}-4`, value: 'hihi' },
+          { id: `${generateUID()}-5`, value: 'hihi' },
         ]}
       />
     </div>

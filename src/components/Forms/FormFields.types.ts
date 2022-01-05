@@ -39,9 +39,25 @@ export type NumberInputFieldProps = { value?: number } & Omit<
 export type PhoneInputFieldProps = Omit<CommonFieldProps, 'type'> &
   Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
 
+type OnChange = {
+  multiple?: boolean;
+  onChange: (value: string | string[]) => void;
+};
+
 export type SelectInputFieldProps = {
   options?: SelectOptionType[];
   defaultValue: string;
-  multiple?: boolean;
-} & Omit<CommonFieldProps, 'type' | 'forceFocus'> &
-  Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'defaultValue'>;
+} & OnChange &
+  Omit<CommonFieldProps, 'type' | 'forceFocus'> &
+  Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'type' | 'defaultValue' | 'onChange'
+  >;
+
+export type SingleSelectInputFieldProps = {
+  onChange: (value: string | string[]) => void;
+} & Omit<SelectInputFieldProps, keyof OnChange>;
+
+export type MultipleSelectInputFieldProps = {
+  onChange: (value: string[]) => void;
+} & Omit<SelectInputFieldProps, keyof OnChange>;

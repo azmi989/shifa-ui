@@ -1,16 +1,16 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
 import {
-  SelectInputFieldProps,
+  MultipleSelectInputFieldProps,
   SelectOptionType,
+  SingleSelectInputFieldProps,
 } from '../components/Forms/FormFields.types';
 import { generateUID } from '../utils';
 
-export const useSelectField = ({
-  name,
-  value,
+export const useSingleSelectField = ({
   defaultValue,
-}: Pick<SelectInputFieldProps, 'value' | 'name' | 'defaultValue'>) => {
+  onChange,
+}: Pick<SingleSelectInputFieldProps, 'defaultValue' | 'onChange'>) => {
   const [open, setOpen] = useState(false);
   const [focus, setFocus] = useState(false);
   const [fieldValue, setFieldValue] = useState<SelectOptionType>({
@@ -22,7 +22,35 @@ export const useSelectField = ({
     setFocus(false);
     setOpen(false);
   });
-
+  useEffect(() => {
+    onChange(fieldValue.value);
+  }, [fieldValue]);
+  return {
+    open,
+    focus,
+    containerRef,
+    setFocus,
+    setOpen,
+    fieldValue,
+    setFieldValue,
+  };
+};
+export const useMultipleSelectField = ({
+  onChange,
+}: Pick<MultipleSelectInputFieldProps, 'onChange'>) => {
+  const [open, setOpen] = useState(false);
+  const [focus, setFocus] = useState(false);
+  const [fieldValue, setFieldValue] = useState<SelectOptionType[]>([]);
+  const containerRef = useRef(null);
+  useOnClickOutside(containerRef, () => {
+    setFocus(false);
+    setOpen(false);
+  });
+  useEffect(() => {
+    let newValues: string[] = [];
+    fieldValue.map(val => newValues.push(val.value));
+    onChange(newValues);
+  }, [fieldValue]);
   return {
     open,
     focus,
