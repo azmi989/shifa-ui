@@ -48,11 +48,7 @@ export type SelectInputFieldProps = {
   options?: SelectOptionType[];
   defaultValue: string;
 } & OnChange &
-  Omit<CommonFieldProps, 'type' | 'forceFocus'> &
-  Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'type' | 'defaultValue' | 'onChange'
-  >;
+  Omit<CommonFieldProps, 'type' | 'forceFocus' | 'disableFloat' | 'color'>;
 
 export type SingleSelectInputFieldProps = {
   onChange: (value: string | string[]) => void;

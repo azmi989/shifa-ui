@@ -29,6 +29,9 @@ const App = () => {
         label="test4"
         defaultValue="Select a value"
         onChange={e => console.log(e)}
+        varient="outlined"
+        errorMessage="eigfoaskndf"
+        isError
         options={[
           { id: `${generateUID()}-1`, value: 'hi' },
           { id: `${generateUID()}-2`, value: 'hihi' },

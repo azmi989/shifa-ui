@@ -18,6 +18,11 @@ export const useSingleSelectField = ({
     value: defaultValue,
   });
   const containerRef = useRef(null);
+  const fieldsetRef = useRef(null);
+  useOnClickOutside(fieldsetRef, () => {
+    setFocus(false);
+    setOpen(false);
+  });
   useOnClickOutside(containerRef, () => {
     setFocus(false);
     setOpen(false);
@@ -33,6 +38,7 @@ export const useSingleSelectField = ({
     setOpen,
     fieldValue,
     setFieldValue,
+    fieldsetRef,
   };
 };
 export const useMultipleSelectField = ({
@@ -42,6 +48,11 @@ export const useMultipleSelectField = ({
   const [focus, setFocus] = useState(false);
   const [fieldValue, setFieldValue] = useState<SelectOptionType[]>([]);
   const containerRef = useRef(null);
+  const fieldsetRef = useRef(null);
+  useOnClickOutside(fieldsetRef, () => {
+    setFocus(false);
+    setOpen(false);
+  });
   useOnClickOutside(containerRef, () => {
     setFocus(false);
     setOpen(false);
@@ -59,5 +70,6 @@ export const useMultipleSelectField = ({
     setOpen,
     fieldValue,
     setFieldValue,
+    fieldsetRef,
   };
 };
