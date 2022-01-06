@@ -1,8 +1,6 @@
 import React, { FC } from 'react';
 import { Label, Typography } from '../..';
 import { useSingleSelectField } from '../../../hooks';
-import DropDown from '../../../icons/DropDown';
-import { getColor } from '../../../theme/utils';
 import { SingleSelectInputFieldProps } from '../FormFields.types';
 import {
   StyledFieldset,
@@ -49,16 +47,6 @@ export const SingleSelectField: FC<Omit<
           style={{ cursor: 'pointer' }}
         >
           <StyledLegend isError={isError}>{label}</StyledLegend>
-          <DropDown
-            style={{
-              transition: 'transform 100ms ease',
-              transform: open ? 'rotate(180deg) scale(2)' : 'scale(2)',
-              position: 'absolute',
-              right: '1rem',
-              fill: getColor(isError ? 'error' : focus ? 'primary' : 'primary'),
-              top: '25%',
-            }}
-          />
           <SingleSelectFieldChildren
             options={options}
             fieldValue={fieldValue}
@@ -86,16 +74,6 @@ export const SingleSelectField: FC<Omit<
           errorMessage={errorMessage}
           ref={containerRef}
         >
-          <DropDown
-            style={{
-              transition: 'transform 100ms ease',
-              transform: open ? 'rotate(180deg) scale(2)' : 'scale(2)',
-              position: 'absolute',
-              right: '1rem',
-              fill: getColor(isError ? 'error' : focus ? 'primary' : 'primary'),
-              top: '25%',
-            }}
-          />
           <Label
             style={{ top: 0, transform: 'scale(0.8)' }}
             className="float-label"
@@ -121,14 +99,3 @@ export const SingleSelectField: FC<Omit<
     </>
   );
 };
-
-{
-  /* <SingleSelectFieldChildren
-options={options}
-fieldValue={fieldValue}
-setFieldValue={setFieldValue}
-open={open}
-focus={focus}
-isError={isError}
-/> */
-}

@@ -5,6 +5,7 @@ export type SelectOptionType = {
   id: string | number;
   value: string;
   element?: ReactNode;
+  extraArgs?: Record<string, string>;
 };
 
 export type CommonFieldProps = {
@@ -36,8 +37,10 @@ export type NumberInputFieldProps = { value?: number } & Omit<
 > &
   Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'value'>;
 
-export type PhoneInputFieldProps = Omit<CommonFieldProps, 'type'> &
-  Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
+export type PhoneInputFieldProps = {
+  onChange: (value: string) => void;
+  validate?: boolean;
+} & Omit<CommonFieldProps, 'type'>;
 
 type OnChange = {
   multiple?: boolean;

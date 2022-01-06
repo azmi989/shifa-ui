@@ -41,7 +41,6 @@ export const StyledInputContainer = styled(Container)<Props>`
           : getColor('primary')
         : undefined};
     transform: scale(0, 1);
-    height: 2px;
   }
   & > .float-label {
     position: absolute;
@@ -114,13 +113,20 @@ export const StyledFieldset = styled.fieldset<Props>`
     color: ${({ isError }) =>
       isError ? getColor('error') : getColor('primary')};
   }
-
+  .float-legend {
+    ${({ forceFocus, isError }) =>
+      forceFocus
+        ? css`
+            transform: translateY(-130%);
+            color: ${isError ? getColor('error') : getColor('primary')};
+          `
+        : undefined}
+  }
   input:focus,
   input:not(:placeholder-shown),
   &:focus-within {
     border-color: ${({ isError }) =>
       isError ? getColor('error') : getColor('primary')};
-    border-width: 2px;
   }
   & > .error-message {
     position: absolute;

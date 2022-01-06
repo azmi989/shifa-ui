@@ -49,22 +49,14 @@ export const MultipleSelectField: FC<Omit<
           style={{ cursor: 'pointer' }}
         >
           <StyledLegend isError={isError}>{label}</StyledLegend>
-          <DropDown
-            style={{
-              transition: 'transform 100ms ease',
-              transform: open ? 'rotate(180deg) scale(2)' : 'scale(2)',
-              position: 'absolute',
-              right: '1rem',
-              fill: getColor(isError ? 'error' : focus ? 'primary' : 'primary'),
-              top: '25%',
-            }}
-          />
           <MultipleSelectFieldChildren
             options={options}
             defaultValue={defaultValue}
             fieldValue={fieldValue}
             setFieldValue={setFieldValue}
             open={open}
+            focus={focus}
+            isError={isError}
             varient={varient}
           />
           <Typography
@@ -107,6 +99,8 @@ export const MultipleSelectField: FC<Omit<
             fieldValue={fieldValue}
             setFieldValue={setFieldValue}
             open={open}
+            focus={focus}
+            isError={isError}
             varient={varient}
           />
           <Typography
@@ -119,13 +113,3 @@ export const MultipleSelectField: FC<Omit<
     </>
   );
 };
-
-{
-  /* <MultipleSelectFieldChildren
-        options={options}
-        defaultValue={defaultValue}
-        fieldValue={fieldValue}
-        setFieldValue={setFieldValue}
-        open={open}
-      /> */
-}

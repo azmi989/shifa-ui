@@ -3,12 +3,17 @@ import { Container, Divider, Typography } from '../..';
 import Close from '../../../icons/Close';
 import { SelectOptionType } from '../FormFields.types';
 import { StyledOption } from './Option.styled';
+import DropDown from '../../../icons/DropDown';
+import { getColor } from '../../../theme/utils';
+
 type Props = {
   options?: SelectOptionType[];
   defaultValue: string;
   fieldValue: SelectOptionType[];
   setFieldValue: Dispatch<SetStateAction<SelectOptionType[]>>;
   open: boolean;
+  focus: boolean;
+  isError?: boolean;
   varient?: 'filled' | 'outlined' | 'standard';
 };
 
@@ -19,9 +24,21 @@ export const MultipleSelectFieldChildren = ({
   setFieldValue,
   open,
   varient,
+  isError,
+  focus,
 }: Props) => {
   return (
     <>
+      <DropDown
+        style={{
+          transition: 'transform 100ms ease',
+          transform: open ? 'rotate(180deg) scale(2)' : 'scale(2)',
+          position: 'absolute',
+          right: '1rem',
+          fill: getColor(isError ? 'error' : focus ? 'primary' : 'primary'),
+          top: '25%',
+        }}
+      />
       {fieldValue.length > 0 ? (
         <Container
           position="absolute"

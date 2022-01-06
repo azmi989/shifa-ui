@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, ReactNode, SetStateAction } from 'react';
 import DropDown from '../../../icons/DropDown';
 import { Container, Divider, Typography } from '../..';
 import { SelectOptionType } from '../FormFields.types';
@@ -13,6 +13,10 @@ type Props = {
   focus: boolean;
   isError?: boolean;
   varient?: 'filled' | 'outlined' | 'standard';
+  optionFontSize?: string | number;
+  renderValue?: ReactNode;
+  optionsContainerWidth?: string | number;
+  maxHeight?: string | number;
 };
 
 export const SingleSelectFieldChildren = ({
@@ -23,6 +27,10 @@ export const SingleSelectFieldChildren = ({
   focus,
   isError,
   varient,
+  optionFontSize = '1rem',
+  renderValue,
+  optionsContainerWidth,
+  maxHeight = '10rem',
 }: Props) => {
   return (
     <>
@@ -33,7 +41,7 @@ export const SingleSelectFieldChildren = ({
           position: 'absolute',
           right: '1rem',
           fill: getColor(isError ? 'error' : focus ? 'primary' : 'primary'),
-          top: '25%',
+          top: '35%',
         }}
       />
       <Typography
@@ -43,7 +51,7 @@ export const SingleSelectFieldChildren = ({
           left: '1rem',
         }}
       >
-        {fieldValue.value}
+        {renderValue ? renderValue : fieldValue.value}
       </Typography>
       <Container
         flowType="flex"
@@ -61,8 +69,9 @@ export const SingleSelectFieldChildren = ({
         borderRadius="s"
         cursor="default"
         elevation={1}
-        maxHeight="10rem"
+        maxHeight={maxHeight}
         overflowY="scroll"
+        width={optionsContainerWidth}
         zIndex={10}
         style={{ scrollBehavior: 'smooth' }}
       >
@@ -78,11 +87,12 @@ export const SingleSelectFieldChildren = ({
               />
             )}
             <StyledOption
-              cursor="pointer"
               onClick={() => setFieldValue(option)}
-              padding="0.5rem 0"
               key={option.id}
               selected={fieldValue.id === option.id}
+              style={{
+                fontSize: optionFontSize,
+              }}
             >
               {option.element ? option.element : option.value}
             </StyledOption>
