@@ -1,5 +1,11 @@
 export const countriesList = [
   {
+    cca2: 'none',
+    flag: '',
+    idd: 'Select one',
+    name: 'Select a country',
+  },
+  {
     cca2: 'ng',
     flag: 'https://flagcdn.com/ng.svg',
     idd: '234',

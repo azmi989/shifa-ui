@@ -7,7 +7,7 @@ const Close: FunctionComponent<SVGAttributes<SVGElement>> = ({
   className,
   ...props
 }) => {
-  const classes = ['icon', className].join('');
+  const classes = ['icon', className].join(' ');
   return (
     <svg
       className={classes}

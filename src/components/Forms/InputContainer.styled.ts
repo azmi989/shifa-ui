@@ -4,13 +4,17 @@ import { getBorderRadius, getColor } from '../../theme/utils';
 import { CommonFieldProps } from './FormFields.types';
 
 type Props = Omit<CommonFieldProps, 'name' | 'label'>;
+type FieldsetProps = { height?: string | number } & Omit<
+  CommonFieldProps,
+  'name' | 'label'
+>;
 
 export const StyledInputContainer = styled(Container)<Props>`
   cursor: pointer;
   position: relative;
   padding: 0.25rem 0.5rem;
   margin-bottom: 1.5rem;
-  height: 3rem;
+  height: ${({ height }) => height || '3rem'};
   border-top-right-radius: ${({ varient }) =>
     varient === 'filled' ? getBorderRadius('xs') : undefined};
   border-top-left-radius: ${({ varient }) =>
@@ -87,19 +91,19 @@ export const StyledInput = styled.input<Props>`
     appearance: textfield;
   }
 `;
-export const StyledFieldset = styled.fieldset<Props>`
+export const StyledFieldset = styled.fieldset<FieldsetProps>`
   margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 0.25rem 0.5rem;
   position: relative;
-  padding: 0 1rem;
+  padding: 0 1rem 0.5rem 1rem;
   border: 1px solid
     ${({ isError }) =>
       isError ? getColor('error') : getColor('mainTextColor')};
   border-radius: ${getBorderRadius('xs')};
-  height: 3.5rem;
+  height: ${({ height }) => height || '3.5rem'};
   input:focus + .legend,
   input:not(:placeholder-shown) + .legend,
   &:focus-within > .legend {
@@ -109,7 +113,7 @@ export const StyledFieldset = styled.fieldset<Props>`
   input:focus ~ .float-legend,
   input:not(:placeholder-shown) ~ .float-legend,
   &:focus-within > .float-legend {
-    transform: translateY(-130%);
+    transform: translateY(-150%);
     color: ${({ isError }) =>
       isError ? getColor('error') : getColor('primary')};
   }
@@ -162,7 +166,7 @@ export const StyledLegend = styled.legend<Props>`
           `
         : css`
             position: absolute;
-            top: 10%;
+            top: 20%;
           `}
   }
   transition: transform 250ms, color 250ms ease;

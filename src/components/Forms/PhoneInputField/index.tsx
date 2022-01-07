@@ -1,174 +1,101 @@
-import React, { FC } from 'react';
-import { Container, Label, Typography } from '../..';
-import { usePhoneInput } from '../../../hooks';
+import React, { useState } from 'react';
+import { Label } from '../..';
 import { PhoneInputFieldProps } from '../FormFields.types';
 import {
   StyledFieldset,
-  StyledInput,
   StyledInputContainer,
   StyledLegend,
 } from '../InputContainer.styled';
-import { SingleSelectFieldChildren } from '../SelectField/SingleSelectFieldChildren';
-import Earth from '../../../icons/Earth';
-import { getBorderRadius } from '../../../theme/utils';
+import { FieldInput } from './FieldInput';
 
-export const PhoneInputField: FC<PhoneInputFieldProps> = ({
+export type CountryProps = {
+  cca2: string;
+  flag: string;
+  idd: string;
+  name: string;
+};
+
+export const PhoneInputField = ({
+  varient,
+  isError = false,
   name,
   label,
-  varient,
-  isError,
   errorMessage,
-  onChange,
-  validate = true,
   ...props
-}) => {
-  const {
-    countryMenuRef,
-    openMenu,
-    countryList,
-    countryFieldValue,
-    handelSetCountryFieldValue,
-    openCountryMenu,
-    foucusCountryMenu,
-    optionsContainerWidth,
-    checkPhoneNumber,
-    setCountryFieldValue,
-    countryInputValue,
-    setCountryInputValue,
-    isFieldError,
-    setIsFieldError,
-  } = usePhoneInput();
-
+}: PhoneInputFieldProps) => {
+  const [selectedCountry, setSelectedCountry] = useState<CountryProps>({
+    cca2: 'none',
+    flag: '',
+    idd: '',
+    name: '',
+  });
+  const [fieldError, setFieldError] = useState(false);
   return (
     <>
       {varient === 'outlined' ? (
-        <StyledFieldset varient={varient} isError={isError || isFieldError}>
-          <StyledInput
-            type="text"
-            name={name}
-            id={name}
-            placeholder={label}
-            style={{ transform: 'translate(6rem, -0.20rem)' }}
-            onChange={e => {
-              if (validate) {
-                checkPhoneNumber(`${countryFieldValue.value}${e.target.value}`)
-                  ? onChange(`${countryFieldValue.value}${e.target.value}`)
-                  : null;
-              } else {
-                onChange(`${countryFieldValue.value}${e.target.value}`);
-              }
-              setIsFieldError(
-                !checkPhoneNumber(`${countryFieldValue.value}${e.target.value}`)
-              );
-            }}
-            {...props}
-          />
-          <Container
-            position="absolute"
-            left="0rem"
-            top="50%"
-            width="8rem"
-            transform="translateY(-50%)"
-            ref={countryMenuRef}
-            style={{ cursor: 'pointer' }}
-            onClick={openMenu}
-          >
-            <SingleSelectFieldChildren
-              optionsContainerWidth={optionsContainerWidth}
-              options={countryList}
-              fieldValue={countryFieldValue}
-              setFieldValue={handelSetCountryFieldValue}
-              open={openCountryMenu}
-              focus={foucusCountryMenu}
-              isError={isError || isFieldError}
-              varient={varient}
-              maxHeight="15rem"
-              optionFontSize="0.8rem"
-              renderValue={
-                <Container>
-                  {countryFieldValue.extraArgs &&
-                  countryFieldValue.id !== 'none' ? (
-                    <img
-                      width={30}
-                      src={
-                        countryFieldValue.extraArgs
-                          ? countryFieldValue.extraArgs['flag']
-                          : undefined
-                      }
-                      alt={String(countryFieldValue.id)}
-                      style={{ transform: 'translateY(-30%)' }}
-                    />
-                  ) : (
-                    <Earth style={{ transform: 'translateY(-30%)' }} />
-                  )}
-                  <input
-                    value={countryInputValue}
-                    placeholder="--"
-                    onChange={e => setCountryInputValue(e.target.value)}
-                    onBlur={e => {
-                      countryList.filter(c => c.value === e.target.value)[0]
-                        ? setCountryFieldValue(
-                            countryList.filter(
-                              c => c.value === e.target.value
-                            )[0]
-                          )
-                        : setCountryFieldValue({
-                            id: 'none',
-                            value: '',
-                          });
-                    }}
-                    style={{
-                      margin: '0.1rem 0.5rem',
-                      transform: 'translateY(-30%)',
-                      width: '2.5rem',
-                    }}
-                  />
-                </Container>
-              }
-            />
-            <Typography
-              className="error-message"
-              children={errorMessage && errorMessage ? errorMessage : undefined}
-              style={{ opacity: isError && errorMessage ? 1 : 0 }}
-            />
-          </Container>
-          <StyledLegend disableFloat className="legend">
-            {label}
-          </StyledLegend>
-          <StyledLegend
-            disableFloat
-            className="float-legend"
+        <StyledFieldset
+          style={{ display: 'flex', flexDirection: 'row' }}
+          disableFloat
+          varient={varient}
+          isError={isError || fieldError}
+        >
+          <FieldInput
+            setSelectedCountry={setSelectedCountry}
+            selectedCountry={selectedCountry}
+            varient={varient}
             isError={isError}
-            children={label}
-          />
-          <Typography
-            className="error-message"
-            children={errorMessage && errorMessage ? errorMessage : undefined}
-            style={{ opacity: isError && errorMessage ? 1 : 0 }}
-          />
+            fieldError={fieldError}
+            setFieldError={setFieldError}
+            name={name}
+            label={label}
+            errorMessage={errorMessage}
+            {...props}
+          >
+            <StyledLegend
+              isError={isError || fieldError}
+              disableFloat
+              className="legend"
+            >
+              {label}
+            </StyledLegend>
+            <StyledLegend
+              disableFloat
+              className="float-legend"
+              isError={isError || fieldError}
+              children={label}
+            />
+          </FieldInput>
         </StyledFieldset>
       ) : (
         <StyledInputContainer
+          disableFloat
           flowType="flex"
           elementType="container"
-          flexDirection="column"
-          justifyContent="end"
+          flexDirection="row"
+          justifyContent="center"
+          alignItems="flex-end"
           varient={varient}
-          isError={isError}
+          isError={isError || fieldError}
         >
-          <StyledInput
-            type="text"
+          <FieldInput
+            setSelectedCountry={setSelectedCountry}
+            selectedCountry={selectedCountry}
+            varient={varient}
+            isError={isError}
+            fieldError={fieldError}
+            setFieldError={setFieldError}
             name={name}
-            id={name}
-            placeholder={label}
+            label={label}
+            errorMessage={errorMessage}
             {...props}
-          />
-          <Label className="float-label" htmlFor={name} children={label} />
-          <Typography
-            className="error-message"
-            children={errorMessage && errorMessage ? errorMessage : undefined}
-            style={{ opacity: isError && errorMessage ? 1 : 0 }}
-          />
+          >
+            <Label
+              style={{ position: 'absolute', top: '0', left: '1rem' }}
+              htmlFor={name}
+              children={label}
+              textColor={isError || fieldError ? 'error' : undefined}
+            />
+          </FieldInput>
         </StyledInputContainer>
       )}
     </>

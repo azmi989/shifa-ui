@@ -1,11 +1,11 @@
-import { InputHTMLAttributes, ReactNode } from 'react';
+import { InputHTMLAttributes, ReactNode, SelectHTMLAttributes } from 'react';
 import { ColorsType } from '../../theme/theme.types';
 
 export type SelectOptionType = {
   id: string | number;
   value: string;
   element?: ReactNode;
-  extraArgs?: Record<string, string>;
+  extraArgs?: string;
 };
 
 export type CommonFieldProps = {
@@ -17,16 +17,14 @@ export type CommonFieldProps = {
   errorMessage?: string;
   disableFloat?: true;
   forceFocus?: boolean;
-  type?:
-    | 'button'
-    | 'email'
-    | 'number'
-    | 'password'
-    | 'search'
-    | 'tel'
-    | 'text'
-    | 'url';
+  type?: 'button' | 'email' | 'number' | 'password' | 'search' | 'text' | 'url';
 };
+
+export type CheckBoxProps = { checked?: boolean } & Omit<
+  CommonFieldProps,
+  'type'
+> &
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange'>;
 
 export type TextInputFieldProps = Omit<CommonFieldProps, 'type'> &
   Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
@@ -38,25 +36,23 @@ export type NumberInputFieldProps = { value?: number } & Omit<
   Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'value'>;
 
 export type PhoneInputFieldProps = {
-  onChange: (value: string) => void;
-  validate?: boolean;
+  onChange: (phone: string) => void;
 } & Omit<CommonFieldProps, 'type'>;
 
-type OnChange = {
-  multiple?: boolean;
-  onChange: (value: string | string[]) => void;
-};
+// type OnChange = {
+//   multiple?: boolean;
+//   onChange: (value: string | string[]) => void;
+// };
 
-export type SelectInputFieldProps = {
+export type SelectFieldProps = {
   options?: SelectOptionType[];
-  defaultValue: string;
-} & OnChange &
-  Omit<CommonFieldProps, 'type' | 'forceFocus' | 'disableFloat' | 'color'>;
+} & SelectHTMLAttributes<HTMLSelectElement> &
+  Omit<CommonFieldProps, 'type' | 'color'>;
 
-export type SingleSelectInputFieldProps = {
-  onChange: (value: string | string[]) => void;
-} & Omit<SelectInputFieldProps, keyof OnChange>;
+// export type SingleSelectInputFieldProps = {
+//   onChange: (value: string | string[]) => void;
+// } & Omit<SelectInputFieldProps, keyof OnChange>;
 
-export type MultipleSelectInputFieldProps = {
-  onChange: (value: string[]) => void;
-} & Omit<SelectInputFieldProps, keyof OnChange>;
+// export type MultipleSelectInputFieldProps = {
+//   onChange: (value: string[]) => void;
+// } & Omit<SelectInputFieldProps, keyof OnChange>;
