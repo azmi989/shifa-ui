@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
-import { Container, Label } from '../..';
+import React, { useRef, useState } from 'react';
+import { Label } from '../..';
 import { CheckBoxProps } from '../FormFields.types';
-import { StyledCheckBoxContainer } from './StyledCheckBox.styled';
+import CheckBox from '../../../icons/CheckBox';
+import {
+  StyledCheckBoxContainer,
+  StyledCheckBoxInput,
+} from './StyledCheckBox.styled';
 
-export const CheckBoxField = ({
-  name,
-  label,
-  checked,
-  ...props
-}: CheckBoxProps) => {
-  const [isChecked, setIsChecked] = useState(checked);
-  const handelChange = () => {
-    setIsChecked(!isChecked);
-  };
+export const CheckBoxField = ({ label, checked, ...props }: CheckBoxProps) => {
+  const ref = useRef<HTMLInputElement>(null);
+  const [isChecked, setisChecked] = useState(checked);
   return (
     <StyledCheckBoxContainer
       checked={isChecked}
@@ -23,21 +20,21 @@ export const CheckBoxField = ({
       alignItems="center"
       width="1.2rem"
       height="1.2rem"
-      borderRadius="xs"
-      borderWidth="xs"
-      borderColor="secondary"
-      borderStyle="solid"
       position="relative"
       cursor="pointer"
-      onClick={handelChange}
-      id={name}
-      name={name}
-      label={label}
-      {...props}
+      onClick={() => ref.current?.click()}
     >
-      <Label onClick={handelChange} className="label" htmlFor={name}>
+      <StyledCheckBoxInput
+        type="checkbox"
+        ref={ref}
+        onClick={() => setisChecked(prev => !prev)}
+        checked={isChecked}
+        {...props}
+      />
+      <Label className="label" htmlFor={props.name}>
         {label}
       </Label>
+      <CheckBox />
     </StyledCheckBoxContainer>
   );
 };

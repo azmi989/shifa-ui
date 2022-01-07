@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   CheckBoxField,
   SelectField,
@@ -8,38 +8,18 @@ import { GlobalStyle, PhoneInputField } from '../../src/components';
 import { generateUID } from '../../src/utils';
 
 const App = () => {
+  const [checked, setchecked] = useState(false);
+  useEffect(() => {
+    console.log(checked);
+  }, [checked]);
   return (
     <div style={{ padding: '2rem' }}>
       <GlobalStyle />
-      <PhoneInputField
-        name="test3"
-        label="test"
-        varient="outlined"
-        onChange={e => console.log(e)}
-      />
-      <TextInputField isError name="test1" label="test" varient="filled" />
-      <SelectField
+      <CheckBoxField
         name="test"
         label="test"
-        varient="filled"
-        isError
-        multiple
-        onChange={() => {
-          return;
-        }}
-        defaultValue=""
-        options={[
-          { id: generateUID(), value: 'asdasdasdasd' },
-          { id: generateUID(), value: 'asdasd' },
-          { id: generateUID(), value: '3asdadsasdasdasdasdadsasdasdas' },
-          { id: generateUID(), value: '3asdadsasdasdasdasdadsasdasdas' },
-          { id: generateUID(), value: '3asdadsasdasdasdasdadsasdasdas' },
-          { id: generateUID(), value: '3asdadsasdasdasdasdadsasdasdas' },
-          { id: generateUID(), value: '3asdadsasdasdasdasdadsasdasdas' },
-          { id: generateUID(), value: '3asdadsasdasdasdasdadsasdasdas' },
-          { id: generateUID(), value: '3asdadsasdasdasdasdadsasdasdas' },
-          { id: generateUID(), value: '3asdadsasdasdasdasdadsasdasdas' },
-        ]}
+        checked={checked}
+        onChange={e => setchecked(e.target.checked)}
       />
     </div>
   );

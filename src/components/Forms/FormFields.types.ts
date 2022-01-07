@@ -22,9 +22,9 @@ export type CommonFieldProps = {
 
 export type CheckBoxProps = { checked?: boolean } & Omit<
   CommonFieldProps,
-  'type'
+  'type' | 'value'
 > &
-  Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange'>;
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
 
 export type TextInputFieldProps = Omit<CommonFieldProps, 'type'> &
   Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
