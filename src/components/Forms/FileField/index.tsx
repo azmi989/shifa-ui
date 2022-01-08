@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Container, Label, Button } from '../..';
 import Upload from '../../../icons/Upload';
 import { FileFieldProps } from '../FormFields.types';
@@ -11,7 +11,6 @@ export const FileField = ({
   onChange,
   ...props
 }: FileFieldProps) => {
-  const [fieldValue, setFieldValue] = useState<string | ArrayBuffer>();
   const [fileName, setFileName] = useState<string | null>(null);
   const [fieldError, setFieldError] = useState(isError);
   const [fieldErrorMessage, setFieldErrorMessage] = useState(errorMessage);
@@ -22,7 +21,6 @@ export const FileField = ({
       const file = files[0];
       reader.readAsDataURL(file);
       reader.onload = function() {
-        setFieldValue(reader.result as string | ArrayBuffer);
         setFieldError(false);
         setFileName(file.name);
         onChange(reader.result as string | ArrayBuffer);

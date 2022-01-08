@@ -4,7 +4,7 @@ import { iconButtonDefaults } from './IconButton.defaults';
 import { StyledIconButton } from './IconButton.styled';
 import { IconButtonProps } from './IconButton.types';
 
-const IconButton: FC<IconButtonProps> = props => {
+export const IconButton: FC<IconButtonProps> = props => {
   const {
     disableRipple,
     rippleDuration,
@@ -26,5 +26,3 @@ const IconButton: FC<IconButtonProps> = props => {
     </StyledIconButton>
   );
 };
-
-export default IconButton;

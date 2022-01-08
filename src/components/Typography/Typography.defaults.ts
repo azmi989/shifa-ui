@@ -8,12 +8,17 @@ export const defaultLabelProps = ({
   textProps = 'body2',
   justifyContent = 'center',
   alignItems = 'center',
+  style,
   ...props
 }: LabelProps): LabelProps => {
   return {
     textProps,
     justifyContent,
     alignItems,
+    style: {
+      width: 'fit-content',
+      ...style,
+    },
     ...props,
   };
 };
@@ -23,6 +28,7 @@ export const defaultTypographyProps = ({
   textProps,
   justifyContent = 'center',
   alignItems = 'center',
+  style,
   ...props
 }: TypographyProps<
   TypographyComponentType
@@ -34,6 +40,10 @@ export const defaultTypographyProps = ({
         textProps,
         justifyContent,
         alignItems,
+        style: {
+          width: 'fit-content',
+          ...style,
+        },
         ...props,
       };
     case 'h2':
@@ -42,6 +52,10 @@ export const defaultTypographyProps = ({
         textProps,
         justifyContent,
         alignItems,
+        style: {
+          width: 'fit-content',
+          ...style,
+        },
         ...props,
       };
     case 'h3':
@@ -50,6 +64,10 @@ export const defaultTypographyProps = ({
         textProps,
         justifyContent,
         alignItems,
+        style: {
+          width: 'fit-content',
+          ...style,
+        },
         ...props,
       };
     case 'h4':
@@ -58,6 +76,10 @@ export const defaultTypographyProps = ({
         textProps,
         justifyContent,
         alignItems,
+        style: {
+          width: 'fit-content',
+          ...style,
+        },
         ...props,
       };
     case 'h5':
@@ -66,6 +88,10 @@ export const defaultTypographyProps = ({
         textProps,
         justifyContent,
         alignItems,
+        style: {
+          width: 'fit-content',
+          ...style,
+        },
         ...props,
       };
     case 'h6':
@@ -74,6 +100,10 @@ export const defaultTypographyProps = ({
         textProps,
         justifyContent,
         alignItems,
+        style: {
+          width: 'fit-content',
+          ...style,
+        },
         ...props,
       };
     case 'p':
@@ -82,6 +112,10 @@ export const defaultTypographyProps = ({
         textProps,
         justifyContent,
         alignItems,
+        style: {
+          width: 'fit-content',
+          ...style,
+        },
         ...props,
       };
     default:
@@ -90,6 +124,10 @@ export const defaultTypographyProps = ({
         textProps,
         justifyContent,
         alignItems,
+        style: {
+          width: 'fit-content',
+          ...style,
+        },
         ...props,
       };
   }

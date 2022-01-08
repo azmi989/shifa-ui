@@ -4,7 +4,7 @@ import { buttonDefaults } from './Button.defaults';
 import { StyledButton } from './Button.styled';
 import { ButtonProps } from './Button.types';
 
-const Button: FC<ButtonProps> = props => {
+export const Button: FC<ButtonProps> = props => {
   const {
     disableRipple,
     rippleDuration,
@@ -28,5 +28,3 @@ const Button: FC<ButtonProps> = props => {
     </StyledButton>
   );
 };
-
-export default Button;

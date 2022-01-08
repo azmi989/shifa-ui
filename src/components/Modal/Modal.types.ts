@@ -32,4 +32,4 @@ export type DialogModalProps = {
   title?: string;
   message?: string;
 } & DialogProps &
-  Pick<ModalBaseFunctionProps, 'closeModal'>;
+  ModalBaseFunctionProps;

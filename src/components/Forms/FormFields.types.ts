@@ -71,3 +71,8 @@ export type FileFieldProps = {
   onChange: (file: string | ArrayBuffer) => void;
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'value' | 'onChange'> &
   Omit<CommonFieldProps, 'type' | 'color'>;
+
+export type ImageFieldProps = {
+  srcImg?: string;
+  onChange: (image: string) => void;
+} & Omit<FileFieldProps, 'onChange'>;
