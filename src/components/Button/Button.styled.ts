@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   StyledCursor,
   StyledElevation,
@@ -13,6 +13,20 @@ import {
 import { ButtonProps } from './Button.types';
 
 export const StyledButton = styled.button<ButtonProps>`
+  & > .icon {
+    height: 24px;
+    width: 24px;
+  }
+  ${({ startIcon, endIcon }) =>
+    startIcon || endIcon
+      ? css`
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          column-gap: 0.5rem;
+        `
+      : undefined}
   ${StyledButtonBackground};
   ${StyledButtonBorder};
   ${StyledCursor};

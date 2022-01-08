@@ -9,10 +9,13 @@ const Button: FC<ButtonProps> = props => {
     disableRipple,
     rippleDuration,
     children,
+    startIcon,
+    endIcon,
     ...defaultProps
   } = buttonDefaults(props);
   return (
-    <StyledButton {...defaultProps}>
+    <StyledButton startIcon={startIcon} endIcon={endIcon} {...defaultProps}>
+      {startIcon ? startIcon : null}
       {!disableRipple && (
         <Ripple
           duration={rippleDuration}
@@ -21,6 +24,7 @@ const Button: FC<ButtonProps> = props => {
         />
       )}
       {children}
+      {endIcon ? endIcon : null}
     </StyledButton>
   );
 };

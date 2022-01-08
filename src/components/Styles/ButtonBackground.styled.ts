@@ -7,14 +7,29 @@ export const StyledButtonBackground = css<ButtonProps>`
   background-attachment: ${({ backgroundAttachment }) => backgroundAttachment};
   background-blend-mode: ${({ backgroundBlendMode }) => backgroundBlendMode};
   background-clip: ${({ backgroundClip }) => backgroundClip};
-  background-color: ${({ varient, backgroundColor, disabled }) =>
+  ${({ varient, backgroundColor, disabled }) =>
     !disabled
       ? varient === 'contained'
-        ? getColor(backgroundColor)
-        : 'transparent'
+        ? css`
+            background-color: ${getColor(backgroundColor)};
+            & > .icon {
+              fill: ${getColor(backgroundColor)};
+            }
+          `
+        : css`
+            background-color: transparent;
+            fill: ${getColor(backgroundColor)};
+          `
       : varient === 'contained'
-      ? getColor('paper', 500)
-      : 'transparent'};
+      ? css`
+          background-color: ${getColor('paper', 500)};
+          & > .icon {
+            fill: ${getColor('paper', 500)};
+          }
+        `
+      : css`
+          background-color: transparent;
+        `};
   background-image: ${({ backgroundImage }) => backgroundImage};
   background-origin: ${({ backgroundOrigin }) => backgroundOrigin};
   background-position: ${({ backgroundPosition }) => backgroundPosition};
@@ -23,11 +38,18 @@ export const StyledButtonBackground = css<ButtonProps>`
   background-repeat: ${({ backgroundRepeat }) => backgroundRepeat};
   background-size: ${({ backgroundSize }) => backgroundSize};
   &:hover {
-    background-color: ${({ backgroundColor, varient, disabled }) =>
+    ${({ backgroundColor, varient, disabled }) =>
       !disabled
         ? varient === 'contained'
-          ? getColor(backgroundColor, 700)
-          : getColor(backgroundColor, undefined, '20%')
+          ? css`
+              background-color: ${getColor(backgroundColor, 700)};
+              & > .icon {
+                fill: ${getColor(backgroundColor, 700)};
+              }
+            `
+          : css`
+              background-color: ${getColor(backgroundColor, undefined, '20%')};
+            `
         : undefined};
   }
 `;

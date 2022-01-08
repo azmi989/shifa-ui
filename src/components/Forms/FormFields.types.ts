@@ -67,10 +67,7 @@ export type SelectFieldProps = {
 } & SelectHTMLAttributes<HTMLSelectElement> &
   Omit<CommonFieldProps, 'type' | 'color'>;
 
-// export type SingleSelectInputFieldProps = {
-//   onChange: (value: string | string[]) => void;
-// } & Omit<SelectInputFieldProps, keyof OnChange>;
-
-// export type MultipleSelectInputFieldProps = {
-//   onChange: (value: string[]) => void;
-// } & Omit<SelectInputFieldProps, keyof OnChange>;
+export type FileFieldProps = {
+  onChange: (file: string | ArrayBuffer) => void;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'value' | 'onChange'> &
+  Omit<CommonFieldProps, 'type' | 'color'>;

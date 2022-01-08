@@ -10,6 +10,7 @@ import {
   TransformType,
   TransitionType,
 } from '../../../types';
+import { ReactNode } from 'react';
 
 export type ButtonVarientType = 'contained' | 'outlined' | 'base';
 export type ButtonProps = {
@@ -18,6 +19,8 @@ export type ButtonProps = {
   pill?: true;
   disableRipple?: boolean;
   rippleDuration?: never;
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
 } & CursorType &
   BackgroundType &
   ElevationProp &
