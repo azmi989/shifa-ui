@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Label } from '../..';
 import { CheckBoxProps } from '../FormFields.types';
 import CheckBox from '../../../icons/CheckBox';
@@ -7,12 +7,11 @@ import {
   StyledCheckBoxInput,
 } from './StyledCheckBox.styled';
 
-export const CheckBoxField = ({ label, checked, ...props }: CheckBoxProps) => {
+export const CheckBoxField = ({ label, onClick, ...props }: CheckBoxProps) => {
   const ref = useRef<HTMLInputElement>(null);
-  const [isChecked, setisChecked] = useState(checked);
   return (
     <StyledCheckBoxContainer
-      checked={isChecked}
+      checked={props.checked}
       flowType="flex"
       elementType="container"
       flexDirection="row-reverse"
@@ -24,13 +23,7 @@ export const CheckBoxField = ({ label, checked, ...props }: CheckBoxProps) => {
       cursor="pointer"
       onClick={() => ref.current?.click()}
     >
-      <StyledCheckBoxInput
-        type="checkbox"
-        ref={ref}
-        onClick={() => setisChecked(prev => !prev)}
-        checked={isChecked}
-        {...props}
-      />
+      <StyledCheckBoxInput type="checkbox" ref={ref} {...props} />
       <Label className="label" htmlFor={props.name}>
         {label}
       </Label>

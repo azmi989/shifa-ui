@@ -11,15 +11,19 @@ type Props =
     >
   | Omit<CheckBoxProps, 'name' | 'label'>;
 
-type InputProps = Omit<CheckBoxProps, 'label'>;
-
-export const StyledCheckBoxContainer = styled(Container)<Props>`
-  & > .icon {
+export const StyledRadioContainer = styled(Container)<Props>`
+  width: 1.2rem;
+  height: 1.2rem;
+  position: relative;
+  cursor: pointer;
+  &::after {
+    content: '';
     position: absolute;
     inset: 0px;
+    border-radius: 50%;
     z-index: -2;
-    transform: ${({ checked }) => (checked ? 'scale(1.3)' : 'scale(0)')};
-    fill: ${getColor('secondary')};
+    transform: ${({ checked }) => (checked ? 'scale(0.7)' : 'scale(0)')};
+    background-color: ${getColor('secondary')};
     transition: transform 50ms ease;
   }
   &::before {
@@ -30,7 +34,7 @@ export const StyledCheckBoxContainer = styled(Container)<Props>`
     pointer-events: none;
     z-index: 10;
     border-style: solid;
-    border-radius: 2px;
+    border-radius: 50%;
     border-width: ${getBorderWidth('xs')};
     border-color: ${getColor('secondary')};
     transition: border 50ms ease;
@@ -45,9 +49,4 @@ export const StyledCheckBoxContainer = styled(Container)<Props>`
     user-select: none;
     padding: 0 1.7rem;
   }
-`;
-
-export const StyledCheckBoxInput = styled.input<InputProps>`
-  height: 1.5rem;
-  width: 1.5rem;
 `;

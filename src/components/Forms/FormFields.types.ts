@@ -8,6 +8,12 @@ export type SelectOptionType = {
   extraArgs?: string;
 };
 
+export type CheckBoxRadioOptionsType = {
+  id: string | number;
+  text?: string;
+  value: string | number;
+}[];
+
 export type CommonFieldProps = {
   name: string;
   label: string;
@@ -20,11 +26,23 @@ export type CommonFieldProps = {
   type?: 'button' | 'email' | 'number' | 'password' | 'search' | 'text' | 'url';
 };
 
-export type CheckBoxProps = { checked?: boolean } & Omit<
+export type CheckBoxProps = { onClick?: () => void } & Omit<
   CommonFieldProps,
-  'type' | 'value'
+  'type'
 > &
-  Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onClick'>;
+
+export type CheckBoxGroupProps = {
+  options: CheckBoxRadioOptionsType;
+  onChange: (values: string[]) => void;
+  labelMargin?: string;
+} & Omit<CommonFieldProps, 'type' | 'value'> &
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange'>;
+
+export type RadioGroupProps = {
+  onChange: (values?: string | number | readonly string[]) => void;
+  labelMargin?: string;
+} & Omit<CheckBoxGroupProps, 'onChange'>;
 
 export type TextInputFieldProps = Omit<CommonFieldProps, 'type'> &
   Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
