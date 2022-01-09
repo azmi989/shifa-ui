@@ -27,6 +27,7 @@ type ElementFlowType =
 export type ContainerProps = {
   ref?: ForwardedRef<HTMLDivElement>;
   fillContainer?: boolean;
+  disableGutter?: boolean;
 } & ElementFlowType &
   BackgroundType &
   BorderType &

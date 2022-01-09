@@ -25,7 +25,7 @@ export type {
   Colors,
   Elevation,
   Opacity,
-  WithOpenState
+  WithOpenState,OrientationType
 } from "./generics.types";
 export type { GridContainerType, GridItemType } from "./grid.types";
 export type { GutterAndSizeType } from "./gutterAndSize.types";

@@ -72,6 +72,7 @@
     "formik": "^2.2.9",
     "libphonenumber-js": "^1.9.44",
     "react-image-crop": "^9.0.5",
+    "react-taqweem": "^0.1.83",
     "styled-components": "^5.3.3",
     "usehooks-ts": "^2.1.1"
   }

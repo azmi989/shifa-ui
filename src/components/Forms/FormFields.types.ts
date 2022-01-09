@@ -4,6 +4,7 @@ import {
   SelectHTMLAttributes,
   TextareaHTMLAttributes,
 } from 'react';
+import { OrientationType } from '../../../types';
 import { ColorsType } from '../../theme/theme.types';
 
 export type SelectOptionType = {
@@ -82,3 +83,17 @@ export type ImageFieldProps = {
   srcImg?: string;
   onChange: (image: string) => void;
 } & Omit<FileFieldProps, 'onChange'>;
+
+export type SliderFieldProps = {
+  marks?: string[];
+  orientation?: OrientationType;
+  thickness?: 'small' | 'medium';
+  valueLabelDisplay?: boolean;
+  vlaue?: number;
+  max?: number;
+  min?: number;
+} & Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'type' | 'size' | 'min' | 'max'
+> &
+  Omit<CommonFieldProps, 'type' | 'color' | 'varient'>;

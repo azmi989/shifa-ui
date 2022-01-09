@@ -5,6 +5,7 @@ export const containerDefaults = ({
   elementType = 'container',
   fillContainer = true,
   cursor = 'default',
+  disableGutter = true,
   ...props
 }: ContainerProps): ContainerProps => {
   return {
@@ -12,6 +13,7 @@ export const containerDefaults = ({
     elementType,
     height: fillContainer ? '100%' : props.height,
     width: fillContainer ? '100%' : props.width,
+    disableGutter,
     ...props,
   };
 };

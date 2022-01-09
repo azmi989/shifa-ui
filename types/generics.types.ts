@@ -45,7 +45,8 @@ export type DirectionType =
 export type ButtonSizeProps = {
   size?: "xs" | "s" | "md" | "lg" | "xl";
 };
-
+export type OrientationType = 'horizontal'
+| 'vertical'
 export type Variations = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
 export type Elevation =
   | 'none'

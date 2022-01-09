@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 
-export type GutterAndSizeType = Pick<
+export type GutterAndSizeType = { disableGutter?: boolean } & Pick<
   CSSProperties,
   | 'margin'
   | 'marginBlock'
