@@ -1,12 +1,6 @@
-import {
-  ComponentProps,
-  ElementType,
-  ForwardedRef,
-  LabelHTMLAttributes,
-} from 'react';
+import { ComponentProps, ElementType, LabelHTMLAttributes } from 'react';
 import { FlexContainerType, TextType } from '../../../types';
 
-// export type TypographyComponentType = HTMLHeadingElement | HTMLParagraphElement;
 export type TypographyComponentType =
   | 'h1'
   | 'h2'

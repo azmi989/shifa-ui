@@ -7,7 +7,7 @@ import {
   StyledInputContainer,
 } from './InputContainer.styled';
 
-type Props = { resizable?: boolean; disabled: boolean } & Pick<
+type Props = { resizable?: boolean; disabled?: boolean } & Pick<
   CommonFieldProps,
   | 'name'
   | 'varient'

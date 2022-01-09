@@ -19,7 +19,7 @@ export const RadioGroupField = ({
   }, []);
   useEffect(() => {
     onChange(fieldValue);
-  }, [fieldValue]);
+  }, [fieldValue, onChange]);
   return (
     <Container
       flowType="flex"

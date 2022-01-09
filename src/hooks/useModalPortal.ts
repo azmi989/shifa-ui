@@ -11,7 +11,7 @@ export const useModalPortal = () => {
     return () => {
       document.getElementsByTagName('body')[0].removeChild(div);
     };
-  }, []);
+  }, [portalID]);
   return {
     portalID,
   };

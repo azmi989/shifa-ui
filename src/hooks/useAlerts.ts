@@ -17,7 +17,7 @@ export const useAlerts = ({
     setAlerts(prev => prev.filter(item => item.id !== id));
   };
   const addAlert = (item: Omit<Alerts, 'id'>) => {
-    alerts.length === maxAlerts ? removeAlert(alerts[0].id) : undefined;
+    alerts.length === maxAlerts && removeAlert(alerts[0].id);
     setAlerts(prev => [...prev, { ...item, id: generateUID() }]);
   };
   useImperativeHandle(ref, () => ({

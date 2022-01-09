@@ -3,7 +3,7 @@ import { Container } from '..';
 import { getBorderRadius, getColor } from '../../theme/utils';
 import { CommonFieldProps } from './FormFields.types';
 
-type Props = { resizable?: boolean; disabled: boolean } & Omit<
+type Props = { resizable?: boolean; disabled?: boolean } & Omit<
   CommonFieldProps,
   'name' | 'label'
 >;

@@ -31,6 +31,7 @@ export const Modal = forwardRef<ModalBaseFunctionProps, ModalBaseProps>(
       getTransform,
       getTransformOrigin,
       closeModal,
+      openModal,
     } = useModal({
       ref,
       closeOnClickOutside: close,
@@ -81,6 +82,7 @@ export const Modal = forwardRef<ModalBaseFunctionProps, ModalBaseProps>(
                 confirmLogic={confirmLogic}
                 abortLogic={abortLogic}
                 closeModal={closeModal}
+                openModal={openModal}
                 {...dialogProps}
               />
             )}

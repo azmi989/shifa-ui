@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/azmi989/shifa-ui"
   },
+  "bin": {
+    "sui": "sui.config.js"
+  },
   "files": [
     "dist",
     "src/types"

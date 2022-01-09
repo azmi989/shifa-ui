@@ -6,11 +6,12 @@ export const RangeField = ({ thickness, ...props }: SliderFieldProps) => {
   const range = props.max && props.min ? props.max - props.min : 100;
   const [spanPosition, setSpanPosition] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [refValue] = useState<string | undefined>(inputRef.current?.value);
   useEffect(() => {
     if (inputRef.current) {
-      setSpanPosition(Number(inputRef.current.value) / range);
+      setSpanPosition(Number(refValue) / range);
     }
-  }, [inputRef.current]);
+  }, [refValue, range]);
   const handelThumpPosition = (value: number) => {
     setSpanPosition(value / range);
   };
@@ -21,7 +22,7 @@ export const RangeField = ({ thickness, ...props }: SliderFieldProps) => {
         {...props}
         onChange={e => {
           handelThumpPosition(Number(e.target.value));
-          props.onChange ? props.onChange(e) : undefined;
+          props.onChange && props.onChange(e);
         }}
         type="range"
       />

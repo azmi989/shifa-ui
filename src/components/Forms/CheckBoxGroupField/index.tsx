@@ -18,7 +18,7 @@ export const CheckBoxGroupField = ({
   }, []);
   useEffect(() => {
     onChange(optionsValue);
-  }, [optionsValue]);
+  }, [optionsValue, onChange]);
   return (
     <Container flowType="flex" elementType="container" flexDirection="column">
       <Label

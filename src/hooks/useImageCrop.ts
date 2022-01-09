@@ -60,7 +60,7 @@ export const useImageCrop = (
   };
   useEffect(() => {
     onChange(result);
-  }, [result]);
+  }, [result, onChange]);
   return {
     handleImage,
     inputRef,

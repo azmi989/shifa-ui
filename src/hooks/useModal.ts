@@ -18,7 +18,7 @@ export const useModal = ({
   }>({});
   const portal = document.getElementById(portalID);
   const openModal = (title?: string, message?: string) => {
-    type === 'dialog' ? setDialogProps({ title, message }) : null;
+    type === 'dialog' ?? setDialogProps({ title, message });
     setOpen(true);
   };
   const closeModal = () => setOpen(false);
@@ -29,7 +29,7 @@ export const useModal = ({
   }));
   const handelOnClickOutsideClose = () => {
     console.log('ok');
-    closeOnClickOutside ? closeModal() : null;
+    closeOnClickOutside && closeModal();
   };
 
   useOnClickOutside(modalRef, handelOnClickOutsideClose);
@@ -98,5 +98,6 @@ export const useModal = ({
     mounted,
     dialogProps,
     closeModal,
+    openModal,
   };
 };

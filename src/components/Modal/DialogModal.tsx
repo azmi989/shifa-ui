@@ -13,11 +13,11 @@ export const DialogModal: FC<DialogModalProps> = ({
   actionButtonsVarient,
 }) => {
   const onClose = () => {
-    abortLogic ? abortLogic() : null;
+    abortLogic && abortLogic();
     closeModal();
   };
   const onConfirm = () => {
-    confirmLogic ? confirmLogic() : null;
+    confirmLogic && confirmLogic();
     closeModal();
   };
   return (

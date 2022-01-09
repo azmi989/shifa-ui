@@ -14,7 +14,7 @@ export const useAlertPortal = () => {
     return () => {
       document.getElementsByTagName('body')[0].removeChild(div);
     };
-  }, []);
+  }, [portalID]);
   return {
     loaded,
     portalID,

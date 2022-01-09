@@ -3,7 +3,7 @@ import React, { Dispatch, FC, SetStateAction, useState } from 'react';
 import { CountryProps } from '.';
 import { Typography } from '../..';
 import { PhoneInputFieldProps } from '../FormFields.types';
-import { StyledInput, StyledLegend } from '../InputContainer.styled';
+import { StyledInput } from '../InputContainer.styled';
 import { CountrySelect } from './CountrySelect';
 
 type Props = {

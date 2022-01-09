@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
 import { Label } from '../../..';
 import DropDown from '../../../icons/DropDown';
