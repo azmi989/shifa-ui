@@ -6,6 +6,7 @@ import {
 } from 'react';
 import { OrientationType } from '../../../types';
 import { ColorsType } from '../../theme/theme.types';
+import { ButtonVarientType } from '../Button/Button.types';
 
 export type SelectOptionType = {
   id: string | number;
@@ -25,7 +26,7 @@ export type CommonFieldProps = {
   label: string;
   isError?: boolean;
   color?: ColorsType;
-  varient?: 'filled' | 'outlined' | 'standard';
+  varient?: ButtonVarientType;
   errorMessage?: string;
   disableFloat?: true;
   forceFocus?: boolean;

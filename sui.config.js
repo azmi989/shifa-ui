@@ -1,1 +1,4 @@
-console.log("hi from config")
+const path = require('path');
+const { copyFile } = require('fs');
+
+copyFile('');
