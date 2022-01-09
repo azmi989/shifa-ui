@@ -3,24 +3,33 @@ import { Container } from '..';
 import { getBorderRadius, getColor } from '../../theme/utils';
 import { CommonFieldProps } from './FormFields.types';
 
-type Props = Omit<CommonFieldProps, 'name' | 'label'>;
-type FieldsetProps = { height?: string | number } & Omit<
+type Props = { resizable?: boolean; disabled: boolean } & Omit<
+  CommonFieldProps,
+  'name' | 'label'
+>;
+type FieldsetProps = { height?: string | number; resizable?: boolean } & Omit<
   CommonFieldProps,
   'name' | 'label'
 >;
 
 export const StyledInputContainer = styled(Container)<Props>`
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   position: relative;
   padding: 0.25rem 0.5rem;
   margin-bottom: 1.5rem;
-  height: ${({ height }) => height || '3rem'};
+  height: ${({ resizable, height }) =>
+    resizable ? 'auto' : height || '3.5rem'};
+  width: ${({ resizable }) => (resizable ? 'auto' : '100%')};
   border-top-right-radius: ${({ varient }) =>
     varient === 'filled' ? getBorderRadius('xs') : undefined};
   border-top-left-radius: ${({ varient }) =>
     varient === 'filled' ? getBorderRadius('xs') : undefined};
-  background-color: ${({ varient }) =>
-    varient === 'filled' ? getColor('paper', 400, '50%') : undefined};
+  background-color: ${({ varient, disabled }) =>
+    disabled
+      ? getColor('paper', 500, '50%')
+      : varient === 'filled'
+      ? getColor('paper', 400, '20%')
+      : undefined};
   &::after,
   &::before {
     position: absolute;
@@ -34,6 +43,10 @@ export const StyledInputContainer = styled(Container)<Props>`
   &::after {
     background-color: ${({ isError }) =>
       isError ? getColor('error') : getColor('mainTextColor')};
+  }
+  &::before {
+    background-color: ${({ disabled }) =>
+      disabled ? getColor('paper', 900, '50%') : undefined};
   }
   &::after {
     transform-origin: center center;
@@ -75,6 +88,14 @@ export const StyledInputContainer = styled(Container)<Props>`
             transform: scale(1, 1);
           }
         `
+      : undefined};
+  ${({ forceFocus, disableFloat }) =>
+    forceFocus || disableFloat
+      ? css`
+          & > .float-label {
+            top: 0px;
+          }
+        `
       : undefined}
 `;
 export const StyledInput = styled.input<Props>`
@@ -83,6 +104,7 @@ export const StyledInput = styled.input<Props>`
   &::placeholder {
     color: transparent;
   }
+
   &:focus + .float-label,
   &:not(:placeholder-shown) + .float-label {
     transform: translate(-0rem, -1.3rem) scale(0.8);
@@ -90,8 +112,10 @@ export const StyledInput = styled.input<Props>`
   &[type='number'] {
     appearance: textfield;
   }
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : undefined)};
 `;
 export const StyledFieldset = styled.fieldset<FieldsetProps>`
+  width: ${({ resizable }) => (resizable ? 'auto' : '100%')};
   margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -103,7 +127,8 @@ export const StyledFieldset = styled.fieldset<FieldsetProps>`
     ${({ isError }) =>
       isError ? getColor('error') : getColor('mainTextColor')};
   border-radius: ${getBorderRadius('xs')};
-  height: ${({ height }) => height || '3.5rem'};
+  height: ${({ resizable, height }) =>
+    resizable ? 'auto' : height || '3.5rem'};
   input:focus + .legend,
   input:not(:placeholder-shown) + .legend,
   &:focus-within > .legend {

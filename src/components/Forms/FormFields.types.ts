@@ -1,4 +1,9 @@
-import { InputHTMLAttributes, ReactNode, SelectHTMLAttributes } from 'react';
+import {
+  InputHTMLAttributes,
+  ReactNode,
+  SelectHTMLAttributes,
+  TextareaHTMLAttributes,
+} from 'react';
 import { ColorsType } from '../../theme/theme.types';
 
 export type SelectOptionType = {
@@ -23,20 +28,16 @@ export type CommonFieldProps = {
   errorMessage?: string;
   disableFloat?: true;
   forceFocus?: boolean;
-  type?: 'button' | 'email' | 'number' | 'password' | 'search' | 'text' | 'url';
 };
 
-export type CheckBoxProps = { onClick?: () => void } & Omit<
-  CommonFieldProps,
-  'type'
-> &
+export type CheckBoxProps = { onClick?: () => void } & CommonFieldProps &
   Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onClick'>;
 
 export type CheckBoxGroupProps = {
   options: CheckBoxRadioOptionsType;
   onChange: (values: string[]) => void;
   labelMargin?: string;
-} & Omit<CommonFieldProps, 'type' | 'value'> &
+} & CommonFieldProps &
   Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange'>;
 
 export type RadioGroupProps = {
@@ -44,8 +45,13 @@ export type RadioGroupProps = {
   labelMargin?: string;
 } & Omit<CheckBoxGroupProps, 'onChange'>;
 
-export type TextInputFieldProps = Omit<CommonFieldProps, 'type'> &
+export type TextInputFieldProps = {
+  type?: 'email' | 'password' | 'search' | 'text' | 'url';
+} & CommonFieldProps &
   Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
+
+export type TextAreaFieldProps = CommonFieldProps &
+  TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export type NumberInputFieldProps = { value?: number } & Omit<
   CommonFieldProps,

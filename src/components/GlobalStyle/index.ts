@@ -90,11 +90,15 @@ button {
 	border-image-source: none;
 	border-image-width: 0;
 	}
-	input[type="file"] {
-		display:none;
-	}
 	input {
 		all:unset;
+	}
+	textarea{
+		background: unset;
+		border: unset;
+	}
+	input[type="file"] {
+		display:none;
 	}
 
 `;

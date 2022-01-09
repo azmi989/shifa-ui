@@ -7,3 +7,4 @@ export { PhoneInputField } from './PhoneInputField';
 export { RadioGroupField } from './RadioGroupField';
 export { SelectField } from './SelectField';
 export { TextInputField } from './TextInputField';
+export { TextAreaField } from './TextAreaField';
