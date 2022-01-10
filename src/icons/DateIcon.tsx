@@ -1,6 +1,6 @@
 import React, { FunctionComponent, SVGAttributes } from 'react';
 
-const Date: FunctionComponent<SVGAttributes<SVGElement>> = ({
+const DateIcon: FunctionComponent<SVGAttributes<SVGElement>> = ({
   height = 16,
   width = 16,
   viewBox = '0 0 24 24',
@@ -21,4 +21,4 @@ const Date: FunctionComponent<SVGAttributes<SVGElement>> = ({
   );
 };
 
-export default Date;
+export default DateIcon;

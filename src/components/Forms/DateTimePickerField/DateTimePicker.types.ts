@@ -1,7 +1,8 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, RefObject, SetStateAction } from 'react';
 import useTaqweem from 'react-taqweem';
 import { DateFormatType, LanguagesType } from 'react-taqweem/types';
 import { ButtonVarientType } from '../../Button/Button.types';
+import { ModalBaseFunctionProps } from '../../Modal/Modal.types';
 import { CommonFieldProps } from '../FormFields.types';
 
 export type DateTimePickerType = Omit<CommonFieldProps, 'type' | 'label'> & {
@@ -30,9 +31,10 @@ export type DateTimePickerContexProps = {
   setPick: Dispatch<SetStateAction<'hours' | 'minutes'>>;
   currentCalendarTab: number;
   setCurrentCalendarTab: Dispatch<SetStateAction<number>>;
-  inputVarient?: ButtonVarientType;
+  inputVarient: ButtonVarientType;
+  modalRef: RefObject<ModalBaseFunctionProps>;
 } & Omit<
   DateTimePickerType,
-  'background' | 'container' | 'isCloseOnClickOutside' | 'onChange' | 'varient'
+  'background' | 'container' | 'isCloseOnClickOutside' | 'onChange'
 > &
   ReturnType<typeof useTaqweem>;

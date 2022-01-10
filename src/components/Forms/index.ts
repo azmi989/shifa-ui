@@ -1,5 +1,6 @@
 export { CheckBoxField } from './CheckBoxField';
 export { CheckBoxGroupField } from './CheckBoxGroupField';
+export { DateTimePickerField } from './DateTimePickerField';
 export { FileField } from './FileField';
 export { ImageField } from './ImageField';
 export { NumberInputField } from './NumberInputField';

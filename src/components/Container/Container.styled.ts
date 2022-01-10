@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ContainerProps } from './Container.types';
 import {
   StyledGridContainer,
@@ -19,24 +19,22 @@ import {
 } from '../Styles';
 
 export const StyledContainer = styled.div<ContainerProps>`
-  ${props =>
-    props.flowType === 'grid'
-      ? props.elementType === 'container'
-        ? StyledGridContainer
-        : StyledGridItem
-      : props.flowType === 'flex'
-      ? props.elementType === 'container'
-        ? StyledFlexContainer
+  ${({ flowType, elementType }) =>
+    flowType === 'flex'
+      ? elementType === 'container'
+        ? css`
+            display: flex;
+            ${StyledFlexContainer}
+          `
         : StyledFlexItem
-      : undefined};
-  display: ${props =>
-    props.flowType === 'flex' && props.elementType === 'container'
-      ? 'flex'
-      : undefined};
-  display: ${props =>
-    props.flowType === 'grid' && props.elementType === 'container'
-      ? 'grid'
-      : undefined};
+      : flowType === 'grid'
+      ? elementType === 'container'
+        ? css`
+            display: grid;
+            ${StyledGridContainer}
+          `
+        : StyledGridItem
+      : undefined}
   ${StyledBackground};
   ${StyledCursor};
   ${StyledBorder};

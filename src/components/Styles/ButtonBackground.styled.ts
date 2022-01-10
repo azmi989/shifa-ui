@@ -43,6 +43,18 @@ export const StyledButtonBackground = css<ButtonProps>`
         ? varient === 'contained'
           ? css`
               background-color: ${getColor(backgroundColor, 700)};
+            `
+          : css`
+              background-color: ${getColor(backgroundColor, undefined, '20%')};
+            `
+        : undefined};
+  }
+  ${({ backgroundColor, varient, disabled, hover }) =>
+    hover
+      ? !disabled
+        ? varient === 'contained'
+          ? css`
+              background-color: ${getColor(backgroundColor, 700)};
               & > .icon {
                 fill: ${getColor(backgroundColor, 700)};
               }
@@ -50,6 +62,6 @@ export const StyledButtonBackground = css<ButtonProps>`
           : css`
               background-color: ${getColor(backgroundColor, undefined, '20%')};
             `
-        : undefined};
-  }
+        : undefined
+      : undefined};
 `;

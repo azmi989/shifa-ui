@@ -11,7 +11,7 @@ import {
 import { StyledSelect } from './Select.styled';
 
 export const SelectField = ({
-  varient = 'standard',
+  varient = 'outlined',
   ...props
 }: SelectFieldProps) => {
   const [open, setOpen] = useState(false);

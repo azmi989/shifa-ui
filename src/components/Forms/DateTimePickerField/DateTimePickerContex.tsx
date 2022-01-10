@@ -1,5 +1,6 @@
-import React, { createContext, FC } from 'react';
+import React, { createContext, FC, RefObject } from 'react';
 import { DayProps } from 'react-taqweem/types';
+import { ModalBaseFunctionProps } from '../../Modal/Modal.types';
 import { DateTimePickerContexProps } from './DateTimePicker.types';
 
 export const DateTimePickerContex = createContext<DateTimePickerContexProps>({
@@ -15,6 +16,7 @@ export const DateTimePickerContex = createContext<DateTimePickerContexProps>({
   type: 'date-time',
   inputVarient: 'base',
   date: new Date(),
+  modalRef: {} as RefObject<ModalBaseFunctionProps>,
   monthProps: {
     daysOfMonth: {} as IterableIterator<DayProps>,
     month: '',
@@ -161,7 +163,7 @@ export const DateTimePickerContex = createContext<DateTimePickerContexProps>({
   },
 });
 
-const DateTimePickerContexProvider: FC<DateTimePickerContexProps> = ({
+export const DateTimePickerContexProvider: FC<DateTimePickerContexProps> = ({
   children,
   ...values
 }) => {
@@ -171,5 +173,3 @@ const DateTimePickerContexProvider: FC<DateTimePickerContexProps> = ({
     </DateTimePickerContex.Provider>
   );
 };
-
-export default DateTimePickerContexProvider;

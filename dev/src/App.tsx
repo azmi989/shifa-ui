@@ -1,5 +1,12 @@
 import React from 'react';
-import { Container, GlobalStyle, RangeField } from '../../src';
+import {
+  Container,
+  DateTimePickerField,
+  GlobalStyle,
+  IconButton,
+  RangeField,
+} from '../../src';
+import DateIcon from '../../src/icons/DateIcon';
 
 const App = () => {
   return (
@@ -7,7 +14,14 @@ const App = () => {
       <GlobalStyle />
       <Container>
         <RangeField name="hi" label="alsd" />
+        <DateTimePickerField
+          name="test"
+          label="hi"
+          initialDate={new Date()}
+          onChange={e => console.log(e)}
+        />
       </Container>
+      <IconButton icon={<DateIcon />} />
     </div>
   );
 };

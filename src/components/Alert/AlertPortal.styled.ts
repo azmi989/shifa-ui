@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 import {
-  AlertToBottomAnimation,
-  AlertToLeftAnimation,
-  AlertToRightAnimation,
-  AlertToTopAnimation,
-} from '../../theme/utils';
+  ToRightAnimation,
+  ToLeftAnimation,
+  ToBottomAnimation,
+  ToTopAnimation,
+} from '../../theme/utils/Animation';
 import { StyledContainer } from '../Container/Container.styled';
 import { AlertPortalProps } from './Alert.types';
 
@@ -22,7 +22,7 @@ export const StyledPortal = styled(StyledContainer)<AlertPortalProps>`
           right: 1rem;
           & > .alertBase {
             transform-origin: right center;
-            animation-name: ${AlertToRightAnimation};
+            animation-name: ${ToRightAnimation};
           }
         `;
       case 'top-left':
@@ -31,7 +31,7 @@ export const StyledPortal = styled(StyledContainer)<AlertPortalProps>`
           left: 1rem;
           & > .alertBase {
             transform-origin: left center;
-            animation-name: ${AlertToLeftAnimation};
+            animation-name: ${ToLeftAnimation};
           }
         `;
       case 'top':
@@ -41,7 +41,7 @@ export const StyledPortal = styled(StyledContainer)<AlertPortalProps>`
           transform: translateX(-50%);
           & > .alertBase {
             transform-origin: center bottom;
-            animation-name: ${AlertToBottomAnimation};
+            animation-name: ${ToBottomAnimation};
           }
         `;
       case 'bottom-right':
@@ -50,7 +50,7 @@ export const StyledPortal = styled(StyledContainer)<AlertPortalProps>`
           right: 1rem;
           & > .alertBase {
             transform-origin: right center;
-            animation-name: ${AlertToRightAnimation};
+            animation-name: ${ToRightAnimation};
           }
         `;
       case 'bottom-left':
@@ -59,7 +59,7 @@ export const StyledPortal = styled(StyledContainer)<AlertPortalProps>`
           left: 1rem;
           & > .alertBase {
             transform-origin: left center;
-            animation-name: ${AlertToLeftAnimation};
+            animation-name: ${ToLeftAnimation};
           }
         `;
       case 'bottom':
@@ -69,7 +69,7 @@ export const StyledPortal = styled(StyledContainer)<AlertPortalProps>`
           transform: translateX(-50%);
           & > .alertBase {
             transform-origin: center top;
-            animation-name: ${AlertToTopAnimation};
+            animation-name: ${ToTopAnimation};
           }
         `;
       case 'left':
@@ -79,7 +79,7 @@ export const StyledPortal = styled(StyledContainer)<AlertPortalProps>`
           transform: translateY(-50%);
           & > .alertBase {
             transform-origin: left center;
-            animation-name: ${AlertToLeftAnimation};
+            animation-name: ${ToLeftAnimation};
           }
         `;
       case 'right':
@@ -89,7 +89,7 @@ export const StyledPortal = styled(StyledContainer)<AlertPortalProps>`
           transform: translateY(-50%);
           & > .alertBase {
             transform-origin: right center;
-            animation-name: ${AlertToRightAnimation};
+            animation-name: ${ToRightAnimation};
           }
         `;
       default:

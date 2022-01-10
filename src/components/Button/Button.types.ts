@@ -21,6 +21,7 @@ export type ButtonProps = {
   rippleDuration?: never;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
+  hover?: boolean;
 } & CursorType &
   BackgroundType &
   ElevationProp &
