@@ -33,6 +33,8 @@ export type DateTimePickerContexProps = {
   setCurrentCalendarTab: Dispatch<SetStateAction<number>>;
   inputVarient: ButtonVarientType;
   modalRef: RefObject<ModalBaseFunctionProps>;
+  containerRef: RefObject<HTMLDivElement>;
+  matchesScreen: boolean;
 } & Omit<
   DateTimePickerType,
   'background' | 'container' | 'isCloseOnClickOutside' | 'onChange'

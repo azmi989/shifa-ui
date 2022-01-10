@@ -3,7 +3,7 @@ import { themeExtention } from '../theme.config';
 export const defaultTheme = {
   rootFontSize: themeExtention.rootFontSize || 16,
   rootScreenMaxWidth: themeExtention.rootFontSize || '2xl',
-  themeResponsiveScreen: themeExtention.themeResponsiveScreen || '2xl',
+  themeResponsiveScreen: themeExtention.themeResponsiveScreen || 'md',
   screens: {
     sm: '640px',
     md: '768px',

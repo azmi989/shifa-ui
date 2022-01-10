@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Typography, Label } from '..';
 import { CommonFieldProps } from './FormFields.types';
 import {
@@ -7,7 +7,11 @@ import {
   StyledInputContainer,
 } from './InputContainer.styled';
 
-type Props = { resizable?: boolean; disabled?: boolean } & Pick<
+type Props = {
+  resizable?: boolean;
+  disabled?: boolean;
+  renderElement?: ReactNode;
+} & Pick<
   CommonFieldProps,
   | 'name'
   | 'varient'
@@ -20,7 +24,7 @@ type Props = { resizable?: boolean; disabled?: boolean } & Pick<
 
 export const FormElementContainer: FC<Props> = ({
   name,
-  varient = 'standard',
+  varient = 'base',
   isError,
   errorMessage,
   label,
@@ -29,21 +33,23 @@ export const FormElementContainer: FC<Props> = ({
   children,
   resizable,
   disabled,
+  renderElement,
 }) => {
   return (
     <>
       {varient === 'outlined' ? (
         <StyledFieldset
           resizable={resizable}
-          forceFocus={forceFocus || disabled}
+          forceFocus={forceFocus}
           disableFloat={disabled ? disabled : disableFloat}
           varient={varient}
           isError={isError}
         >
+          {renderElement}
           {children}
           <StyledLegend
             disabled={disabled}
-            forceFocus={forceFocus || disabled}
+            forceFocus={forceFocus}
             disableFloat={disabled ? disabled : disableFloat}
             className="legend"
           >
@@ -51,7 +57,7 @@ export const FormElementContainer: FC<Props> = ({
           </StyledLegend>
           <StyledLegend
             disabled={disabled}
-            forceFocus={forceFocus || disabled}
+            forceFocus={forceFocus}
             disableFloat={disabled ? disabled : disableFloat}
             className="float-legend"
             isError={isError}
@@ -71,11 +77,12 @@ export const FormElementContainer: FC<Props> = ({
           justifyContent="end"
           varient={varient}
           isError={isError}
-          forceFocus={forceFocus || disabled}
+          forceFocus={forceFocus}
           disableFloat={disabled ? disabled : disableFloat}
           resizable={resizable}
           disabled={disabled}
         >
+          {renderElement}
           {children}
           <Label className="float-label" htmlFor={name} children={label} />
           <Typography

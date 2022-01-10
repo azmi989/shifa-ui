@@ -15,8 +15,10 @@ export const DateTimePickerContex = createContext<DateTimePickerContexProps>({
   timeFormat: '12',
   type: 'date-time',
   inputVarient: 'base',
+  matchesScreen: false,
   date: new Date(),
   modalRef: {} as RefObject<ModalBaseFunctionProps>,
+  containerRef: {} as RefObject<HTMLDivElement>,
   monthProps: {
     daysOfMonth: {} as IterableIterator<DayProps>,
     month: '',

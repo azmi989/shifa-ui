@@ -5,14 +5,16 @@ export const containerDefaults = ({
   elementType = 'container',
   fillContainer = true,
   cursor = 'default',
-  disableGutter = true,
+  disableGutter = false,
+  width = 'fit-content',
+  height = 'fit-content',
   ...props
 }: ContainerProps): ContainerProps => {
   return {
     flowType,
     elementType,
-    height: fillContainer ? '100%' : props.height,
-    width: fillContainer ? '100%' : props.width,
+    height: fillContainer ? height || '100%' : height,
+    width: fillContainer ? width || '100%' : width,
     disableGutter,
     ...props,
   };

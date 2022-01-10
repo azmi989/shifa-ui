@@ -40,8 +40,10 @@ export const Modal = forwardRef<ModalBaseFunctionProps, ModalBaseProps>(
     return portal ? (
       ReactDOM.createPortal(
         <Container
-          flowType="grid"
+          flowType="flex"
           elementType="container"
+          justifyContent="center"
+          alignItems="center"
           backgroundColor="modal"
           backgroundColorOpacity="70%"
           backgroundBlur="5px"
@@ -57,10 +59,6 @@ export const Modal = forwardRef<ModalBaseFunctionProps, ModalBaseProps>(
           {...props}
         >
           <Container
-            id="hi"
-            flowType="grid"
-            elementType="item"
-            placeSelf="center"
             backgroundColor="mainBgColor"
             fillContainer={false}
             minWidth="15%"

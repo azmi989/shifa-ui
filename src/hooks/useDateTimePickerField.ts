@@ -6,40 +6,43 @@ import {
   Dispatch,
   SetStateAction,
 } from 'react';
-import useTaqweem from 'react-taqweem';
 import { useMediaQuery, useOnClickOutside } from 'usehooks-ts';
 import { useModalPortalRef } from '.';
-import {
-  DateTimePickerContexProps,
-  DateTimePickerType,
-} from '../components/Forms/DateTimePickerField/DateTimePicker.types';
+import { DateTimePickerType } from '../components/Forms/DateTimePickerField/DateTimePicker.types';
 import { ModalBaseFunctionProps } from '../components/Modal/Modal.types';
 import { defaultTheme } from '../theme';
 
+type Props = { date: Date } & Pick<
+  DateTimePickerType,
+  'timeFormat' | 'onChange'
+>;
 type ReturnProps = {
   containerRef: RefObject<HTMLDivElement>;
   setContainerOpen: Dispatch<SetStateAction<boolean>>;
   modalRef: RefObject<ModalBaseFunctionProps>;
-} & DateTimePickerContexProps;
+  containerOpen: boolean;
+  isMobile: boolean;
+  hours: number;
+  setHours: Dispatch<SetStateAction<number>>;
+  minutes: number;
+  setMinutes: Dispatch<SetStateAction<number>>;
+  meridiem: 'am' | 'pm';
+  setMeridiem: Dispatch<SetStateAction<'am' | 'pm'>>;
+  currentCalendarTab: number;
+  setCurrentCalendarTab: Dispatch<SetStateAction<number>>;
+  pick: 'hours' | 'minutes';
+  setPick: Dispatch<SetStateAction<'hours' | 'minutes'>>;
+  pickerCurrentTab: number;
+  setPickerCurrentTab: Dispatch<SetStateAction<number>>;
+  matchesScreen: boolean;
+  onChange: (date: Date) => void;
+};
 
 export const useDateTimePickerField = ({
-  initialDate,
   timeFormat = '12',
-  lang = 'default',
-  dateFormat = 'none',
-  type = 'date-time',
-  varient = 'outlined',
-  label,
-  name,
-  isError,
   onChange,
-}: DateTimePickerType): ReturnProps => {
-  const { date, ...taqweem } = useTaqweem({
-    dateArg: initialDate,
-    langArg: lang,
-    dateFormatArg: dateFormat,
-    timeFormatArg: timeFormat,
-  });
+  date,
+}: Props): ReturnProps => {
   const [containerOpen, setContainerOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [hours, setHours] = useState(
@@ -59,20 +62,20 @@ export const useDateTimePickerField = ({
 
   const modalRef = useModalPortalRef();
   const matchesScreen = useMediaQuery(
-    `(max-width: ${defaultTheme.themeResponsiveScreen})`
+    //@ts-ignore
+    `(max-width: ${defaultTheme.screens[defaultTheme.themeResponsiveScreen]})`
   );
   useEffect(() => {
     setIsMobile(matchesScreen);
   }, [matchesScreen]);
-  useEffect(() => {
-    onChange(date);
-  }, [date]);
   useOnClickOutside(containerRef, () => {
     setContainerOpen(false);
   });
   return {
-    date,
     containerOpen,
+    containerRef,
+    modalRef,
+    setContainerOpen,
     isMobile,
     hours,
     setHours,
@@ -86,15 +89,7 @@ export const useDateTimePickerField = ({
     setPick,
     pickerCurrentTab,
     setPickerCurrentTab,
-    inputVarient: varient,
-    label,
-    name,
-    initialDate,
-    isError,
-    type,
-    containerRef,
-    modalRef,
-    setContainerOpen,
-    ...taqweem,
+    matchesScreen,
+    onChange,
   };
 };

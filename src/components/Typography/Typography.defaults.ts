@@ -16,6 +16,7 @@ export const defaultLabelProps = ({
     justifyContent,
     alignItems,
     style: {
+      height: 'fit-content',
       width: 'fit-content',
       ...style,
     },

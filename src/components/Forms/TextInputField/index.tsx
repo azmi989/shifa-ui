@@ -10,6 +10,7 @@ export const TextInputField: FC<TextInputFieldProps> = ({
   disableFloat,
   forceFocus,
   disabled = false,
+  renderElement,
   ...props
 }) => {
   return (
@@ -22,6 +23,7 @@ export const TextInputField: FC<TextInputFieldProps> = ({
       forceFocus={forceFocus}
       isError={isError}
       disabled={disabled}
+      renderElement={renderElement}
     >
       <StyledInput disabled={disabled} placeholder={props.label} {...props} />
     </FormElementContainer>

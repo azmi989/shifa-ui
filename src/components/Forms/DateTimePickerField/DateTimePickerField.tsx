@@ -1,10 +1,12 @@
 import React from 'react';
-import { Modal, Container } from '../..';
+import useTaqweem from 'react-taqweem';
+import { Modal, Container, TextInputField } from '../..';
 import { useDateTimePickerField } from '../../../hooks';
 import { StyledInputContainer } from '../InputContainer.styled';
 import { DateTimePickerType } from './DateTimePicker.types';
 import { DateTimePickerContexProvider } from './DateTimePickerContex';
-import PickerComponent from './PickerComponent';
+import { PickerComponent } from './PickerComponent';
+import { PickerContainer } from './PickerContainer';
 import { PickerInput } from './PickerInput';
 
 export const DateTimePickerField = ({
@@ -17,73 +19,41 @@ export const DateTimePickerField = ({
   label,
   name,
   isError,
+  disableFloat,
+  errorMessage,
+  forceFocus,
   onChange,
 }: DateTimePickerType) => {
+  const taqweem = useTaqweem({
+    dateArg: initialDate,
+    timeFormatArg: timeFormat,
+    langArg: lang,
+    dateFormatArg: dateFormat,
+  });
   const picker = useDateTimePickerField({
-    initialDate,
     timeFormat,
-    label,
-    lang,
-    dateFormat,
-    type,
-    varient,
-    name,
-    isError,
+    date: taqweem.date,
     onChange,
   });
+
   return (
-    <DateTimePickerContexProvider {...picker}>
-      <StyledInputContainer
-        disableGutter
-        varient={varient || 'standard'}
-        marginTop="0.5rem"
-        marginBottom="2rem"
-        paddingTop="0.5rem"
-        paddingBottom="2rem"
-        position="relative"
-        justifyContent="space-between"
-        alignItems="end"
-        height="3.2rem"
-        isError={isError}
-      >
-        <PickerInput setContainerOpen={picker.setContainerOpen} />
-        {picker.isMobile ? (
-          <Modal
-            ref={picker.modalRef}
-            container={{
-              flowType: 'flex',
-              elementType: 'container',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <PickerComponent />
-          </Modal>
-        ) : (
-          <Container
-            backgroundColor="paper"
-            borderRadius="s"
-            elevation={2}
-            position="absolute"
-            top="120%"
-            flowType="flex"
-            elementType="container"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
-            rowGap="1rem"
-            transition="transform 100ms ease-in-out"
-            transformOrigin="center top"
-            transform={picker.containerOpen ? 'scale(1,1)' : 'scale(1,0)'}
-            ref={picker.containerRef}
-            zIndex="max"
-            style={{ overflow: 'hidden' }}
-          >
-            <PickerComponent />
-          </Container>
-        )}
-      </StyledInputContainer>
+    <DateTimePickerContexProvider
+      initialDate={initialDate}
+      timeFormat={timeFormat}
+      label={label}
+      name={name}
+      inputVarient={varient}
+      isError={isError}
+      disableFloat={disableFloat}
+      errorMessage={errorMessage}
+      forceFocus={forceFocus}
+      type={type}
+      {...taqweem}
+      {...picker}
+    >
+      <PickerInput setContainerOpen={picker.setContainerOpen}>
+        <PickerContainer />
+      </PickerInput>
     </DateTimePickerContexProvider>
   );
 };

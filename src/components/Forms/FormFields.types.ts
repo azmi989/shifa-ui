@@ -5,7 +5,6 @@ import {
   TextareaHTMLAttributes,
 } from 'react';
 import { OrientationType } from '../../../types';
-import { ColorsType } from '../../theme/theme.types';
 import { ButtonVarientType } from '../Button/Button.types';
 
 export type SelectOptionType = {
@@ -25,11 +24,11 @@ export type CommonFieldProps = {
   name: string;
   label: string;
   isError?: boolean;
-  color?: ColorsType;
   varient?: ButtonVarientType;
   errorMessage?: string;
   disableFloat?: true;
   forceFocus?: boolean;
+  renderElement?: ReactNode;
 };
 
 export type CheckBoxProps = { onClick?: () => void } & CommonFieldProps &

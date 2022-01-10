@@ -1,67 +1,62 @@
-import React, { Dispatch, SetStateAction, useContext } from 'react';
+import React, { Dispatch, FC, SetStateAction, useContext } from 'react';
 import { usePickerInput } from '../../../hooks';
 import { DateTimePickerContex } from './DateTimePickerContex';
 import { IconButton } from '../../';
-import { StyledInput } from '../InputContainer.styled';
-import { StyledLabel } from '../../Typography/Label.styled';
 import DateIcon from '../../../icons/DateIcon';
 import Clock from '../../../icons/Clock';
+import { Container } from '../../Container';
+import { TextInputField } from '..';
 
-type Props = {
+export const PickerInput: FC<{
   setContainerOpen: Dispatch<SetStateAction<boolean>>;
-};
-
-export const PickerInput = ({ setContainerOpen }: Props) => {
-  const { dateInputValue, onBlur, onChange } = usePickerInput();
+}> = ({ setContainerOpen, children }) => {
+  const pickerInputProps = usePickerInput();
   const {
-    label,
-    name,
     type,
     isMobile,
     isError,
     modalRef,
+    label,
+    inputVarient,
     containerOpen,
   } = useContext(DateTimePickerContex);
+
   return (
-    <>
-      <StyledInput
-        type="text"
-        value={dateInputValue}
-        onChange={onChange}
-        onBlur={onBlur}
-        style={{ padding: '0rem' }}
-        id={name}
-        placeholder={label}
-      />
-      <IconButton
-        varient="contained"
-        elevation="none"
-        size="md"
-        icon={
-          type === 'date' ? (
-            <DateIcon />
-          ) : type === 'time' ? (
-            <Clock />
-          ) : (
-            <DateIcon />
-          )
+    <Container position="relative" width="100%">
+      <TextInputField
+        name="dateTimePickerInput"
+        varient={inputVarient}
+        label={label}
+        disableFloat
+        forceFocus
+        isError={isError}
+        width="100%"
+        renderElement={
+          <IconButton
+            varient="contained"
+            elevation="none"
+            position="absolute"
+            top={inputVarient === 'outlined' ? '0rem' : '25%'}
+            right="1rem"
+            size="md"
+            style={{ pointerEvents: containerOpen ? 'none' : undefined }}
+            icon={
+              type === 'date' ? (
+                <DateIcon />
+              ) : type === 'time' ? (
+                <Clock />
+              ) : (
+                <DateIcon />
+              )
+            }
+            onClick={() =>
+              isMobile ? modalRef.current?.openModal() : setContainerOpen(true)
+            }
+          />
         }
-        onClick={() =>
-          isMobile
-            ? modalRef.current?.openModal()
-            : !containerOpen
-            ? setContainerOpen(true)
-            : undefined
-        }
+        {...pickerInputProps}
       />
-      <StyledLabel
-        style={{ transform: 'translate(0,-1.2rem) scale(0.8)' }}
-        htmlFor={name}
-        className="float-label"
-        textColor={isError ? 'error' : 'mainTextColor'}
-      >
-        {label}
-      </StyledLabel>
-    </>
+      {children}
+    </Container>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
 import { Button, Container, IconButton, Label } from '../..';
 import Clock from '../../../icons/Clock';
@@ -25,6 +25,7 @@ const CalendarComponent = () => {
     selectDate,
     date,
     type,
+    matchesScreen,
     currentCalendarTab,
     setCurrentCalendarTab,
   } = useContext(DateTimePickerContex);
@@ -34,9 +35,6 @@ const CalendarComponent = () => {
   const yearsList = Array.from(
     { length: maxYear - minYear },
     (_, i) => minYear - 1 + i
-  );
-  const matchesScreen = useMediaQuery(
-    `(max-width: ${defaultTheme.themeResponsiveScreen})`
   );
   const monthsComponent = () =>
     yearProps.yearMonths.map(month => (
@@ -70,20 +68,14 @@ const CalendarComponent = () => {
         {year}
       </Button>
     ));
-  return (
-    <>
-      <StyledSwipableView
-        tab={1}
-        currentTabID={currentCalendarTab}
-        minWidth="0rem"
-        width="100%"
-        flowType="flex"
-        elementType="container"
-        flexDirection="column"
-        rowGap="1rem"
-        direction="left"
-      >
-        <Container
+  return <div>claendar</div>;
+};
+
+export default CalendarComponent;
+
+//calendar
+{
+  /* <Container
           id="head"
           justifyContent="space-between"
           flexDirection="column"
@@ -183,19 +175,12 @@ const CalendarComponent = () => {
               </StyledGeneralLabel>
             );
           })}
-        </Container>
-      </StyledSwipableView>
-      <StyledSwipableView
-        alignItems="center"
-        flexDirection="column"
-        justifyContent="space-between"
-        tab={2}
-        currentTabID={currentCalendarTab}
-        position="absolute"
-        inset="0%"
-        direction="left"
-      >
-        <Container disableGutter>
+        </Container> */
+}
+
+//month list
+{
+  /* <Container disableGutter>
           <IconButton
             rounded="rectangle"
             icon={
@@ -215,47 +200,36 @@ const CalendarComponent = () => {
           gridGap="2rem"
         >
           {monthsComponent()}
-        </Container>
-      </StyledSwipableView>
-      <StyledSwipableView
-        flexDirection="column"
-        rowGap="0.5rem"
-        tab={3}
-        currentTabID={currentCalendarTab}
-        position="absolute"
-        inset="0%"
-        direction="left"
-      >
-        <Container disableGutter>
-          <IconButton
-            rounded="rectangle"
-            icon={
-              type === 'date' || type === 'date-time' ? <DateIcon /> : <Clock />
-            }
-            size="s"
-            onClick={() => setCurrentCalendarTab(1)}
-          />
-        </Container>
-        <StandardPagination
-          pageSize={12}
-          disableFlex
-          disableGutter
-          container={{
-            //@ts-ignore
-            flowType: 'grid',
-            elementType: 'container',
-            paddingBlock: '2rem',
-            gridTemplateColumns: 'repeat(4,auto)',
-            gridTemplateRows: 'repeat(3,auto)',
-            columnGap: '1rem',
-            rowGap: '2rem',
-          }}
-        >
-          {yearsListComponent()}
-        </StandardPagination>
-      </StyledSwipableView>
-    </>
-  );
-};
+        </Container> */
+}
+//years list
 
-export default CalendarComponent;
+{
+  /* <Container disableGutter>
+<IconButton
+  rounded="rectangle"
+  icon={
+    type === 'date' || type === 'date-time' ? <DateIcon /> : <Clock />
+  }
+  size="s"
+  onClick={() => setCurrentCalendarTab(1)}
+/>
+</Container>
+<StandardPagination
+pageSize={12}
+disableFlex
+disableGutter
+container={{
+  //@ts-ignore
+  flowType: 'grid',
+  elementType: 'container',
+  paddingBlock: '2rem',
+  gridTemplateColumns: 'repeat(4,auto)',
+  gridTemplateRows: 'repeat(3,auto)',
+  columnGap: '1rem',
+  rowGap: '2rem',
+}}
+>
+{yearsListComponent()}
+</StandardPagination> */
+}

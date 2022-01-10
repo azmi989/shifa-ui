@@ -21,13 +21,13 @@ export const StyledInputContainer = styled(Container)<Props>`
     resizable ? 'auto' : height || '3.5rem'};
   width: ${({ resizable }) => (resizable ? 'auto' : '100%')};
   border-top-right-radius: ${({ varient }) =>
-    varient === 'filled' ? getBorderRadius('xs') : undefined};
+    varient === 'contained' ? getBorderRadius('xs') : undefined};
   border-top-left-radius: ${({ varient }) =>
-    varient === 'filled' ? getBorderRadius('xs') : undefined};
+    varient === 'contained' ? getBorderRadius('xs') : undefined};
   background-color: ${({ varient, disabled }) =>
     disabled
       ? getColor('paper', 500, '50%')
-      : varient === 'filled'
+      : varient === 'contained'
       ? getColor('paper', 400, '20%')
       : undefined};
   &::after,
@@ -64,11 +64,18 @@ export const StyledInputContainer = styled(Container)<Props>`
     width: fit-content;
     pointer-events: none;
     transform-origin: 0 0;
-    transition: transform 250ms ease-in-out, color 250ms ease-in-out;
     left: 1rem;
     top: 50%;
+    transition: transform 250ms ease-in-out, color 250ms ease-in-out;
     color: ${({ isError }) =>
       isError ? getColor('error') : getColor('mainTextColor')};
+    ${({ forceFocus, disableFloat, isError }) =>
+      forceFocus || disableFloat
+        ? css`
+            transform: translate(-0rem, -1.3rem) scale(0.8);
+            color: ${isError ? getColor('error') : getColor('primary')};
+          `
+        : undefined}
   }
   &:focus-within {
     &::after {
@@ -89,14 +96,6 @@ export const StyledInputContainer = styled(Container)<Props>`
           }
         `
       : undefined};
-  ${({ forceFocus, disableFloat }) =>
-    forceFocus || disableFloat
-      ? css`
-          & > .float-label {
-            top: 0px;
-          }
-        `
-      : undefined}
 `;
 export const StyledInput = styled.input<Props>`
   height: 2rem;
@@ -107,7 +106,12 @@ export const StyledInput = styled.input<Props>`
 
   &:focus + .float-label,
   &:not(:placeholder-shown) + .float-label {
-    transform: translate(-0rem, -1.3rem) scale(0.8);
+    ${({ disableFloat }) =>
+      !disableFloat &&
+      css`
+        transform: translate(-0rem, -1.3rem) scale(0.8);
+        color: ${getColor('primary')};
+      `}
   }
   &[type='number'] {
     appearance: textfield;
@@ -124,11 +128,16 @@ export const StyledFieldset = styled.fieldset<FieldsetProps>`
   position: relative;
   padding: 0 1rem 0.5rem 1rem;
   border: 1px solid
-    ${({ isError }) =>
-      isError ? getColor('error') : getColor('mainTextColor')};
+    ${({ isError, forceFocus }) =>
+      isError
+        ? getColor('error')
+        : forceFocus
+        ? getColor('primary')
+        : getColor('mainTextColor')};
   border-radius: ${getBorderRadius('xs')};
   height: ${({ resizable, height }) =>
     resizable ? 'auto' : height || '3.5rem'};
+
   input:focus + .legend,
   input:not(:placeholder-shown) + .legend,
   &:focus-within > .legend {
@@ -168,15 +177,19 @@ export const StyledLegend = styled.legend<Props>`
   /* width: fit-content; */
   pointer-events: none;
   transform-origin: 0 0;
-  color: ${({ isError }) =>
-    isError ? getColor('error') : getColor('mainTextColor')};
+  color: ${({ isError, forceFocus }) =>
+    isError
+      ? getColor('error')
+      : forceFocus
+      ? getColor('primary')
+      : getColor('mainTextColor')};
   &.legend {
     ${({ disableFloat, isError }) =>
       disableFloat
         ? css`
             width: fit-content;
             transform: translateY(-10%);
-            color: ${isError ? getColor('error') : getColor('primary')};
+            color: ${isError ? getColor('error') : undefined};
           `
         : css`
             color: transparent;

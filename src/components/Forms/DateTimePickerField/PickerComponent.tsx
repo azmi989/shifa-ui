@@ -7,7 +7,7 @@ import CalendarComponent from './CalendarComponent';
 import ClockComponent from './ClockComponent';
 import { DateTimePickerContex } from './DateTimePickerContex';
 
-const PickerComponent = () => {
+export const PickerComponent = () => {
   const { type, pickerCurrentTab, setPickerCurrentTab } = useContext(
     DateTimePickerContex
   );
@@ -22,15 +22,19 @@ const PickerComponent = () => {
           <StyledSwipableView
             currentTabID={pickerCurrentTab}
             tab={1}
+            id="calendar-main-tab"
             position={pickerCurrentTab === 1 ? undefined : 'absolute'}
             direction="left"
+            backgroundColor="error"
           >
             <CalendarComponent />
           </StyledSwipableView>
           <StyledSwipableView
             flexDirection="column"
+            id="clock-main-tab"
             currentTabID={pickerCurrentTab}
             direction="left"
+            width="100%"
             tab={2}
             position={pickerCurrentTab === 2 ? undefined : 'absolute'}
           >
@@ -55,5 +59,3 @@ const PickerComponent = () => {
       );
   }
 };
-
-export default PickerComponent;

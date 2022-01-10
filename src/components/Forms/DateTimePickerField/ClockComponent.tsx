@@ -72,7 +72,14 @@ const ClockComponent = () => {
       alignItems="center"
       rowGap="1rem"
     >
-      <Container position="relative">
+      clock
+    </Container>
+  );
+};
+
+export default ClockComponent;
+{
+  /* <Container position="relative">
         <Clock width={160} height={160} color={getColor('primary')} />
         <Arrow
           color={getColor('primary')}
@@ -146,9 +153,5 @@ const ClockComponent = () => {
             {meridiem}
           </StyledPaginationButton>
         ) : null}
-      </Container>
-    </Container>
-  );
-};
-
-export default ClockComponent;
+      </Container> */
+}

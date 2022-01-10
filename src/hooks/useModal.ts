@@ -28,7 +28,6 @@ export const useModal = ({
     closeModal,
   }));
   const handelOnClickOutsideClose = () => {
-    console.log('ok');
     closeOnClickOutside && closeModal();
   };
 
