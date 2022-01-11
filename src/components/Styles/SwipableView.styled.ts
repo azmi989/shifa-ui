@@ -2,12 +2,6 @@ import styled, { css } from 'styled-components';
 import { DirectionsLR, DirectionsTB } from '../../../types';
 import { ContainerProps } from '../Container/Container.types';
 import {
-  ToBottomAnimation,
-  ToLeftAnimation,
-  ToRightAnimation,
-  ToTopAnimation,
-} from '../../theme/utils/Animation';
-import {
   StyledBackground,
   StyledCursor,
   StyledBorder,
@@ -16,13 +10,16 @@ import {
   StyledInset,
   StyledOverflow,
   StyledElevation,
+  StyledFlexContainer,
+  StyledGridContainer,
 } from '.';
-
+import { CSSProperties } from 'react';
 type Props = {
   currentTabID: number;
   tab: number;
   direction: DirectionsTB | DirectionsLR;
-} & ContainerProps;
+} & ContainerProps &
+  Pick<CSSProperties, 'display'>;
 
 const StyledSwipableView = styled.div<Props>`
   ${({ currentTabID, direction, tab }) => {
@@ -30,63 +27,62 @@ const StyledSwipableView = styled.div<Props>`
       switch (direction) {
         case 'bottom':
           return css`
-            animation-name: ${ToTopAnimation};
+            transform: translateX(0%);
             transform-origin: center bottom;
           `;
         case 'top':
           return css`
-            animation-name: ${ToBottomAnimation};
+            transform: translateX(0%);
             transform-origin: center top;
           `;
         case 'right':
           return css`
-            animation-name: ${ToLeftAnimation};
+            transform: translateX(0%);
             transform-origin: right center;
           `;
         case 'left':
           return css`
-            animation-name: ${ToRightAnimation};
+            transform: translateX(0%);
             transform-origin: left center;
           `;
         default:
           return css`
-            animation-name: ${ToLeftAnimation};
-            transform-origin: right center;
+            transform: translateX(0%);
+            transform-origin: left center;
           `;
       }
     } else {
       switch (direction) {
         case 'top':
           return css`
-            animation-name: ${ToTopAnimation};
+            transform: translateY(2000%);
             transform-origin: center bottom;
           `;
         case 'bottom':
           return css`
-            animation-name: ${ToBottomAnimation};
+            transform: translateY(-2000%);
             transform-origin: center top;
           `;
         case 'left':
           return css`
-            animation-name: ${ToLeftAnimation};
+            transform: translateX(2000%);
             transform-origin: right center;
           `;
         case 'right':
           return css`
-            animation-name: ${ToRightAnimation};
+            transform: translateX(-2000%);
             transform-origin: left center;
           `;
         default:
           return css`
-            animation-name: ${ToRightAnimation};
+            transform: translateX(2000%);
             transform-origin: left center;
           `;
       }
     }
   }}
-  animation-duration: 200ms;
-  animation-fill-mode: forwards;
-  animation-direction: normal;
+  transition: transform 400ms ease;
+  display: ${({ display }) => display || 'flex'};
   ${StyledBackground};
   ${StyledCursor};
   ${StyledBorder};
@@ -95,6 +91,8 @@ const StyledSwipableView = styled.div<Props>`
   ${StyledInset};
   ${StyledOverflow};
   ${StyledElevation};
+  ${StyledFlexContainer}
+  ${StyledGridContainer}
   ${({ transform, transformBox, transformOrigin, transformStyle }) => css`
     transform: ${transform};
     transform-box: ${transformBox};

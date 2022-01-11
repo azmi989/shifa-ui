@@ -22,7 +22,7 @@ export const PickerInput: FC<{
   } = useContext(DateTimePickerContex);
 
   return (
-    <Container position="relative" width="100%">
+    <Container id="container" position="relative" width="100%">
       <TextInputField
         name="dateTimePickerInput"
         varient={inputVarient}
@@ -30,7 +30,7 @@ export const PickerInput: FC<{
         disableFloat
         forceFocus
         isError={isError}
-        width="100%"
+        // width="100%"
         renderElement={
           <IconButton
             varient="contained"

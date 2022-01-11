@@ -14,7 +14,7 @@ export { StyledInset } from './Inset.styled';
 export { StyledOverflow } from './Overflow.styled';
 export { StyledText } from './Text.styled';
 export { StyledRipple } from './Ripple.styled';
-export { default as StyledSwipableView } from './StyledSwipableView.styled';
+export { default as StyledSwipableView } from './SwipableView.styled';
 export { StyledTransform } from './Transform.styled';
 export { StyledTransition } from './Transition.styled';
 export { default as GlobalStyle } from './GlobalStyle';

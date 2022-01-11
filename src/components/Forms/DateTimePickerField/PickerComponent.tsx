@@ -3,7 +3,7 @@ import { Container, IconButton } from '../..';
 import Clock from '../../../icons/Clock';
 import DateIcon from '../../../icons/DateIcon';
 import { StyledSwipableView } from '../../Styles';
-import CalendarComponent from './CalendarComponent';
+import { CalendarComponent } from './CalendarComponent';
 import ClockComponent from './ClockComponent';
 import { DateTimePickerContex } from './DateTimePickerContex';
 
@@ -23,9 +23,12 @@ export const PickerComponent = () => {
             currentTabID={pickerCurrentTab}
             tab={1}
             id="calendar-main-tab"
-            position={pickerCurrentTab === 1 ? undefined : 'absolute'}
             direction="left"
-            backgroundColor="error"
+            width="100%"
+            height="100%"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
           >
             <CalendarComponent />
           </StyledSwipableView>
@@ -36,7 +39,10 @@ export const PickerComponent = () => {
             direction="left"
             width="100%"
             tab={2}
-            position={pickerCurrentTab === 2 ? undefined : 'absolute'}
+            height="100%"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
           >
             <ClockComponent />
           </StyledSwipableView>

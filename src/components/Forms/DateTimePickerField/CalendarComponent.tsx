@@ -1,77 +1,37 @@
-import React, { useContext, useEffect, useRef } from 'react';
-import { useMediaQuery } from 'usehooks-ts';
-import { Button, Container, IconButton, Label } from '../..';
-import Clock from '../../../icons/Clock';
-import DateIcon from '../../../icons/DateIcon';
-import ExpandLess from '../../../icons/ExpandLess';
-import ExpandMore from '../../../icons/ExpandMore';
-import { defaultTheme } from '../../../theme';
-import { StandardPagination } from '../../Pagination';
+import React, { useState } from 'react';
+
 import { StyledSwipableView } from '../../Styles';
-import { DateTimePickerContex } from './DateTimePickerContex';
-import { StyledGeneralLabel } from './StyledGeneralLabel.styled';
+import { CalendarMain } from './CalendarMain';
+import { CalendarMonthList } from './CalendarMonthList';
 
-const CalendarComponent = () => {
-  const {
-    yearProps,
-    goToMonth,
-    goToYear,
-    goToPrevMonth,
-    goToNextMonth,
-    weekDays,
-    monthProps,
-    lang,
-    renderMonth,
-    selectDate,
-    date,
-    type,
-    matchesScreen,
-    currentCalendarTab,
-    setCurrentCalendarTab,
-  } = useContext(DateTimePickerContex);
-  const currentYear = new Date().getFullYear();
-  const maxYear = currentYear + 10;
-  const minYear = currentYear - 70;
-  const yearsList = Array.from(
-    { length: maxYear - minYear },
-    (_, i) => minYear - 1 + i
+export const CalendarComponent = () => {
+  const [currentTab, setCurrentTab] = useState(0);
+  return (
+    <>
+      <StyledSwipableView
+        width="100%"
+        currentTabID={currentTab}
+        tab={0}
+        direction="left"
+        id="calendar-head"
+        justifyContent="space-between"
+        flexDirection="column"
+        rowGap="1rem"
+        height="100%"
+      >
+        <CalendarMain setCurrentTab={setCurrentTab} />
+      </StyledSwipableView>
+      <StyledSwipableView
+        width="100%"
+        currentTabID={currentTab}
+        tab={1}
+        direction="left"
+      >
+        <CalendarMonthList setCurrentTab={setCurrentTab} />
+      </StyledSwipableView>
+    </>
   );
-  const monthsComponent = () =>
-    yearProps.yearMonths.map(month => (
-      <Button
-        size="xs"
-        key={month.month}
-        varient="base"
-        elevation="none"
-        textTransform="capitalize"
-        onClick={() => {
-          goToMonth(new Date(yearProps.year, month.monthNumber - 1));
-          setCurrentCalendarTab(1);
-        }}
-      >
-        {month.month}
-      </Button>
-    ));
-  const yearsListComponent = () =>
-    yearsList.map(year => (
-      <Button
-        size="xs"
-        key={year}
-        varient="base"
-        elevation="none"
-        textTransform="capitalize"
-        onClick={() => {
-          goToYear(new Date(year, 0, 1));
-          setCurrentCalendarTab(1);
-        }}
-      >
-        {year}
-      </Button>
-    ));
-  return <div>claendar</div>;
 };
-
-export default CalendarComponent;
 
 //calendar
 {

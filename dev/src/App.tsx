@@ -14,16 +14,14 @@ const App = () => {
   return (
     <div style={{ padding: '2rem', display: 'grid' }}>
       <GlobalStyle />
-      <Container>
-        <DateTimePickerField
-          name="test"
-          label="date"
-          initialDate={new Date()}
-          onChange={e => console.log(e)}
-          varient="contained"
-          // forceFocus
-        />
-      </Container>
+      <DateTimePickerField
+        name="test"
+        label="date"
+        initialDate={new Date()}
+        onChange={e => console.log(e)}
+        varient="contained"
+        // forceFocus
+      />
       <TextInputField
         name="test2"
         label="textField"

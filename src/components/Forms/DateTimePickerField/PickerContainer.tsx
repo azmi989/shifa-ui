@@ -27,12 +27,14 @@ export const PickerContainer = () => {
           top="4rem"
           left="0rem"
           width="23rem"
+          height="fit-content"
           transition="transform 100ms ease-in-out"
           transformOrigin="center top"
           transform={containerOpen ? 'scale(1,1)' : 'scale(1,0)'}
           ref={containerRef}
           zIndex="max"
-          style={{ overflow: 'hidden' }}
+          padding="1rem"
+          overflow="hidden"
         >
           <PickerComponent />
         </Container>
