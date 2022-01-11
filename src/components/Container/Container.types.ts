@@ -3,10 +3,7 @@ import {
   BackgroundType,
   BorderType,
   CursorType,
-  FlexContainerType,
-  FlexItemType,
-  GridContainerType,
-  GridItemType,
+  FlexGridType,
   GutterAndSizeType,
   InsetType,
   OverFlowType,
@@ -15,20 +12,12 @@ import {
 } from '../../../types';
 import { ElevationProp } from '../../theme/theme.types';
 
-type Flex =
-  | ({ elementType?: 'item' } & FlexItemType)
-  | ({ elementType?: 'container' } & FlexContainerType);
-type Grid =
-  | ({ elementType?: 'item' } & GridItemType)
-  | ({ elementType?: 'container' } & GridContainerType);
-type ElementFlowType =
-  | ({ flowType?: 'grid' } & Grid)
-  | ({ flowType?: 'flex' } & Flex);
 export type ContainerProps = {
   ref?: ForwardedRef<HTMLDivElement>;
   fillContainer?: boolean;
+  fitContent?: boolean;
   disableGutter?: boolean;
-} & ElementFlowType &
+} & FlexGridType &
   BackgroundType &
   BorderType &
   CursorType &

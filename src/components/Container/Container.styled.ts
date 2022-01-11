@@ -1,13 +1,8 @@
 import styled, { css } from 'styled-components';
-import { ContainerProps } from './Container.types';
 import {
-  StyledGridContainer,
-  StyledGridItem,
-  StyledFlexContainer,
-  StyledFlexItem,
   StyledBackground,
-  StyledBorder,
   StyledCursor,
+  StyledBorder,
   StyledFillAndStroke,
   StyledGutterAndSize,
   StyledInset,
@@ -16,25 +11,11 @@ import {
   StyledTransform,
   StyledTransition,
   StyledElevation,
+  StyledFlexGrid,
 } from '../Styles';
-
+import { ContainerProps } from './Container.types';
 export const StyledContainer = styled.div<ContainerProps>`
-  ${({ flowType, elementType }) =>
-    flowType === 'flex'
-      ? elementType === 'container'
-        ? css`
-            display: flex;
-            ${StyledFlexContainer}
-          `
-        : StyledFlexItem
-      : flowType === 'grid'
-      ? elementType === 'container'
-        ? css`
-            display: grid;
-            ${StyledGridContainer}
-          `
-        : StyledGridItem
-      : undefined}
+  ${StyledFlexGrid}
   ${StyledBackground};
   ${StyledCursor};
   ${StyledBorder};

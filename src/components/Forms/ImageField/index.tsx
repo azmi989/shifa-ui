@@ -26,8 +26,7 @@ export const ImageField = ({
   return (
     <Container
       width="fit-content"
-      flowType="flex"
-      elementType="container"
+      display="flex"
       flexDirection="column"
       rowGap="0.5rem"
     >

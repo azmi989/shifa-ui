@@ -7,7 +7,7 @@ export type { BorderType } from "./border.types";
 export type { CursorType } from "./cursor.types";
 export type { DisplayType } from "./displayNoGridAndFlex.types";
 export type { FillAndStrokeType } from "./fillAndStroke.types";
-export type { FlexItemType, FlexContainerType } from "./flex.types";
+export type { FlexItemType, FlexContainerType,FlexGridType,GridContainerType,GridItemType } from "./flexGrid.types";
 export type {
   FontUnitsType,
   HeightUnitsType,
@@ -27,7 +27,6 @@ export type {
   Opacity,
   WithOpenState,OrientationType
 } from "./generics.types";
-export type { GridContainerType, GridItemType } from "./grid.types";
 export type { GutterAndSizeType } from "./gutterAndSize.types";
 export type { InsetType } from "./inset.types";
 export type { OverFlowType } from "./overflow.types";

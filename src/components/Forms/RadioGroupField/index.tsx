@@ -21,12 +21,7 @@ export const RadioGroupField = ({
     onChange(fieldValue);
   }, [fieldValue, onChange]);
   return (
-    <Container
-      flowType="flex"
-      elementType="container"
-      flexDirection="column"
-      rowGap="0.5rem"
-    >
+    <Container display="flex" flexDirection="column" rowGap="0.5rem">
       <Label
         className="radio-label"
         style={{ width: 'fit-content' }}
@@ -35,8 +30,7 @@ export const RadioGroupField = ({
         {label}
       </Label>
       <Container
-        flowType="flex"
-        elementType="container"
+        display="flex"
         flexDirection="column"
         rowGap="0.5rem"
         margin={`0px calc(${labelMargin || width}px + 10px)`}

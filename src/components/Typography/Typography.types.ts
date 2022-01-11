@@ -1,5 +1,5 @@
 import { ComponentProps, ElementType, LabelHTMLAttributes } from 'react';
-import { FlexContainerType, TextType } from '../../../types';
+import { FlexGridType, TextType } from '../../../types';
 
 export type TypographyComponentType =
   | 'h1'
@@ -12,7 +12,7 @@ export type TypographyComponentType =
 
 type TypographyOwnProps<E extends ElementType> = {
   as?: E;
-} & FlexContainerType;
+} & FlexGridType;
 
 type TypographyNewProps<E extends ElementType> = TypographyOwnProps<E> &
   Omit<Omit<ComponentProps<E>, 'ref'>, keyof TypographyOwnProps<E>>;
@@ -22,5 +22,5 @@ export type TypographyProps<
 > = TypographyNewProps<E> & TextType;
 
 export type LabelProps = TextType &
-  FlexContainerType &
+  FlexGridType &
   LabelHTMLAttributes<HTMLLabelElement>;

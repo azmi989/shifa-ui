@@ -69,8 +69,7 @@ export const PhoneInputField = ({
       ) : (
         <StyledInputContainer
           disableFloat
-          flowType="flex"
-          elementType="container"
+          display="flex"
           flexDirection="row"
           justifyContent="center"
           alignItems="flex-end"

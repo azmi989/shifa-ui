@@ -2,6 +2,7 @@ import React, { Dispatch, SetStateAction, useRef, useState } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
 import { CountryProps } from '.';
 import DropDown from '../../../icons/DropDown';
+import { ButtonVarientType } from '../../Button/Button.types';
 import { StyledSelect } from '../SelectField/Select.styled';
 import { countriesList } from './countriesList';
 
@@ -11,7 +12,7 @@ export const CountrySelect = ({
   setSelectedCountry,
   isError,
 }: {
-  varient?: 'filled' | 'outlined' | 'standard';
+  varient?: ButtonVarientType;
   selectedCountry: Partial<CountryProps>;
   setSelectedCountry: Dispatch<SetStateAction<CountryProps>>;
   isError: boolean;

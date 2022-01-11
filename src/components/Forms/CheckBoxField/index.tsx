@@ -12,8 +12,7 @@ export const CheckBoxField = ({ label, onClick, ...props }: CheckBoxProps) => {
   return (
     <StyledCheckBoxContainer
       checked={props.checked}
-      flowType="flex"
-      elementType="container"
+      display="flex"
       flexDirection="row-reverse"
       justifyContent="start"
       alignItems="center"

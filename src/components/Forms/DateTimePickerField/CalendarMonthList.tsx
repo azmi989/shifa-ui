@@ -13,23 +13,29 @@ export const CalendarMonthList = ({
     DateTimePickerContex
   );
   return (
-    <>
+    <Container
+      fillContainer
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+      rowGap="1rem"
+    >
       <Container disableGutter>
         <IconButton
           rounded="rectangle"
           icon={
             type === 'date' || type === 'date-time' ? <DateIcon /> : <Clock />
           }
-          size="s"
-          onClick={() => setCurrentTab(0)}
+          size="md"
+          onClick={() => setCurrentTab(1)}
         />
       </Container>
       <Container
         disableGutter
         paddingBlock="0.5rem"
         height="100%"
-        flowType="grid"
-        elementType="container"
+        display="grid"
         gridTemplateColumns="repeat(3,auto)"
         gridGap="2rem"
       >
@@ -40,6 +46,7 @@ export const CalendarMonthList = ({
             varient="base"
             elevation="none"
             textTransform="capitalize"
+            width="100%"
             onClick={() => {
               goToMonth(new Date(yearProps.year, month.monthNumber - 1));
               setCurrentCalendarTab(1);
@@ -49,6 +56,6 @@ export const CalendarMonthList = ({
           </Button>
         ))}
       </Container>
-    </>
+    </Container>
   );
 };

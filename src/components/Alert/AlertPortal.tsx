@@ -26,8 +26,7 @@ const AlertPortal = forwardRef<AlertFunctionProps, AlertPortalProps>(
     return loaded && portal ? (
       ReactDOM.createPortal(
         <StyledPortal
-          flowType="flex"
-          elementType="container"
+          display="flex"
           flexDirection={
             origin.slice(0, 6) === 'bottom' ? 'column-reverse' : 'column'
           }

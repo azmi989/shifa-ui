@@ -33,6 +33,7 @@ export const FileField = ({
   };
   return (
     <Container
+      display="flex"
       flexDirection="column"
       rowGap="1rem"
       width="fit-content"
@@ -42,6 +43,7 @@ export const FileField = ({
         {fieldError ? fieldErrorMessage : label}
       </Label>
       <Container
+        display="flex"
         flexDirection="column"
         justifyContent="center"
         alignItems="flex-start"

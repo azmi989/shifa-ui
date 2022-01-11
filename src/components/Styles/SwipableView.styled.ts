@@ -1,25 +1,10 @@
 import styled, { css } from 'styled-components';
 import { DirectionsLR, DirectionsTB } from '../../../types';
-import { ContainerProps } from '../Container/Container.types';
-import {
-  StyledBackground,
-  StyledCursor,
-  StyledBorder,
-  StyledFillAndStroke,
-  StyledGutterAndSize,
-  StyledInset,
-  StyledOverflow,
-  StyledElevation,
-  StyledFlexContainer,
-  StyledGridContainer,
-} from '.';
-import { CSSProperties } from 'react';
 type Props = {
   currentTabID: number;
   tab: number;
   direction: DirectionsTB | DirectionsLR;
-} & ContainerProps &
-  Pick<CSSProperties, 'display'>;
+};
 
 const StyledSwipableView = styled.div<Props>`
   ${({ currentTabID, direction, tab }) => {
@@ -57,60 +42,37 @@ const StyledSwipableView = styled.div<Props>`
           return css`
             transform: translateY(2000%);
             transform-origin: center bottom;
+            position: fixed;
           `;
         case 'bottom':
           return css`
             transform: translateY(-2000%);
             transform-origin: center top;
+            position: fixed;
           `;
         case 'left':
           return css`
             transform: translateX(2000%);
             transform-origin: right center;
+            position: fixed;
           `;
         case 'right':
           return css`
             transform: translateX(-2000%);
             transform-origin: left center;
+            position: fixed;
           `;
         default:
           return css`
             transform: translateX(2000%);
             transform-origin: left center;
+            position: fixed;
           `;
       }
     }
   }}
+  height:100%;
+  width: 100%;
   transition: transform 400ms ease;
-  display: ${({ display }) => display || 'flex'};
-  ${StyledBackground};
-  ${StyledCursor};
-  ${StyledBorder};
-  ${StyledFillAndStroke};
-  ${StyledGutterAndSize};
-  ${StyledInset};
-  ${StyledOverflow};
-  ${StyledElevation};
-  ${StyledFlexContainer}
-  ${StyledGridContainer}
-  ${({ transform, transformBox, transformOrigin, transformStyle }) => css`
-    transform: ${transform};
-    transform-box: ${transformBox};
-    transform-origin: ${transformOrigin};
-    transform-style: ${transformStyle};
-  `};
-  ${({
-    transition,
-    transitionDelay,
-    transitionDuration,
-    transitionProperty,
-    transitionTimingFunction,
-  }) => css`
-    transition: ${transition};
-    transition-delay: ${transitionDelay};
-    transition-duration: ${transitionDuration};
-    transition-property: ${transitionProperty};
-    transition-timing-function: ${transitionTimingFunction};
-  `}
 `;
 export default StyledSwipableView;

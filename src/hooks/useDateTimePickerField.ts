@@ -35,13 +35,12 @@ type ReturnProps = {
   pickerCurrentTab: number;
   setPickerCurrentTab: Dispatch<SetStateAction<number>>;
   matchesScreen: boolean;
-  onChange: (date: Date) => void;
 };
 
 export const useDateTimePickerField = ({
   timeFormat = '12',
-  onChange,
   date,
+  onChange,
 }: Props): ReturnProps => {
   const [containerOpen, setContainerOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -71,6 +70,9 @@ export const useDateTimePickerField = ({
   useOnClickOutside(containerRef, () => {
     setContainerOpen(false);
   });
+  useEffect(() => {
+    date && onChange(date);
+  }, [date]);
   return {
     containerOpen,
     containerRef,
@@ -90,6 +92,5 @@ export const useDateTimePickerField = ({
     pickerCurrentTab,
     setPickerCurrentTab,
     matchesScreen,
-    onChange,
   };
 };

@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import TypographyBase from './Base';
-import { StyledFlexContainer, StyledText } from '../Styles';
 import { TypographyComponentType, TypographyProps } from './Typography.types';
 import { ThemeTextType } from '../../theme/theme.types';
+import { StyledFlexGrid, StyledText } from '../Styles';
 
 const StyledTypographyBase = styled(TypographyBase)<
   TypographyProps<TypographyComponentType>
 >`
-  ${StyledFlexContainer}
+  ${StyledFlexGrid}
   ${StyledText}
 `;
 

@@ -27,7 +27,6 @@ const App = () => {
         label="textField"
         varient="base"
         // disableFloat
-        forceFocus
       />
       <Label>hiiiiiiiiiiiii</Label>
       <IconButton icon={<DateIcon />} />

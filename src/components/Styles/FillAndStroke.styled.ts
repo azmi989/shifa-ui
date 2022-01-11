@@ -4,17 +4,31 @@ import { getColor } from '../../theme/utils';
 import { FillAndStrokeType } from '../../../types';
 
 export const StyledFillAndStroke = css<FillAndStrokeType>`
-  fill: ${({ fill, fillVarient }) => getColor(fill, fillVarient)};
-  fill-opacity: ${({ fillOpacity }) =>
-    fillOpacity ? defaultTheme.opacity[fillOpacity] : undefined};
-  fill-rule: ${({ fillRule }) => fillRule};
-  stroke: ${({ stroke, strokeVarient }) => getColor(stroke, strokeVarient)};
-  stroke-dasharray: ${({ strokeDasharray }) => strokeDasharray};
-  stroke-dashoffset: ${({ strokeDashoffset }) => strokeDashoffset};
-  stroke-linecap: ${({ strokeLinecap }) => strokeLinecap};
-  stroke-linejoin: ${({ strokeLinejoin }) => strokeLinejoin};
-  stroke-miterlimit: ${({ strokeMiterlimit }) => strokeMiterlimit};
-  stroke-opacity: ${({ strokeOpacity }) =>
-    strokeOpacity ? defaultTheme.opacity[strokeOpacity] : undefined};
-  stroke-width: ${({ strokeWidth }) => strokeWidth};
+  ${({
+    fill,
+    fillVarient,
+    fillOpacity,
+    stroke,
+    strokeVarient,
+    strokeOpacity,
+    fillRule,
+    strokeDasharray,
+    strokeDashoffset,
+    strokeLinecap,
+    strokeLinejoin,
+    strokeMiterlimit,
+    strokeWidth,
+  }) => css`
+    fill: ${getColor(fill, fillVarient)};
+    fill-opacity: ${fillOpacity && defaultTheme.opacity[fillOpacity]};
+    fill-rule: ${fillRule};
+    stroke: ${getColor(stroke, strokeVarient)};
+    stroke-dasharray: ${strokeDasharray};
+    stroke-dashoffset: ${strokeDashoffset};
+    stroke-linecap: ${strokeLinecap};
+    stroke-linejoin: ${strokeLinejoin};
+    stroke-miterlimit: ${strokeMiterlimit};
+    stroke-opacity: ${strokeOpacity && defaultTheme.opacity[strokeOpacity]};
+    stroke-width: ${strokeWidth};
+  `}
 `;

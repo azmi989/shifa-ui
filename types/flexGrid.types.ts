@@ -1,5 +1,22 @@
 import { CSSProperties } from 'react';
 
+export type FlexContainerType = Pick<
+  CSSProperties,
+  | 'flexDirection'
+  | 'flexWrap'
+  | 'flexFlow'
+  | 'alignItems'
+  | 'justifyContent'
+  | 'alignContent'
+  | 'gap'
+  | 'rowGap'
+  | 'columnGap'
+>;
+
+export type FlexItemType = Pick<
+  CSSProperties,
+  'order' | 'flexGrow' | 'flexShrink' | 'flexBasis' | 'flex' | 'alignSelf'
+>;
 export type GridContainerType = Pick<
   CSSProperties,
   | 'gridTemplateColumns'
@@ -34,10 +51,8 @@ export type GridItemType = Pick<
   | 'alignSelf'
   | 'placeSelf'
 >;
-
-// export type GridItem = {
-//   elementType: "item";
-// } & GridItemType;
-// export type GridContainer = { elementType: "container" } & GridContainerType;
-
-// export type GridType = GridContainer | GridItem;
+export type FlexGridType = Pick<CSSProperties, 'display'> &
+  FlexItemType &
+  FlexContainerType &
+  GridItemType &
+  GridContainerType;

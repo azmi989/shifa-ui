@@ -6,6 +6,7 @@ import {
 
 export const defaultLabelProps = ({
   textProps = 'body2',
+  display = 'flex',
   justifyContent = 'center',
   alignItems = 'center',
   style,
@@ -15,6 +16,7 @@ export const defaultLabelProps = ({
     textProps,
     justifyContent,
     alignItems,
+    display,
     style: {
       height: 'fit-content',
       width: 'fit-content',
@@ -27,6 +29,7 @@ export const defaultLabelProps = ({
 export const defaultTypographyProps = ({
   as,
   textProps,
+  display = 'flex',
   justifyContent = 'center',
   alignItems = 'center',
   style,
@@ -38,6 +41,7 @@ export const defaultTypographyProps = ({
     case 'h1':
       textProps = 'h1';
       return {
+        display,
         textProps,
         justifyContent,
         alignItems,
@@ -50,6 +54,7 @@ export const defaultTypographyProps = ({
     case 'h2':
       textProps = 'h2';
       return {
+        display,
         textProps,
         justifyContent,
         alignItems,
@@ -62,6 +67,7 @@ export const defaultTypographyProps = ({
     case 'h3':
       textProps = 'h3';
       return {
+        display,
         textProps,
         justifyContent,
         alignItems,
@@ -74,6 +80,7 @@ export const defaultTypographyProps = ({
     case 'h4':
       textProps = 'h4';
       return {
+        display,
         textProps,
         justifyContent,
         alignItems,
@@ -86,6 +93,7 @@ export const defaultTypographyProps = ({
     case 'h5':
       textProps = 'h5';
       return {
+        display,
         textProps,
         justifyContent,
         alignItems,
@@ -98,6 +106,7 @@ export const defaultTypographyProps = ({
     case 'h6':
       textProps = 'h6';
       return {
+        display,
         textProps,
         justifyContent,
         alignItems,
@@ -110,6 +119,7 @@ export const defaultTypographyProps = ({
     case 'p':
       textProps = 'body1';
       return {
+        display,
         textProps,
         justifyContent,
         alignItems,
@@ -122,6 +132,7 @@ export const defaultTypographyProps = ({
     default:
       textProps = 'body1';
       return {
+        display,
         textProps,
         justifyContent,
         alignItems,

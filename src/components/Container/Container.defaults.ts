@@ -1,9 +1,8 @@
 import { ContainerProps } from './Container.types';
 
 export const containerDefaults = ({
-  flowType = 'flex',
-  elementType = 'container',
-  fillContainer = true,
+  fillContainer,
+  fitContent,
   cursor = 'default',
   disableGutter = false,
   width = 'fit-content',
@@ -11,11 +10,11 @@ export const containerDefaults = ({
   ...props
 }: ContainerProps): ContainerProps => {
   return {
-    flowType,
-    elementType,
-    height: fillContainer ? height || '100%' : height,
-    width: fillContainer ? width || '100%' : width,
+    height: fillContainer ? '100%' : fitContent ? 'fit-content' : height,
+    width: fillContainer ? '100%' : fitContent ? 'fit-content' : width,
     disableGutter,
+    fitContent,
+    fillContainer,
     ...props,
   };
 };

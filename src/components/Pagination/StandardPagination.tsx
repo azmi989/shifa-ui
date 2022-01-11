@@ -25,8 +25,7 @@ const StandardPagination = ({
   }
   return (
     <Container
-      flowType="flex"
-      elementType="container"
+      display="flex"
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
@@ -35,6 +34,7 @@ const StandardPagination = ({
     >
       <Container {...container}>{currentItems.map(item => item)}</Container>
       <Container
+        display="flex"
         flexDirection="row"
         justifyContent="space-evenly"
         alignItems="center"

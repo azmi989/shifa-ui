@@ -71,8 +71,7 @@ export const FormElementContainer: FC<Props> = ({
         </StyledFieldset>
       ) : (
         <StyledInputContainer
-          flowType="flex"
-          elementType="container"
+          display="flex"
           flexDirection="column"
           justifyContent="end"
           varient={varient}

@@ -20,7 +20,7 @@ export const CheckBoxGroupField = ({
     onChange(optionsValue);
   }, [optionsValue, onChange]);
   return (
-    <Container flowType="flex" elementType="container" flexDirection="column">
+    <Container display="flex" flexDirection="column">
       <Label
         className="checkbox-label"
         style={{ width: 'fit-content' }}
@@ -29,8 +29,7 @@ export const CheckBoxGroupField = ({
         {label}
       </Label>
       <Container
-        flowType="flex"
-        elementType="container"
+        display="flex"
         flexDirection="column"
         rowGap="0.5rem"
         margin={`0px calc(${labelMargin || width}px + 10px)`}

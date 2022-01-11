@@ -2,54 +2,64 @@ import { css } from 'styled-components';
 import { GutterAndSizeType } from '../../../types';
 
 export const StyledGutterAndSize = css<GutterAndSizeType>`
-  margin: ${({ margin, disableGutter }) =>
-    disableGutter ? undefined : margin};
-  margin-block: ${({ marginBlock, disableGutter }) =>
-    disableGutter ? undefined : marginBlock};
-  margin-block-end: ${({ marginBlockEnd, disableGutter }) =>
-    disableGutter ? undefined : marginBlockEnd};
-  margin-block-start: ${({ marginBlockStart, disableGutter }) =>
-    disableGutter ? undefined : marginBlockStart};
-  margin-bottom: ${({ marginBottom, disableGutter }) =>
-    disableGutter ? undefined : marginBottom};
-  margin-inline: ${({ marginInline, disableGutter }) =>
-    disableGutter ? undefined : marginInline};
-  margin-inline-end: ${({ marginInlineEnd, disableGutter }) =>
-    disableGutter ? undefined : marginInlineEnd};
-  margin-inline-start: ${({ marginInlineStart, disableGutter }) =>
-    disableGutter ? undefined : marginInlineStart};
-  margin-left: ${({ marginLeft, disableGutter }) =>
-    disableGutter ? undefined : marginLeft};
-  margin-right: ${({ marginRight, disableGutter }) =>
-    disableGutter ? undefined : marginRight};
-  margin-top: ${({ marginTop, disableGutter }) =>
-    disableGutter ? undefined : marginTop};
-  padding: ${({ padding, disableGutter }) =>
-    disableGutter ? undefined : padding};
-  padding-block: ${({ paddingBlock, disableGutter }) =>
-    disableGutter ? undefined : paddingBlock};
-  padding-block-end: ${({ paddingBlockEnd, disableGutter }) =>
-    disableGutter ? undefined : paddingBlockEnd};
-  padding-block-start: ${({ paddingBlockStart, disableGutter }) =>
-    disableGutter ? undefined : paddingBlockStart};
-  padding-bottom: ${({ paddingBottom, disableGutter }) =>
-    disableGutter ? undefined : paddingBottom};
-  padding-inline: ${({ paddingInline, disableGutter }) =>
-    disableGutter ? undefined : paddingInline};
-  padding-inline-end: ${({ paddingInlineEnd, disableGutter }) =>
-    disableGutter ? undefined : paddingInlineEnd};
-  padding-inline-start: ${({ paddingInlineStart, disableGutter }) =>
-    disableGutter ? undefined : paddingInlineStart};
-  padding-left: ${({ paddingLeft, disableGutter }) =>
-    disableGutter ? undefined : paddingLeft};
-  padding-right: ${({ paddingRight, disableGutter }) =>
-    disableGutter ? undefined : paddingRight};
-  padding-top: ${({ paddingTop, disableGutter }) =>
-    disableGutter ? undefined : paddingTop};
-  height: ${({ height }) => height};
-  max-height: ${({ maxHeight }) => maxHeight};
-  min-height: ${({ minHeight }) => minHeight};
-  width: ${({ width }) => width};
-  max-width: ${({ maxWidth }) => maxWidth};
-  min-width: ${({ minWidth }) => minWidth};
+  ${({
+    margin,
+    marginBlock,
+    marginBlockEnd,
+    marginBlockStart,
+    marginBottom,
+    marginInline,
+    marginInlineEnd,
+    marginInlineStart,
+    marginLeft,
+    marginRight,
+    marginTop,
+    padding,
+    paddingBlock,
+    paddingBlockEnd,
+    paddingBlockStart,
+    paddingBottom,
+    paddingInline,
+    paddingInlineEnd,
+    paddingInlineStart,
+    paddingLeft,
+    paddingRight,
+    paddingTop,
+    disableGutter,
+    height,
+    maxHeight,
+    minHeight,
+    width,
+    maxWidth,
+    minWidth,
+  }) => css`
+    margin: ${!disableGutter && margin};
+    margin-block: ${!disableGutter && marginBlock};
+    margin-block-end: ${!disableGutter && marginBlockEnd};
+    margin-block-start: ${!disableGutter && marginBlockStart};
+    margin-bottom: ${!disableGutter && marginBottom};
+    margin-inline: ${!disableGutter && marginInline};
+    margin-inline-end: ${!disableGutter && marginInlineEnd};
+    margin-inline-start: ${!disableGutter && marginInlineStart};
+    margin-left: ${!disableGutter && marginLeft};
+    margin-right: ${!disableGutter && marginRight};
+    margin-top: ${!disableGutter && marginTop};
+    padding: ${!disableGutter && padding};
+    padding-block: ${!disableGutter && paddingBlock};
+    padding-block-end: ${!disableGutter && paddingBlockEnd};
+    padding-block-start: ${!disableGutter && paddingBlockStart};
+    padding-bottom: ${!disableGutter && paddingBottom};
+    padding-inline: ${!disableGutter && paddingInline};
+    padding-inline-end: ${!disableGutter && paddingInlineEnd};
+    padding-inline-start: ${!disableGutter && paddingInlineStart};
+    padding-left: ${!disableGutter && paddingLeft};
+    padding-right: ${!disableGutter && paddingRight};
+    padding-top: ${!disableGutter && paddingTop};
+    height: ${height};
+    max-height: ${maxHeight};
+    min-height: ${minHeight};
+    width: ${width};
+    max-width: ${maxWidth};
+    min-width: ${minWidth};
+  `}
 `;

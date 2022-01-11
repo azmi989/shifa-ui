@@ -1,5 +1,5 @@
-import React, { Dispatch, SetStateAction, useContext } from 'react';
-import { Button, Container, IconButton, Label } from '../..';
+import React, { useContext } from 'react';
+import { Container, IconButton, Button, Label } from '../..';
 import ExpandLess from '../../../icons/ExpandLess';
 import ExpandMore from '../../../icons/ExpandMore';
 import { DateTimePickerContex } from './DateTimePickerContex';
@@ -8,23 +8,29 @@ import { StyledGeneralLabel } from './StyledGeneralLabel.styled';
 export const CalendarMain = ({
   setCurrentTab,
 }: {
-  setCurrentTab: Dispatch<SetStateAction<number>>;
+  setCurrentTab: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   const {
-    yearProps,
     goToPrevMonth,
+    yearProps,
+    monthProps,
     goToNextMonth,
     weekDays,
-    monthProps,
     lang,
     matchesScreen,
-    date,
     renderMonth,
     selectDate,
+    date,
   } = useContext(DateTimePickerContex);
   return (
-    <>
+    <Container
+      fillContainer
+      display="flex"
+      flexDirection="column"
+      rowGap="1rem"
+    >
       <Container
+        display="flex"
         justifyContent="space-between"
         id="calendar-head-nav"
         width="100%"
@@ -43,7 +49,7 @@ export const CalendarMain = ({
             size="xs"
             varient="base"
             elevation="none"
-            onClick={() => setCurrentTab(2)}
+            onClick={() => setCurrentTab(3)}
             textTransform="capitalize"
           >
             {yearProps.year},
@@ -52,7 +58,7 @@ export const CalendarMain = ({
             size="xs"
             varient="base"
             elevation="none"
-            onClick={() => setCurrentTab(1)}
+            onClick={() => setCurrentTab(2)}
             textTransform="capitalize"
           >
             {monthProps.month}
@@ -70,8 +76,7 @@ export const CalendarMain = ({
       </Container>
       <Container
         id="weekdays"
-        flowType="grid"
-        elementType="container"
+        display="grid"
         gridTemplateRows="1fr"
         gridTemplateColumns="repeat(7,1fr)"
         height="100%"
@@ -88,8 +93,7 @@ export const CalendarMain = ({
         ))}
       </Container>
       <Container
-        flowType="grid"
-        elementType="container"
+        display="grid"
         justifyContent="center"
         alignItems="center"
         gridTemplateColumns="repeat(7,1fr)"
@@ -99,22 +103,20 @@ export const CalendarMain = ({
         height="100%"
         width="100%"
       >
-        {renderMonth.map(day => {
-          return (
-            <StyledGeneralLabel
-              disabled={day.month !== monthProps.monthNumber}
-              onClick={() => selectDate(day.date)}
-              selected={
-                date.getDate() === day.date && date.getMonth() + 1 === day.month
-              }
-              key={`${day.month}-${day.date}`}
-              style={{ placeSelf: 'center' }}
-            >
-              {day.date}
-            </StyledGeneralLabel>
-          );
-        })}
+        {renderMonth.map(day => (
+          <StyledGeneralLabel
+            disabled={day.month !== monthProps.monthNumber}
+            onClick={() => selectDate(day.date)}
+            selected={
+              date.getDate() === day.date && date.getMonth() + 1 === day.month
+            }
+            key={`${day.month}-${day.date}`}
+            style={{ placeSelf: 'center' }}
+          >
+            {day.date}
+          </StyledGeneralLabel>
+        ))}
       </Container>
-    </>
+    </Container>
   );
 };

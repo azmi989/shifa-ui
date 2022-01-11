@@ -19,7 +19,7 @@ export const StyledGeneralLabel = styled.p<StyledGeneralLabelProps>`
     selected
       ? css`
           border-radius: ${getBorderRadius('circle')};
-          background-color: getColor('error', 600);
+          background-color: ${getColor('primary', undefined, '50%')};
         `
       : css`
           border-radius: ${getBorderRadius('rectangle')};

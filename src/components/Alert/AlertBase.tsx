@@ -24,8 +24,6 @@ const AlertBase: FC<AlertProps> = ({
   return (
     <Container
       className={origin}
-      flowType="flex"
-      elementType="container"
       flexDirection="column"
       justifyContent="center"
       alignItems="flex-start"

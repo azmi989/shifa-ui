@@ -19,8 +19,7 @@ export const PickerContainer = () => {
           borderRadius="s"
           elevation={2}
           position="absolute"
-          flowType="flex"
-          elementType="container"
+          display="flex"
           flexDirection="column"
           justifyContent="flex-end"
           alignItems="center"

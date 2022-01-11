@@ -1,11 +1,10 @@
 import React, { Dispatch, FC, SetStateAction, useContext } from 'react';
-import { usePickerInput } from '../../../hooks';
-import { DateTimePickerContex } from './DateTimePickerContex';
-import { IconButton } from '../../';
-import DateIcon from '../../../icons/DateIcon';
-import Clock from '../../../icons/Clock';
-import { Container } from '../../Container';
 import { TextInputField } from '..';
+import { Container, IconButton } from '../..';
+import { usePickerInput } from '../../../hooks';
+import Clock from '../../../icons/Clock';
+import DateIcon from '../../../icons/DateIcon';
+import { DateTimePickerContex } from './DateTimePickerContex';
 
 export const PickerInput: FC<{
   setContainerOpen: Dispatch<SetStateAction<boolean>>;
@@ -22,7 +21,7 @@ export const PickerInput: FC<{
   } = useContext(DateTimePickerContex);
 
   return (
-    <Container id="container" position="relative" width="100%">
+    <Container id="picker-inputContainer" position="relative" width="100%">
       <TextInputField
         name="dateTimePickerInput"
         varient={inputVarient}
@@ -30,7 +29,6 @@ export const PickerInput: FC<{
         disableFloat
         forceFocus
         isError={isError}
-        // width="100%"
         renderElement={
           <IconButton
             varient="contained"

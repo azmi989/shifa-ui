@@ -1,11 +1,8 @@
 import React from 'react';
 import useTaqweem from 'react-taqweem';
-import { Modal, Container, TextInputField } from '../..';
 import { useDateTimePickerField } from '../../../hooks';
-import { StyledInputContainer } from '../InputContainer.styled';
 import { DateTimePickerType } from './DateTimePicker.types';
 import { DateTimePickerContexProvider } from './DateTimePickerContex';
-import { PickerComponent } from './PickerComponent';
 import { PickerContainer } from './PickerContainer';
 import { PickerInput } from './PickerInput';
 

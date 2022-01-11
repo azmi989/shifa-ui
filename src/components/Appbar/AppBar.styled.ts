@@ -3,8 +3,7 @@ import {
   StyledBackground,
   StyledBorder,
   StyledElevation,
-  StyledFlexContainer,
-  StyledFlexItem,
+  StyledFlexGrid,
   StyledGutterAndSize,
 } from '../Styles';
 import { AppBarProps, NavProps } from './Appbar.types';
@@ -25,15 +24,14 @@ export const StyledAppBar = styled.header<AppBarProps>`
   ${StyledBorder}
   ${StyledElevation}
   ${StyledGutterAndSize}
-  ${StyledFlexContainer}
+  ${StyledFlexGrid}
 `;
 
 const StyledNav = styled.nav<NavProps>`
-  ${StyledFlexItem}
   ${StyledBackground}
   ${StyledBorder}
   ${StyledElevation}
   ${StyledGutterAndSize}
-  ${StyledFlexContainer}
+  ${StyledFlexGrid}
 `;
 export default StyledNav;
