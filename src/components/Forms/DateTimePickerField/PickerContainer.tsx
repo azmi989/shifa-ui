@@ -18,7 +18,7 @@ const PickerContainerToMemo = () => {
             flexDirection: 'column',
             justifyContent: type === 'date-time' ? 'flex-end' : 'center',
             alignItems: 'center',
-            width: '23rem',
+            width: '95%',
             height: '23rem',
             padding: '1rem',
             overflow: 'hidden',
