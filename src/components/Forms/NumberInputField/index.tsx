@@ -1,5 +1,6 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { Container, IconButton } from '../..';
+import { useNumberInputField } from '../../../hooks';
 import ExpandLess from '../../../icons/ExpandLess';
 import ExpandMore from '../../../icons/ExpandMore';
 import { FormElementContainer } from '../FormElementContainer';
@@ -16,13 +17,13 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
   onChange,
   ...props
 }) => {
-  const [newValue, setValue] = useState(Number(props.min) || value);
-  useEffect(() => {
-    onChange && onChange(newValue);
-  }, [newValue]);
-  const increase = () => {
-    set
-  }
+  const { increase, decrease, newValue, setValue } = useNumberInputField(
+    value,
+    props.min,
+    props.max,
+    props.step,
+    onChange
+  );
   return (
     <FormElementContainer
       name={props.name}
@@ -39,17 +40,13 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
           rounded="rectangle"
           transform="scale(0.8)"
           icon={<ExpandLess />}
-          onClick={() => setValue(prev => {
-
-            props.min ? props.step ? undefined : props.max ? undefined
-
-          })}
+          onClick={increase}
         />
         <IconButton
           rounded="rectangle"
           transform="scale(0.8)"
           icon={<ExpandMore />}
-          onClick={() => setValue(prev => (prev -= 1))}
+          onClick={decrease}
         />
       </Container>
       <StyledInput

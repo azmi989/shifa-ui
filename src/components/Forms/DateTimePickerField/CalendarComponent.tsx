@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { Container } from '../..';
 import { StyledSwipableView } from '../../Styles';
 import { CalendarMain } from './CalendarMain';
 import { CalendarMonthList } from './CalendarMonthList';
 import { CalendatYearsList } from './CalendatYearsList';
 
-export const CalendarComponent = () => {
+const CalendarComponentToMemo = () => {
   const [currentTab, setCurrentTab] = useState(1);
   return (
     <Container width="100%" minHeight="18rem" overflow="hidden">
@@ -21,3 +21,5 @@ export const CalendarComponent = () => {
     </Container>
   );
 };
+
+export const CalendarComponent = memo(CalendarComponentToMemo);

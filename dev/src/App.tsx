@@ -42,7 +42,14 @@ const App = () => {
       <Button varient="outlined" backgroundColor="success" active>
         hi
       </Button>
-      <NumberInputField name="hi" label="hihi" onChange={e => console.log(e)} />
+      <NumberInputField
+        name="hi"
+        label="hihi"
+        onChange={e => console.log(e)}
+        step={5}
+        min={5}
+        max={23}
+      />
     </div>
   );
 };

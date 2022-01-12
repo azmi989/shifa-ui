@@ -1,11 +1,11 @@
-import React, { Dispatch, SetStateAction, useContext } from 'react';
+import React, { Dispatch, memo, SetStateAction, useContext } from 'react';
 import { DateTimePickerContex } from './DateTimePickerContex';
 import { Button, Container, IconButton } from '../../';
 import Clock from '../../../icons/Clock';
 import DateIcon from '../../../icons/DateIcon';
 import { StandardPagination } from '../../Pagination';
 
-export const CalendatYearsList = ({
+const CalendatYearsListToMemo = ({
   setCurrentTab,
 }: {
   setCurrentTab: Dispatch<SetStateAction<number>>;
@@ -71,3 +71,5 @@ export const CalendatYearsList = ({
     </Container>
   );
 };
+
+export const CalendatYearsList = memo(CalendatYearsListToMemo);

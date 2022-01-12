@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { memo, useContext } from 'react';
 import { Container, IconButton } from '../..';
 import Clock from '../../../icons/Clock';
 import DateIcon from '../../../icons/DateIcon';
@@ -7,7 +7,7 @@ import { CalendarComponent } from './CalendarComponent';
 import { ClockComponent } from './ClockComponent';
 import { DateTimePickerContex } from './DateTimePickerContex';
 
-export const PickerComponent = () => {
+const PickerComponentToMemo = () => {
   const { type, pickerCurrentTab, setPickerCurrentTab } = useContext(
     DateTimePickerContex
   );
@@ -57,3 +57,4 @@ export const PickerComponent = () => {
       );
   }
 };
+export const PickerComponent = memo(PickerComponentToMemo);

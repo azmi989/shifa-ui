@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React, { memo, useContext } from 'react';
 import { Container, IconButton, Button, Label } from '../..';
 import ExpandLess from '../../../icons/ExpandLess';
 import ExpandMore from '../../../icons/ExpandMore';
 import { DateTimePickerContex } from './DateTimePickerContex';
 import { StyledGeneralLabel } from './StyledGeneralLabel.styled';
 
-export const CalendarMain = ({
+const CalendarMainToMemo = ({
   setCurrentTab,
 }: {
   setCurrentTab: React.Dispatch<React.SetStateAction<number>>;
@@ -121,3 +121,5 @@ export const CalendarMain = ({
     </Container>
   );
 };
+
+export const CalendarMain = memo(CalendarMainToMemo);

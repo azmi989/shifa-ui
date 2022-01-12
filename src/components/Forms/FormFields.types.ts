@@ -57,8 +57,14 @@ export type TextAreaFieldProps = CommonFieldProps &
 export type NumberInputFieldProps = {
   value?: number;
   onChange: (number: number) => void;
+  min?: number;
+  max?: number;
+  step?: number;
 } & Omit<CommonFieldProps, 'type'> &
-  Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'value' | 'onChange'>;
+  Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'type' | 'value' | 'onChange' | 'min' | 'max' | 'step'
+  >;
 
 export type PhoneInputFieldProps = {
   onChange: (phone: string) => void;

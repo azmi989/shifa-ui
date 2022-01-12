@@ -1,13 +1,12 @@
-import React, { ChangeEvent, useContext, FocusEvent } from 'react';
-import { Container, NumberInputField, TextInputField, Typography } from '../..';
+import React, { useContext, FocusEvent, memo } from 'react';
+import { Container, NumberInputField, Typography } from '../..';
 import { Arrow } from '../../../assets/images/svg/Arrow';
-import Clock from '../../../icons/Clock';
+import Clock from '../../../assets/images/svg/Clock/Clock';
 import { getColor } from '../../../theme/utils';
 import { StyledPaginationButton } from '../../Pagination/PaginationButton.styled';
-import { StyledInputContainer, StyledInput } from '../InputContainer.styled';
 import { DateTimePickerContex } from './DateTimePickerContex';
 
-export const ClockComponent = () => {
+export const ClockComponentToMemo = () => {
   const {
     date,
     timeFormat,
@@ -139,3 +138,4 @@ export const ClockComponent = () => {
     </Container>
   );
 };
+export const ClockComponent = memo(ClockComponentToMemo);

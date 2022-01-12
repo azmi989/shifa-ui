@@ -5,4 +5,5 @@ export { useAlerts } from './useAlerts';
 export { useImageCrop } from './useImageCrop';
 export { useModalPortal, useModalPortalRef } from './useModalPortal';
 export { useModal } from './useModal';
+export { useNumberInputField } from './useNumberInputField';
 export { usePickerInput } from './usePickerInput';
