@@ -11,7 +11,7 @@ export const CalendatYearsList = ({
   setCurrentTab: Dispatch<SetStateAction<number>>;
 }) => {
   const currentYear = new Date().getFullYear();
-  const { goToYear, type } = useContext(DateTimePickerContex);
+  const { goToYear, type, yearProps } = useContext(DateTimePickerContex);
 
   const maxYear = currentYear + 10;
   const minYear = currentYear - 70;
@@ -40,7 +40,9 @@ export const CalendatYearsList = ({
       </Container>
       <StandardPagination
         pageSize={12}
+        fillContainer
         container={{
+          fillContainer: true,
           display: 'grid',
           paddingBlock: '2rem',
           gridTemplateColumns: 'repeat(4,auto)',
@@ -56,6 +58,7 @@ export const CalendatYearsList = ({
             varient="base"
             elevation="none"
             textTransform="capitalize"
+            active={year === yearProps.year}
             onClick={() => {
               goToYear(new Date(year, 0, 1));
               setCurrentTab(1);

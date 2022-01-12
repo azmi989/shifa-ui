@@ -29,6 +29,9 @@ export const PickerInput: FC<{
         disableFloat
         forceFocus
         isError={isError}
+        onFocus={() =>
+          isMobile ? modalRef.current?.openModal() : setContainerOpen(true)
+        }
         renderElement={
           <IconButton
             varient="contained"

@@ -22,6 +22,7 @@ export type ButtonProps = {
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   hover?: boolean;
+  active?: boolean;
 } & CursorType &
   BackgroundType &
   ElevationProp &

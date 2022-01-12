@@ -3,11 +3,9 @@ import {
   StyledBackground,
   StyledCursor,
   StyledBorder,
-  StyledFillAndStroke,
   StyledGutterAndSize,
   StyledInset,
   StyledOverflow,
-  StyledText,
   StyledTransform,
   StyledTransition,
   StyledElevation,
@@ -19,11 +17,9 @@ export const StyledContainer = styled.div<ContainerProps>`
   ${StyledBackground};
   ${StyledCursor};
   ${StyledBorder};
-  ${StyledFillAndStroke};
   ${StyledGutterAndSize};
   ${StyledInset};
   ${StyledOverflow};
-  ${StyledText};
   ${StyledTransform};
   ${StyledTransition};
   ${StyledElevation}

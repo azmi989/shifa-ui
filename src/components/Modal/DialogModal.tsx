@@ -23,8 +23,7 @@ export const DialogModal: FC<DialogModalProps> = ({
   return (
     <>
       <Container
-        flowType="grid"
-        elementType="container"
+        display="grid"
         gridGap="0.5rem"
         gridTemplateRows="auto auto auto"
         gridTemplateColumns="1fr"
@@ -34,8 +33,7 @@ export const DialogModal: FC<DialogModalProps> = ({
         <Divider />
         <Typography style={{ padding: '0 1rem' }}>{message}</Typography>
         <Container
-          flowType="flex"
-          elementType="container"
+          display="flex"
           justifyContent="space-between"
           alignItems="center"
         >

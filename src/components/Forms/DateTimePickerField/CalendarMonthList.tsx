@@ -9,9 +9,13 @@ export const CalendarMonthList = ({
 }: {
   setCurrentTab: Dispatch<SetStateAction<number>>;
 }) => {
-  const { yearProps, goToMonth, type, setCurrentCalendarTab } = useContext(
-    DateTimePickerContex
-  );
+  const {
+    yearProps,
+    goToMonth,
+    type,
+    setCurrentCalendarTab,
+    monthProps,
+  } = useContext(DateTimePickerContex);
   return (
     <Container
       fillContainer
@@ -47,6 +51,7 @@ export const CalendarMonthList = ({
             elevation="none"
             textTransform="capitalize"
             width="100%"
+            active={month.monthNumber === monthProps.monthNumber}
             onClick={() => {
               goToMonth(new Date(yearProps.year, month.monthNumber - 1));
               setCurrentCalendarTab(1);

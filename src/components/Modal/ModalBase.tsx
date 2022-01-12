@@ -40,8 +40,7 @@ export const Modal = forwardRef<ModalBaseFunctionProps, ModalBaseProps>(
     return portal ? (
       ReactDOM.createPortal(
         <Container
-          flowType="flex"
-          elementType="container"
+          display="flex"
           justifyContent="center"
           alignItems="center"
           backgroundColor="modal"
@@ -65,7 +64,6 @@ export const Modal = forwardRef<ModalBaseFunctionProps, ModalBaseProps>(
             minHeight="15%"
             elevation={2}
             borderRadius="s"
-            padding="0.5rem"
             style={{ display: type === 'base' ? undefined : 'grid' }}
             ref={modalRef}
             {...container}

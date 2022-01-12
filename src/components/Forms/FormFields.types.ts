@@ -54,11 +54,11 @@ export type TextInputFieldProps = {
 export type TextAreaFieldProps = CommonFieldProps &
   TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-export type NumberInputFieldProps = { value?: number } & Omit<
-  CommonFieldProps,
-  'type'
-> &
-  Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'value'>;
+export type NumberInputFieldProps = {
+  value?: number;
+  onChange: (number: number) => void;
+} & Omit<CommonFieldProps, 'type'> &
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'value' | 'onChange'>;
 
 export type PhoneInputFieldProps = {
   onChange: (phone: string) => void;

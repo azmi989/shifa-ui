@@ -32,15 +32,16 @@ export const CalendarMain = ({
       <Container
         display="flex"
         justifyContent="space-between"
+        alignItems="center"
         id="calendar-head-nav"
         width="100%"
       >
         <IconButton
           aria-label="Previous month"
           icon={<ExpandMore style={{ transform: 'rotate(90deg)' }} />}
-          size="s"
-          varient="outlined"
-          elevation={1}
+          size="lg"
+          varient="base"
+          elevation="none"
           rounded="rectangle"
           onClick={goToPrevMonth}
         />
@@ -67,9 +68,9 @@ export const CalendarMain = ({
         <IconButton
           aria-label="Next month"
           icon={<ExpandLess style={{ transform: 'rotate(90deg)' }} />}
-          size="s"
-          varient="outlined"
-          elevation={1}
+          size="lg"
+          varient="base"
+          elevation="none"
           rounded="rectangle"
           onClick={goToNextMonth}
         />

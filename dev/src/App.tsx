@@ -7,6 +7,8 @@ import {
   RangeField,
   TextInputField,
   Label,
+  Button,
+  NumberInputField,
 } from '../../src';
 import DateIcon from '../../src/icons/DateIcon';
 
@@ -20,6 +22,7 @@ const App = () => {
         initialDate={new Date()}
         onChange={e => console.log(e)}
         varient="contained"
+        type="time"
         // forceFocus
       />
       <TextInputField
@@ -30,6 +33,16 @@ const App = () => {
       />
       <Label>hiiiiiiiiiiiii</Label>
       <IconButton icon={<DateIcon />} />
+      <Button varient="contained" active>
+        hiasdasdasdasdasd
+      </Button>
+      <Button varient="base" active>
+        hiasdasdasdasdasd
+      </Button>
+      <Button varient="outlined" backgroundColor="success" active>
+        hi
+      </Button>
+      <NumberInputField name="hi" label="hihi" onChange={e => console.log(e)} />
     </div>
   );
 };

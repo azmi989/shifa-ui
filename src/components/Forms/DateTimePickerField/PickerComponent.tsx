@@ -22,13 +22,13 @@ export const PickerComponent = () => {
           <StyledSwipableView
             currentTabID={pickerCurrentTab}
             tab={1}
-            id="calendar-main-tab"
+            id="calendar-main-tab-1"
             direction="left"
           >
             <CalendarComponent />
           </StyledSwipableView>
           <StyledSwipableView
-            id="clock-main-tab"
+            id="clock-main-tab-2"
             currentTabID={pickerCurrentTab}
             direction="left"
             tab={2}
