@@ -1,12 +1,14 @@
-import React, { memo, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Modal, Container } from '../..';
 import { DateTimePickerContex } from './DateTimePickerContex';
 import { PickerComponent } from './PickerComponent';
 
-const PickerContainerToMemo = () => {
+export const PickerContainer = () => {
   const { isMobile, containerOpen, containerRef, modalRef, type } = useContext(
     DateTimePickerContex
   );
+  console.log('PickerContainer');
+
   return (
     <>
       {isMobile ? (
@@ -54,5 +56,3 @@ const PickerContainerToMemo = () => {
     </>
   );
 };
-
-export const PickerContainer = memo(PickerContainerToMemo);

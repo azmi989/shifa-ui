@@ -9,8 +9,8 @@ import {
   Label,
   Button,
   NumberInputField,
-} from '../../src';
-import DateIcon from '../../src/icons/DateIcon';
+} from 'shifa-ui';
+import DateIcon from 'shifa-ui/src/icons/DateIcon';
 
 const App = () => {
   return (

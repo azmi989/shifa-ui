@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { getColor } from '../../theme/utils';
-import { ButtonPulse, Pulse } from '../../theme/utils/Animation';
+import { ButtonPulse } from '../../theme/utils/Animation';
 import {
   StyledCursor,
   StyledElevation,

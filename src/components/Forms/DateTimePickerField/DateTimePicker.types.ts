@@ -1,5 +1,5 @@
 import { Dispatch, RefObject, SetStateAction } from 'react';
-import useTaqweem from 'react-taqweem';
+import { useTaqweem } from 'react-taqweem';
 import { DateFormatType, LanguagesType } from 'react-taqweem/types';
 import { ButtonVarientType } from '../../Button/Button.types';
 import { ModalBaseFunctionProps } from '../../Modal/Modal.types';

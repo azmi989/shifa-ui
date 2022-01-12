@@ -1,5 +1,5 @@
 import React from 'react';
-import useTaqweem from 'react-taqweem';
+import { useTaqweem } from 'react-taqweem';
 import { useDateTimePickerField } from '../../../hooks';
 import { DateTimePickerType } from './DateTimePicker.types';
 import { DateTimePickerContexProvider } from './DateTimePickerContex';

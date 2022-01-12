@@ -1,4 +1,4 @@
-import React, { createContext, FC, RefObject } from 'react';
+import React, { createContext, FC, RefObject, useMemo } from 'react';
 import { DayProps } from 'react-taqweem/types';
 import { ModalBaseFunctionProps } from '../../Modal/Modal.types';
 import { DateTimePickerContexProps } from './DateTimePicker.types';
@@ -169,8 +169,9 @@ export const DateTimePickerContexProvider: FC<DateTimePickerContexProps> = ({
   children,
   ...values
 }) => {
+  const memoValue = useMemo(() => ({ ...values }), [values]);
   return (
-    <DateTimePickerContex.Provider value={values}>
+    <DateTimePickerContex.Provider value={memoValue}>
       {children}
     </DateTimePickerContex.Provider>
   );

@@ -1,3 +1,3 @@
-import CircleProgressSVG from "./CircleProgressSVG.styled";
+import CircleProgressSVG from './CircleProgressSVG.styled';
 
 export default CircleProgressSVG;

@@ -1,1 +1,1 @@
-export { default as StandardPagination } from "./StandardPagination";
+export { default as StandardPagination } from './StandardPagination';

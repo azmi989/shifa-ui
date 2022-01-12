@@ -1,4 +1,4 @@
-import React, { useContext, FocusEvent, memo } from 'react';
+import React, { useContext, FocusEvent } from 'react';
 import { Container, NumberInputField, Typography } from '../..';
 import { Arrow } from '../../../assets/images/svg/Arrow';
 import Clock from '../../../assets/images/svg/Clock/Clock';
@@ -6,11 +6,10 @@ import { getColor } from '../../../theme/utils';
 import { StyledPaginationButton } from '../../Pagination/PaginationButton.styled';
 import { DateTimePickerContex } from './DateTimePickerContex';
 
-export const ClockComponentToMemo = () => {
+export const ClockComponent = () => {
   const {
     date,
     timeFormat,
-    varient,
     updateDate,
     hours,
     setHours,
@@ -21,6 +20,8 @@ export const ClockComponentToMemo = () => {
     pick,
     setPick,
   } = useContext(DateTimePickerContex);
+  console.log('ClockComponent');
+
   const onSetMeridiem = () => {
     setMeridiem(prev => (prev === 'am' ? 'pm' : 'am'));
   };
@@ -138,4 +139,3 @@ export const ClockComponentToMemo = () => {
     </Container>
   );
 };
-export const ClockComponent = memo(ClockComponentToMemo);

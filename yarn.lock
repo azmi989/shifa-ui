@@ -5394,10 +5394,10 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-taqweem@^0.1.83:
-  version "0.1.83"
-  resolved "https://registry.yarnpkg.com/react-taqweem/-/react-taqweem-0.1.83.tgz#146a44b905e0c981ea30cb1a57009e5718da69bc"
-  integrity sha512-cTDSsr0sovXVb123Y/rA1J9NI8dWCLTWsuuPRkg5KjA2LgK2gu+CchKERZPnUk9g3lL2BmziKZk2bHBRlhFLbg==
+react-taqweem@^0.1.84:
+  version "0.1.84"
+  resolved "https://registry.yarnpkg.com/react-taqweem/-/react-taqweem-0.1.84.tgz#ef433344e5839a06b83c6b4d8accca7577dc37fd"
+  integrity sha512-7W3+4tQ56YaU75E9KBubdS8JU2OAmLjFrIslyRq0BhIDNaBS7B0fQPhEmk6bVR2PBFaqCls/Uk9MFLvvEH61Ow==
 
 react@^17.0.2:
   version "17.0.2"

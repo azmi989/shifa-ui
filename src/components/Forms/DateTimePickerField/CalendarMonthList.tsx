@@ -1,10 +1,10 @@
-import React, { Dispatch, memo, SetStateAction, useContext } from 'react';
+import React, { Dispatch, SetStateAction, useContext } from 'react';
 import { Button, Container, IconButton } from '../..';
 import Clock from '../../../icons/Clock';
 import DateIcon from '../../../icons/DateIcon';
 import { DateTimePickerContex } from './DateTimePickerContex';
 
-const CalendarMonthListToMemo = ({
+export const CalendarMonthList = ({
   setCurrentTab,
 }: {
   setCurrentTab: Dispatch<SetStateAction<number>>;
@@ -16,6 +16,8 @@ const CalendarMonthListToMemo = ({
     setCurrentCalendarTab,
     monthProps,
   } = useContext(DateTimePickerContex);
+  console.log('CalendarMonthList');
+
   return (
     <Container
       fillContainer
@@ -64,5 +66,3 @@ const CalendarMonthListToMemo = ({
     </Container>
   );
 };
-
-export const CalendarMonthList = memo(CalendarMonthListToMemo);

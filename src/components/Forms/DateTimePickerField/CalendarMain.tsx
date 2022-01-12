@@ -1,11 +1,11 @@
-import React, { memo, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Container, IconButton, Button, Label } from '../..';
 import ExpandLess from '../../../icons/ExpandLess';
 import ExpandMore from '../../../icons/ExpandMore';
 import { DateTimePickerContex } from './DateTimePickerContex';
 import { StyledGeneralLabel } from './StyledGeneralLabel.styled';
 
-const CalendarMainToMemo = ({
+export const CalendarMain = ({
   setCurrentTab,
 }: {
   setCurrentTab: React.Dispatch<React.SetStateAction<number>>;
@@ -22,6 +22,7 @@ const CalendarMainToMemo = ({
     selectDate,
     date,
   } = useContext(DateTimePickerContex);
+  console.log('CalendarMain');
   return (
     <Container
       fillContainer
@@ -121,5 +122,3 @@ const CalendarMainToMemo = ({
     </Container>
   );
 };
-
-export const CalendarMain = memo(CalendarMainToMemo);

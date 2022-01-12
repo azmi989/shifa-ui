@@ -10,7 +10,7 @@ export const useNumberInputField = (
   const [newValue, setValue] = useState(min || value);
   useEffect(() => {
     onChange && onChange(newValue);
-  }, [newValue]);
+  }, [newValue, onChange]);
   const increase = () =>
     setValue(prev => {
       if (step) {

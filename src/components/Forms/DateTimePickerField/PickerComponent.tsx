@@ -7,10 +7,11 @@ import { CalendarComponent } from './CalendarComponent';
 import { ClockComponent } from './ClockComponent';
 import { DateTimePickerContex } from './DateTimePickerContex';
 
-const PickerComponentToMemo = () => {
+export const PickerComponent = memo(() => {
   const { type, pickerCurrentTab, setPickerCurrentTab } = useContext(
     DateTimePickerContex
   );
+  console.log('PickerComponent');
   switch (type) {
     case 'date':
       return <CalendarComponent />;
@@ -56,5 +57,4 @@ const PickerComponentToMemo = () => {
         </>
       );
   }
-};
-export const PickerComponent = memo(PickerComponentToMemo);
+});

@@ -71,8 +71,8 @@ export const useDateTimePickerField = ({
     setContainerOpen(false);
   });
   useEffect(() => {
-    date && onChange;
-  }, [date]);
+    date && onChange(date);
+  }, [date, onChange]);
   return {
     containerOpen,
     containerRef,
