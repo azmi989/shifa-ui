@@ -43,7 +43,7 @@ export const DateTimePickerField = ({
       langArg={lang}
     >
       <DatePickerElementsPropsProvider {...picker}>
-        <PickerInput setContainerOpen={picker.setContainerOpen}>
+        <PickerInput>
           <PickerContainer />
         </PickerInput>
       </DatePickerElementsPropsProvider>

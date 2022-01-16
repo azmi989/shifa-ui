@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, memo, useContext } from 'react';
 import { useDateTimePickerProps } from 'react-datetime-hook';
 import Clock from '../../../icons/Clock';
 import DateIcon from '../../../icons/DateIcon';
@@ -7,7 +7,7 @@ import { IconButton } from '../../IconButton';
 import { TextInputField } from '../TextInputField';
 import { DatePickerElementsPropsContext } from './DatePickerElementsPropsContext';
 
-export const PickerInput: FC = ({ children }) => {
+export const PickerInput: FC = memo(({ children }) => {
   const {
     type,
     isMobile,
@@ -60,4 +60,4 @@ export const PickerInput: FC = ({ children }) => {
       {children}
     </Container>
   );
-};
+});

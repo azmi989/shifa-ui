@@ -5363,10 +5363,10 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
-react-datetime-hook@^0.0.11:
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/react-datetime-hook/-/react-datetime-hook-0.0.11.tgz#71245bd73f0915234ec9a3e081892bf0aa285ab4"
-  integrity sha512-g0OmK7CFsedo3m9MTmMCNlNOFXSo/sKsdDA2eZpwwY9AXqSsN6t6zNJ1BwjA09eJdZpA8wDpesEz5nqCnXwj/A==
+react-datetime-hook@^0.0.16:
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/react-datetime-hook/-/react-datetime-hook-0.0.16.tgz#a8118e1db142d72735e4e94addc7821b6b74d507"
+  integrity sha512-XR6ZsM9GUOqSfznBZuHQgqgFnMFjqNIDlLHoFuuvL4r7BlL+44/xeWb9iMwluNeKmPwlxdYt02FE7Mla1CV9Eg==
 
 react-dom@^17.0.2:
   version "17.0.2"

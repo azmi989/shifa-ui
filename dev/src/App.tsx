@@ -21,7 +21,6 @@ import {
 //   Button,
 //   NumberInputField,
 // } from 'shifa-ui';
-import DateIcon from 'shifa-ui/src/icons/DateIcon';
 
 const App = () => {
   return (
@@ -43,7 +42,6 @@ const App = () => {
         // disableFloat
       />
       <Label>hiiiiiiiiiiiii</Label>
-      <IconButton icon={<DateIcon />} />
       <Button varient="contained" active>
         hiasdasdasdasdasd
       </Button>
@@ -60,6 +58,7 @@ const App = () => {
         step={5}
         min={5}
         max={23}
+        onFocus={e => console.log(e)}
       />
     </div>
   );

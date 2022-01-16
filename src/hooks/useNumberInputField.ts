@@ -1,39 +1,49 @@
 import { ChangeEvent, useEffect, useState } from 'react';
-
-export const useNumberInputField = (
-  value: number,
-  min?: number,
-  max?: number,
-  step?: number,
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
-) => {
-  const [newValue, setValue] = useState(min || value);
+type Props = {
+  value: number;
+  min?: number;
+  max?: number;
+  step?: number;
+  customOnChange?: true;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+};
+export const useNumberInputField = ({
+  value,
+  max,
+  min,
+  step,
+  onChange,
+  customOnChange,
+}: Props) => {
+  const [newValue, setValue] = useState(value);
   const increase = () =>
+    customOnChange &&
     setValue(prev => {
       if (step) {
         if (max) {
           if (prev >= max || prev >= max - step) return prev;
-          else return (prev += step);
-        } else return (prev += step);
+        }
+        return (prev += step);
       } else {
         if (max) {
           if (prev >= max) return prev;
-          else return (prev += 1);
-        } else return (prev += 1);
+        }
+        return (prev += 1);
       }
     });
   const decrease = () =>
+    customOnChange &&
     setValue(prev => {
       if (step) {
         if (min) {
-          if (prev <= min || prev <= min - step) return prev;
-          else return (prev -= step);
-        } else return (prev -= step);
+          if (prev <= min - step) return prev;
+        }
+        return (prev -= step);
       } else {
         if (min) {
           if (prev <= min) return prev;
-          else return (prev -= 1);
-        } else return (prev -= 1);
+        }
+        return (prev -= 1);
       }
     });
   useEffect(() => {

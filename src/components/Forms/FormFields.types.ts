@@ -5,7 +5,7 @@ import {
   TextareaHTMLAttributes,
 } from 'react';
 import { OrientationType } from '../../../types';
-import { ButtonVarientType } from '../Button/Button.types';
+import { ButtonProps, ButtonVarientType } from '../Button/Button.types';
 
 export type SelectOptionType = {
   id: string | number;
@@ -59,6 +59,9 @@ export type NumberInputFieldProps = {
   min?: number;
   max?: number;
   step?: number;
+  increaseButtonProps?: ButtonProps;
+  decreaseButtonProps?: ButtonProps;
+  customOnChange?: true;
 } & Omit<CommonFieldProps, 'type'> &
   Omit<
     InputHTMLAttributes<HTMLInputElement>,

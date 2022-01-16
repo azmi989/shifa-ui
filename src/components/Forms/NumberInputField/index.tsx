@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, FocusEvent, MouseEvent } from 'react';
 import { useNumberInputField } from '../../../hooks';
 import ExpandLess from '../../../icons/ExpandLess';
 import ExpandMore from '../../../icons/ExpandMore';
@@ -16,14 +16,19 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
   forceFocus,
   value = 0,
   onChange,
+  increaseButtonProps,
+  decreaseButtonProps,
+  customOnChange,
   ...props
 }) => {
-  const { increase, decrease, newValue, setValue } = useNumberInputField(
+  const { increase, decrease, newValue, setValue } = useNumberInputField({
     value,
-    props.min,
-    props.max,
-    props.step
-  );
+    min: props.min,
+    max: props.max,
+    step: props.step,
+    onChange,
+    customOnChange,
+  });
   return (
     <FormElementContainer
       name={props.name}
@@ -40,13 +45,21 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
           rounded="rectangle"
           transform="scale(0.8)"
           icon={<ExpandLess />}
-          onClick={increase}
+          onClick={e => {
+            increaseButtonProps?.onClick && increaseButtonProps?.onClick(e);
+            increase();
+          }}
+          {...increaseButtonProps}
         />
         <IconButton
           rounded="rectangle"
           transform="scale(0.8)"
           icon={<ExpandMore />}
-          onClick={decrease}
+          onClick={e => {
+            decreaseButtonProps?.onClick && decreaseButtonProps?.onClick(e);
+            decrease();
+          }}
+          {...decreaseButtonProps}
         />
       </Container>
       <StyledInput
@@ -54,9 +67,10 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
         id={props.name}
         value={newValue}
         onChange={e => {
-          alert('hi');
-          setValue(Number(e.target.value));
-          onChange && onChange(e);
+          if (!customOnChange) {
+            setValue(Number(e.target.value));
+            onChange && onChange(e);
+          }
         }}
         {...props}
       />

@@ -14,6 +14,7 @@ export const ClockComponent = () => {
     timeProps,
     pickClockArrow,
     timeFormatArg,
+    setPickClockArrow,
   } = useDateTimePickerProps();
   return (
     <Container
@@ -56,12 +57,17 @@ export const ClockComponent = () => {
         <NumberInputField
           name="clockHours"
           label="Hours"
+          increaseButtonProps={{ onClick: () => setPickClockArrow('hours') }}
+          decreaseButtonProps={{ onClick: () => setPickClockArrow('hours') }}
           {...inputsProps.hours}
         />
         <Typography>:</Typography>
         <NumberInputField
           name="clockMinutes"
           label="Minutes"
+          increaseButtonProps={{ onClick: () => setPickClockArrow('minutes') }}
+          decreaseButtonProps={{ onClick: () => setPickClockArrow('minutes') }}
+          customOnChange
           {...inputsProps.minutes}
         />
         {timeFormatArg === '12' ? (
