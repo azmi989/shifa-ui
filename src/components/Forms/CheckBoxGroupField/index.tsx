@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CheckBoxField } from '..';
-import { Container, Label } from '../..';
+import { Container } from '../../Container';
+import { Label } from '../../Typography';
 import { CheckBoxGroupProps } from '../FormFields.types';
 
 export const CheckBoxGroupField = ({

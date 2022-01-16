@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
-import { Modal, Container } from '../..';
-import { DateTimePickerContex } from './DateTimePickerContex';
+import { Container } from '../../Container';
+import { Modal } from '../../Modal';
+import { DatePickerElementsPropsContext } from './DatePickerElementsPropsContext';
 import { PickerComponent } from './PickerComponent';
 
 export const PickerContainer = () => {
   const { isMobile, containerOpen, containerRef, modalRef, type } = useContext(
-    DateTimePickerContex
+    DatePickerElementsPropsContext
   );
   console.log('PickerContainer');
 

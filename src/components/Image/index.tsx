@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useImageOnLoad } from 'usehooks-ts';
-import { Container } from '..';
 import { defaultTheme } from '../../theme';
+import { Container } from '../Container';
 import { ImageProps } from './Image.types';
 
 export const Image: FC<ImageProps> = ({

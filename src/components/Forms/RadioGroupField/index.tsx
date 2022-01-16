@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Label } from '../..';
+import { Container } from '../../Container';
+import { Label } from '../../Typography';
 import { RadioGroupProps } from '../FormFields.types';
 import { RadioField } from './RadioField';
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import { useTaqweem } from 'react-taqweem';
+import { DateTimeProvider, useDateTimePickerProps } from 'react-datetime-hook';
 import { useDateTimePickerField } from '../../../hooks';
-import { DateTimePickerType } from './DateTimePicker.types';
-import { DateTimePickerContexProvider } from './DateTimePickerContex';
+import { DatePickerElementsPropsProvider } from './DatePickerElementsPropsContext';
+import { DateTimePickerProps } from './DateTimePicker.types';
 import { PickerContainer } from './PickerContainer';
 import { PickerInput } from './PickerInput';
 
@@ -20,37 +20,33 @@ export const DateTimePickerField = ({
   errorMessage,
   forceFocus,
   onChange,
-}: DateTimePickerType) => {
-  const taqweem = useTaqweem({
-    dateArg: initialDate,
-    timeFormatArg: timeFormat,
-    langArg: lang,
-    dateFormatArg: dateFormat,
-  });
+}: DateTimePickerProps) => {
+  const { date } = useDateTimePickerProps();
   const picker = useDateTimePickerField({
-    timeFormat,
-    date: taqweem.date,
+    date,
+    type,
+    varient,
+    label,
+    name,
+    isError,
+    disableFloat,
+    errorMessage,
+    forceFocus,
     onChange,
   });
 
   return (
-    <DateTimePickerContexProvider
-      initialDate={initialDate}
-      timeFormat={timeFormat}
-      label={label}
-      name={name}
-      inputVarient={varient}
-      isError={isError}
-      disableFloat={disableFloat}
-      errorMessage={errorMessage}
-      forceFocus={forceFocus}
-      type={type}
-      {...taqweem}
-      {...picker}
+    <DateTimeProvider
+      dateArg={initialDate}
+      dateFormatArg={dateFormat}
+      timeFormatArg={timeFormat}
+      langArg={lang}
     >
-      <PickerInput setContainerOpen={picker.setContainerOpen}>
-        <PickerContainer />
-      </PickerInput>
-    </DateTimePickerContexProvider>
+      <DatePickerElementsPropsProvider {...picker}>
+        <PickerInput setContainerOpen={picker.setContainerOpen}>
+          <PickerContainer />
+        </PickerInput>
+      </DatePickerElementsPropsProvider>
+    </DateTimeProvider>
   );
 };

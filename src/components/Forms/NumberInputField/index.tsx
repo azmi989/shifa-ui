@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
-import { Container, IconButton } from '../..';
 import { useNumberInputField } from '../../../hooks';
 import ExpandLess from '../../../icons/ExpandLess';
 import ExpandMore from '../../../icons/ExpandMore';
+import { Container } from '../../Container';
+import { IconButton } from '../../IconButton';
 import { FormElementContainer } from '../FormElementContainer';
 import { NumberInputFieldProps } from '../FormFields.types';
 import { StyledInput } from '../InputContainer.styled';
@@ -21,8 +22,7 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
     value,
     props.min,
     props.max,
-    props.step,
-    onChange
+    props.step
   );
   return (
     <FormElementContainer
@@ -53,7 +53,11 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
         type="number"
         id={props.name}
         value={newValue}
-        onChange={e => setValue(Number(e.target.value))}
+        onChange={e => {
+          alert('hi');
+          setValue(Number(e.target.value));
+          onChange && onChange(e);
+        }}
         {...props}
       />
     </FormElementContainer>

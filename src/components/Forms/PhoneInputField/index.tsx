@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Label } from '../..';
+import { Label } from '../../Typography';
 import { PhoneInputFieldProps } from '../FormFields.types';
 import {
   StyledFieldset,

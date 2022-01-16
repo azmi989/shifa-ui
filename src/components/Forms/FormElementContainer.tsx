@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { Typography, Label } from '..';
+import { Label, Typography } from '../Typography';
 import { CommonFieldProps } from './FormFields.types';
 import {
   StyledFieldset,

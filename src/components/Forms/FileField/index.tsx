@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { Container, Label, Button } from '../..';
 import Upload from '../../../icons/Upload';
+import { Button } from '../../Button';
+import { Container } from '../../Container';
+import { Label } from '../../Typography';
 import { FileFieldProps } from '../FormFields.types';
 
 export const FileField = ({

@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
-import { Label } from '../..';
 import { CheckBoxProps } from '../FormFields.types';
 import CheckBox from '../../../icons/CheckBox';
 import {
   StyledCheckBoxContainer,
   StyledCheckBoxInput,
 } from './StyledCheckBox.styled';
+import { Label } from '../../Typography';
 
 export const CheckBoxField = ({ label, onClick, ...props }: CheckBoxProps) => {
   const ref = useRef<HTMLInputElement>(null);

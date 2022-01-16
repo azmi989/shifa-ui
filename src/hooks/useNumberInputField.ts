@@ -1,16 +1,13 @@
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 export const useNumberInputField = (
   value: number,
   min?: number,
   max?: number,
   step?: number,
-  onChange?: (number: number) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 ) => {
   const [newValue, setValue] = useState(min || value);
-  useEffect(() => {
-    onChange && onChange(newValue);
-  }, [newValue, onChange]);
   const increase = () =>
     setValue(prev => {
       if (step) {
@@ -39,6 +36,12 @@ export const useNumberInputField = (
         } else return (prev -= 1);
       }
     });
+  useEffect(() => {
+    onChange &&
+      onChange({ target: { value: String(newValue) } } as ChangeEvent<
+        HTMLInputElement
+      >);
+  }, [newValue]);
   return {
     newValue,
     setValue,

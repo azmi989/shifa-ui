@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Container } from '../..';
 import { getBorderRadius, getColor } from '../../../theme/utils';
+import { Container } from '../../Container';
 import { SliderFieldProps } from '../FormFields.types';
 
 type Props = {

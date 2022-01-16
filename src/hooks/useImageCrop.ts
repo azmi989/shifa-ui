@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { Crop } from 'react-image-crop';
-import { useModalPortalRef } from '.';
+import { useModalPortalRef } from './useModalPortal';
 
 export const useImageCrop = (
   onChange: (image: string) => void,

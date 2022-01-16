@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { Button } from '..';
 import { getBorderRadius } from '../../theme/utils';
+import { Button } from '../Button';
 import { ButtonProps } from '../Button/Button.types';
 
 export type PaginationButtonProps = {

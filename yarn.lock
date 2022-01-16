@@ -5363,6 +5363,11 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
+react-datetime-hook@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/react-datetime-hook/-/react-datetime-hook-0.0.11.tgz#71245bd73f0915234ec9a3e081892bf0aa285ab4"
+  integrity sha512-g0OmK7CFsedo3m9MTmMCNlNOFXSo/sKsdDA2eZpwwY9AXqSsN6t6zNJ1BwjA09eJdZpA8wDpesEz5nqCnXwj/A==
+
 react-dom@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
@@ -5393,11 +5398,6 @@ react-is@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
-
-react-taqweem@^0.1.84:
-  version "0.1.84"
-  resolved "https://registry.yarnpkg.com/react-taqweem/-/react-taqweem-0.1.84.tgz#ef433344e5839a06b83c6b4d8accca7577dc37fd"
-  integrity sha512-7W3+4tQ56YaU75E9KBubdS8JU2OAmLjFrIslyRq0BhIDNaBS7B0fQPhEmk6bVR2PBFaqCls/Uk9MFLvvEH61Ow==
 
 react@^17.0.2:
   version "17.0.2"

@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactCrop from 'react-image-crop';
-import { Modal, Button, Container, Label } from '../..';
 import { useImageCrop } from '../../../hooks';
 import Upload from '../../../icons/Upload';
 import { ImageFieldProps } from '../FormFields.types';
 import 'react-image-crop/dist/ReactCrop.css';
-
+import { Label } from '../../Typography';
+import { Container } from '../../Container';
+import { Button } from '../../Button';
+import { Modal } from '../../Modal';
 export const ImageField = ({
   srcImg,
   label,

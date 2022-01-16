@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container } from '../..';
+import { Container } from '../../Container';
 import { StyledSwipableView } from '../../Styles';
 import { CalendarMain } from './CalendarMain';
 import { CalendarMonthList } from './CalendarMonthList';

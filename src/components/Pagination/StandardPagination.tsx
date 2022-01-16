@@ -1,5 +1,5 @@
 import React, { Children, useState } from 'react';
-import { Container } from '..';
+import { Container } from '../Container';
 import { ContainerProps } from '../Container/Container.types';
 import { StyledPaginationButton } from './PaginationButton.styled';
 

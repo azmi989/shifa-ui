@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { Container } from '../..';
 import { getBorderWidth, getColor } from '../../../theme/utils';
+import { Container } from '../../Container';
 import { CheckBoxProps } from '../FormFields.types';
 
 type Props =

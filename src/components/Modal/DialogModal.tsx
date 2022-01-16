@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
-import { Button, Container, Divider, Typography } from '..';
+import { Button } from '../Button';
+import { Container } from '../Container';
+import { Divider } from '../Divider';
+import { Typography } from '../Typography';
 import { DialogModalProps } from './Modal.types';
 
 export const DialogModal: FC<DialogModalProps> = ({

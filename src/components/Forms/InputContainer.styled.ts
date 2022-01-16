@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { Container } from '..';
 import { getBorderRadius, getColor } from '../../theme/utils';
+import { Container } from '../Container';
 import { CommonFieldProps } from './FormFields.types';
 
 type Props = { resizable?: boolean; disabled?: boolean } & Omit<

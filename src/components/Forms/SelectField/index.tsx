@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
-import { Label } from '../../..';
 import DropDown from '../../../icons/DropDown';
+import { Label } from '../../Typography';
 import { SelectFieldProps } from '../FormFields.types';
 import {
   StyledFieldset,

@@ -9,7 +9,18 @@ import {
   Label,
   Button,
   NumberInputField,
-} from 'shifa-ui';
+} from '../../src';
+// import {
+//   Container,
+//   DateTimePickerField,
+//   GlobalStyle,
+//   IconButton,
+//   RangeField,
+//   TextInputField,
+//   Label,
+//   Button,
+//   NumberInputField,
+// } from 'shifa-ui';
 import DateIcon from 'shifa-ui/src/icons/DateIcon';
 
 const App = () => {

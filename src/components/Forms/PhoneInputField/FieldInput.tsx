@@ -1,7 +1,7 @@
 import { isValidPhoneNumber, CountryCode } from 'libphonenumber-js';
 import React, { Dispatch, FC, SetStateAction, useState } from 'react';
 import { CountryProps } from '.';
-import { Typography } from '../..';
+import { Typography } from '../../Typography';
 import { PhoneInputFieldProps } from '../FormFields.types';
 import { StyledInput } from '../InputContainer.styled';
 import { CountrySelect } from './CountrySelect';

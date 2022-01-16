@@ -1,9 +1,12 @@
 import React, { Dispatch, SetStateAction, useContext } from 'react';
-import { DateTimePickerContex } from './DateTimePickerContex';
-import { Button, Container, IconButton } from '../../';
 import Clock from '../../../icons/Clock';
 import DateIcon from '../../../icons/DateIcon';
 import { StandardPagination } from '../../Pagination';
+import { Container } from '../../Container';
+import { IconButton } from '../../IconButton';
+import { Button } from '../../Button';
+import { DatePickerElementsPropsContext } from './DatePickerElementsPropsContext';
+import { useDateTimePickerProps } from 'react-datetime-hook';
 
 export const CalendatYearsList = ({
   setCurrentTab,
@@ -11,7 +14,8 @@ export const CalendatYearsList = ({
   setCurrentTab: Dispatch<SetStateAction<number>>;
 }) => {
   const currentYear = new Date().getFullYear();
-  const { goToYear, type, yearProps } = useContext(DateTimePickerContex);
+  const { type } = useContext(DatePickerElementsPropsContext);
+  const { goToYear, yearProps } = useDateTimePickerProps();
 
   const maxYear = currentYear + 10;
   const minYear = currentYear - 70;
@@ -61,7 +65,7 @@ export const CalendatYearsList = ({
             textTransform="capitalize"
             active={year === yearProps.year}
             onClick={() => {
-              goToYear(new Date(year, 0, 1));
+              goToYear(year);
               setCurrentTab(1);
             }}
           >

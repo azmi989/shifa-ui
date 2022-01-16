@@ -1,21 +1,21 @@
 import React, { Dispatch, SetStateAction, useContext } from 'react';
-import { Button, Container, IconButton } from '../..';
+import { useDateTimePickerProps } from 'react-datetime-hook';
 import Clock from '../../../icons/Clock';
 import DateIcon from '../../../icons/DateIcon';
-import { DateTimePickerContex } from './DateTimePickerContex';
+import { Button } from '../../Button';
+import { Container } from '../../Container';
+import { IconButton } from '../../IconButton';
+import { DatePickerElementsPropsContext } from './DatePickerElementsPropsContext';
 
 export const CalendarMonthList = ({
   setCurrentTab,
 }: {
   setCurrentTab: Dispatch<SetStateAction<number>>;
 }) => {
-  const {
-    yearProps,
-    goToMonth,
-    type,
-    setCurrentCalendarTab,
-    monthProps,
-  } = useContext(DateTimePickerContex);
+  const { type, setCurrentCalendarTab } = useContext(
+    DatePickerElementsPropsContext
+  );
+  const { yearProps, goToMonth, monthProps } = useDateTimePickerProps();
   console.log('CalendarMonthList');
 
   return (
@@ -55,7 +55,7 @@ export const CalendarMonthList = ({
             width="100%"
             active={month.monthNumber === monthProps.monthNumber}
             onClick={() => {
-              goToMonth(new Date(yearProps.year, month.monthNumber - 1));
+              goToMonth(month.monthNumber - 1);
               setCurrentCalendarTab(1);
             }}
           >

@@ -1,8 +1,12 @@
 import React, { useContext } from 'react';
-import { Container, IconButton, Button, Label } from '../..';
+import { useDateTimePickerProps } from 'react-datetime-hook';
 import ExpandLess from '../../../icons/ExpandLess';
 import ExpandMore from '../../../icons/ExpandMore';
-import { DateTimePickerContex } from './DateTimePickerContex';
+import { Button } from '../../Button';
+import { Container } from '../../Container';
+import { IconButton } from '../../IconButton';
+import { Label } from '../../Typography';
+import { DatePickerElementsPropsContext } from './DatePickerElementsPropsContext';
 import { StyledGeneralLabel } from './StyledGeneralLabel.styled';
 
 export const CalendarMain = ({
@@ -10,18 +14,17 @@ export const CalendarMain = ({
 }: {
   setCurrentTab: React.Dispatch<React.SetStateAction<number>>;
 }) => {
+  const { lang, matchesScreen } = useContext(DatePickerElementsPropsContext);
   const {
     goToPrevMonth,
     yearProps,
     monthProps,
     goToNextMonth,
     weekDays,
-    lang,
-    matchesScreen,
-    renderMonth,
-    selectDate,
     date,
-  } = useContext(DateTimePickerContex);
+    selectDay,
+    getMonthDaysArray,
+  } = useDateTimePickerProps();
   console.log('CalendarMain');
   return (
     <Container
@@ -105,10 +108,10 @@ export const CalendarMain = ({
         height="100%"
         width="100%"
       >
-        {renderMonth.map(day => (
+        {getMonthDaysArray().map(day => (
           <StyledGeneralLabel
             disabled={day.month !== monthProps.monthNumber}
-            onClick={() => selectDate(day.date)}
+            onClick={() => selectDay(day.date)}
             selected={
               date.getDate() === day.date && date.getMonth() + 1 === day.month
             }

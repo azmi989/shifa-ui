@@ -1,15 +1,16 @@
 import React, { memo, useContext } from 'react';
-import { Container, IconButton } from '../..';
 import Clock from '../../../icons/Clock';
 import DateIcon from '../../../icons/DateIcon';
+import { Container } from '../../Container';
+import { IconButton } from '../../IconButton';
 import { StyledSwipableView } from '../../Styles';
 import { CalendarComponent } from './CalendarComponent';
 import { ClockComponent } from './ClockComponent';
-import { DateTimePickerContex } from './DateTimePickerContex';
+import { DatePickerElementsPropsContext } from './DatePickerElementsPropsContext';
 
 export const PickerComponent = memo(() => {
   const { type, pickerCurrentTab, setPickerCurrentTab } = useContext(
-    DateTimePickerContex
+    DatePickerElementsPropsContext
   );
   console.log('PickerComponent');
   switch (type) {

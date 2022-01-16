@@ -1,66 +1,20 @@
-import React, { useContext, FocusEvent } from 'react';
-import { Container, NumberInputField, Typography } from '../..';
+import React from 'react';
 import { Arrow } from '../../../assets/images/svg/Arrow';
 import Clock from '../../../assets/images/svg/Clock/Clock';
 import { getColor } from '../../../theme/utils';
+import { Container } from '../../Container';
 import { StyledPaginationButton } from '../../Pagination/PaginationButton.styled';
-import { DateTimePickerContex } from './DateTimePickerContex';
+import { Typography } from '../../Typography';
+import { NumberInputField } from '../NumberInputField';
+import { useDateTimePickerProps } from 'react-datetime-hook';
 
 export const ClockComponent = () => {
   const {
-    date,
-    timeFormat,
-    updateDate,
-    hours,
-    setHours,
-    minutes,
-    setMinutes,
-    meridiem,
-    setMeridiem,
-    pick,
-    setPick,
-  } = useContext(DateTimePickerContex);
-  console.log('ClockComponent');
-
-  const onSetMeridiem = () => {
-    setMeridiem(prev => (prev === 'am' ? 'pm' : 'am'));
-  };
-  const hoursChanged = (hour: number) => {
-    setHours(hour);
-    updateDate(
-      new Date(
-        date.getFullYear(),
-        date.getMonth(),
-        date.getDate(),
-        hour,
-        date.getMinutes()
-      )
-    );
-  };
-  const minutesChanged = (minute: number) => {
-    setMinutes(minute);
-    updateDate(
-      new Date(
-        date.getFullYear(),
-        date.getMonth(),
-        date.getDate(),
-        date.getHours(),
-        minute
-      )
-    );
-  };
-  const onHoursChange = (hour: number) => {
-    hoursChanged(hour);
-  };
-  const onMinutesChange = (minute: number) => {
-    minutesChanged(minute);
-  };
-  const onHoursBlur = (event: FocusEvent<HTMLInputElement>) => {
-    hoursChanged(Number(event.target.value));
-  };
-  const onMinutesBlur = (event: FocusEvent<HTMLInputElement>) => {
-    minutesChanged(Number(event.target.value));
-  };
+    inputsProps,
+    timeProps,
+    pickClockArrow,
+    timeFormatArg,
+  } = useDateTimePickerProps();
   return (
     <Container
       fillContainer
@@ -79,7 +33,9 @@ export const ClockComponent = () => {
           top="50%"
           left="50%"
           transform={`translateX(-50%) translateY(-100%) rotate(${
-            pick === 'minutes' ? minutes * 6 : hours * 30
+            pickClockArrow === 'minutes'
+              ? inputsProps.minutes.value * 6
+              : inputsProps.hours.value * 30
           }deg)`}
           transformOrigin="center bottom"
         />
@@ -100,39 +56,23 @@ export const ClockComponent = () => {
         <NumberInputField
           name="clockHours"
           label="Hours"
-          value={hours}
-          min={timeFormat === '12' ? 1 : 0}
-          max={timeFormat === '12' ? 12 : 24}
-          onChange={onHoursChange}
-          onBlur={onHoursBlur}
-          onFocus={() => setPick('hours')}
-          onClick={() => setPick('hours')}
+          {...inputsProps.hours}
         />
         <Typography>:</Typography>
         <NumberInputField
           name="clockMinutes"
           label="Minutes"
-          value={minutes}
-          min={0}
-          max={59}
-          onChange={onMinutesChange}
-          onBlur={onMinutesBlur}
-          onFocus={() => setPick('minutes')}
-          onClick={() => setPick('minutes')}
+          {...inputsProps.minutes}
         />
-        {timeFormat === '12' ? (
+        {timeFormatArg === '12' ? (
           <StyledPaginationButton
             size="md"
-            varient={meridiem === 'pm' ? 'contained' : 'outlined'}
+            varient={timeProps.meridiem === 'pm' ? 'contained' : 'outlined'}
             elevation="none"
             textTransform="lowercase"
-            // style={{
-            //   height: '2rem',
-            //   paddingBottom: '0.9rem',
-            // }}
-            onClick={onSetMeridiem}
+            {...inputsProps.meridiem}
           >
-            {meridiem}
+            {timeProps.meridiem}
           </StyledPaginationButton>
         ) : null}
       </Container>

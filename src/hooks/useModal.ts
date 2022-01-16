@@ -1,8 +1,8 @@
 import { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
-import { useModalPortal } from '.';
 import { DirectionsLR, DirectionsTB } from '../../types';
 import { UseModalsProps } from '../components/Modal/Modal.types';
+import { useModalPortal } from './useModalPortal';
 
 export const useModal = ({
   ref,

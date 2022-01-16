@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
-import { Container } from '..';
 import { useModal } from '../../hooks';
 import { ModalBaseFunctionProps, ModalBaseProps } from './Modal.types';
 import ReactDOM from 'react-dom';
 import { DialogModal } from '.';
+import { Container } from '../Container';
 
 export const Modal = forwardRef<ModalBaseFunctionProps, ModalBaseProps>(
   (

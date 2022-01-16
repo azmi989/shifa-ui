@@ -1,34 +1,35 @@
-import React, { Dispatch, FC, SetStateAction, useContext } from 'react';
-import { TextInputField } from '..';
-import { Container, IconButton } from '../..';
-import { usePickerInput } from '../../../hooks';
+import React, { FC, useContext } from 'react';
+import { useDateTimePickerProps } from 'react-datetime-hook';
 import Clock from '../../../icons/Clock';
 import DateIcon from '../../../icons/DateIcon';
-import { DateTimePickerContex } from './DateTimePickerContex';
+import { Container } from '../../Container';
+import { IconButton } from '../../IconButton';
+import { TextInputField } from '../TextInputField';
+import { DatePickerElementsPropsContext } from './DatePickerElementsPropsContext';
 
-export const PickerInput: FC<{
-  setContainerOpen: Dispatch<SetStateAction<boolean>>;
-}> = ({ setContainerOpen, children }) => {
-  const pickerInputProps = usePickerInput();
+export const PickerInput: FC = ({ children }) => {
   const {
     type,
     isMobile,
     isError,
     modalRef,
     label,
-    inputVarient,
+    varient,
     containerOpen,
-  } = useContext(DateTimePickerContex);
+    setContainerOpen,
+  } = useContext(DatePickerElementsPropsContext);
+  const { inputsProps } = useDateTimePickerProps();
 
   return (
     <Container id="picker-inputContainer" position="relative" width="100%">
       <TextInputField
         name="dateTimePickerInput"
-        varient={inputVarient}
+        varient={varient}
         label={label}
         disableFloat
         forceFocus
         isError={isError}
+        {...inputsProps.date}
         onFocus={() =>
           isMobile ? modalRef.current?.openModal() : setContainerOpen(true)
         }
@@ -37,7 +38,7 @@ export const PickerInput: FC<{
             varient="contained"
             elevation="none"
             position="absolute"
-            top={inputVarient === 'outlined' ? '0rem' : '25%'}
+            top={varient === 'outlined' ? '0rem' : '25%'}
             right="1rem"
             size="md"
             style={{ pointerEvents: containerOpen ? 'none' : undefined }}
@@ -55,7 +56,6 @@ export const PickerInput: FC<{
             }
           />
         }
-        {...pickerInputProps}
       />
       {children}
     </Container>
