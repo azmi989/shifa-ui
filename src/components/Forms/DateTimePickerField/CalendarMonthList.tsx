@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useContext } from 'react';
-import { useDateTimePickerProps } from 'react-datetime-hook';
+import { useDateTimePickerProps } from 'use-datetime-picker';
 import Clock from '../../../icons/Clock';
 import DateIcon from '../../../icons/DateIcon';
 import { Button } from '../../Button';

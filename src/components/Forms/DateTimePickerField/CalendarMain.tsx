@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useDateTimePickerProps } from 'react-datetime-hook';
+import { useDateTimePickerProps } from 'use-datetime-picker';
 import ExpandLess from '../../../icons/ExpandLess';
 import ExpandMore from '../../../icons/ExpandMore';
 import { Button } from '../../Button';

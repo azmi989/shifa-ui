@@ -1,5 +1,5 @@
 import React from 'react';
-import { DateTimeProvider, useDateTimePickerProps } from 'react-datetime-hook';
+import { useDateTimePickerProps, DateTimeProvider } from 'use-datetime-picker';
 import { useDateTimePickerField } from '../../../hooks';
 import { DatePickerElementsPropsProvider } from './DatePickerElementsPropsContext';
 import { DateTimePickerProps } from './DateTimePicker.types';

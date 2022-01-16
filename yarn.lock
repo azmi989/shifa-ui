@@ -5363,11 +5363,6 @@ randombytes@^2.1.0:
   dependencies:
     safe-buffer "^5.1.0"
 
-react-datetime-hook@^0.0.16:
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/react-datetime-hook/-/react-datetime-hook-0.0.16.tgz#a8118e1db142d72735e4e94addc7821b6b74d507"
-  integrity sha512-XR6ZsM9GUOqSfznBZuHQgqgFnMFjqNIDlLHoFuuvL4r7BlL+44/xeWb9iMwluNeKmPwlxdYt02FE7Mla1CV9Eg==
-
 react-dom@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
@@ -6629,6 +6624,11 @@ urix@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
+
+use-datetime-picker@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/use-datetime-picker/-/use-datetime-picker-0.0.12.tgz#75b7414a18e8260236ed5599a21119162e1a4ccb"
+  integrity sha512-JgZB7ivvit6QeOYt5qzMLV8YqtHIegM9O7A8NGizHJQhvLJNiLzN2HKGOywSEkGrcYgPN84wiF3OYVcEeG1mwg==
 
 use@^3.1.0:
   version "3.1.1"

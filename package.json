@@ -73,9 +73,9 @@
     "@types/styled-components": "^5.1.19",
     "formik": "^2.2.9",
     "libphonenumber-js": "^1.9.44",
-    "react-datetime-hook": "^0.0.16",
     "react-image-crop": "^9.0.5",
     "styled-components": "^5.3.3",
+    "use-datetime-picker": "^0.0.12",
     "usehooks-ts": "^2.1.1"
   }
 }

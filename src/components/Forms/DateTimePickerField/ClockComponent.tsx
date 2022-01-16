@@ -6,7 +6,7 @@ import { Container } from '../../Container';
 import { StyledPaginationButton } from '../../Pagination/PaginationButton.styled';
 import { Typography } from '../../Typography';
 import { NumberInputField } from '../NumberInputField';
-import { useDateTimePickerProps } from 'react-datetime-hook';
+import { useDateTimePickerProps } from 'use-datetime-picker';
 
 export const ClockComponent = () => {
   const {

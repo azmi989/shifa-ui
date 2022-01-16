@@ -6,7 +6,7 @@ import { Container } from '../../Container';
 import { IconButton } from '../../IconButton';
 import { Button } from '../../Button';
 import { DatePickerElementsPropsContext } from './DatePickerElementsPropsContext';
-import { useDateTimePickerProps } from 'react-datetime-hook';
+import { useDateTimePickerProps } from 'use-datetime-picker';
 
 export const CalendatYearsList = ({
   setCurrentTab,

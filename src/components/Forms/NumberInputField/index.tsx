@@ -1,4 +1,4 @@
-import React, { FC, FocusEvent, MouseEvent } from 'react';
+import React, { FC } from 'react';
 import { useNumberInputField } from '../../../hooks';
 import ExpandLess from '../../../icons/ExpandLess';
 import ExpandMore from '../../../icons/ExpandMore';
