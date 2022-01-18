@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useDateTimePickerProps } from 'use-datetime-picker';
+import { useDateTimePickerContext } from 'use-datetime-picker';
 import ExpandLess from '../../../icons/ExpandLess';
 import ExpandMore from '../../../icons/ExpandMore';
 import { Button } from '../../Button';
@@ -24,7 +24,7 @@ export const CalendarMain = ({
     date,
     selectDay,
     getMonthDaysArray,
-  } = useDateTimePickerProps();
+  } = useDateTimePickerContext();
   console.log('CalendarMain');
   return (
     <Container

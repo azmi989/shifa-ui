@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDateTimePickerContext } from 'use-datetime-picker';
 import { Arrow } from '../../../assets/images/svg/Arrow';
 import Clock from '../../../assets/images/svg/Clock/Clock';
 import { getColor } from '../../../theme/utils';
@@ -6,7 +7,6 @@ import { Container } from '../../Container';
 import { StyledPaginationButton } from '../../Pagination/PaginationButton.styled';
 import { Typography } from '../../Typography';
 import { NumberInputField } from '../NumberInputField';
-import { useDateTimePickerProps } from 'use-datetime-picker';
 
 export const ClockComponent = () => {
   const {
@@ -15,7 +15,7 @@ export const ClockComponent = () => {
     pickClockArrow,
     timeFormatArg,
     setPickClockArrow,
-  } = useDateTimePickerProps();
+  } = useDateTimePickerContext();
   return (
     <Container
       fillContainer
@@ -59,6 +59,7 @@ export const ClockComponent = () => {
           label="Hours"
           increaseButtonProps={{ onClick: () => setPickClockArrow('hours') }}
           decreaseButtonProps={{ onClick: () => setPickClockArrow('hours') }}
+          customOnChange
           {...inputsProps.hours}
         />
         <Typography>:</Typography>

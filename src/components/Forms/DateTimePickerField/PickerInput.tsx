@@ -1,5 +1,5 @@
 import React, { FC, memo, useContext } from 'react';
-import { useDateTimePickerProps } from 'use-datetime-picker';
+import { useDateTimePickerContext } from 'use-datetime-picker';
 import Clock from '../../../icons/Clock';
 import DateIcon from '../../../icons/DateIcon';
 import { Container } from '../../Container';
@@ -18,7 +18,7 @@ export const PickerInput: FC = memo(({ children }) => {
     containerOpen,
     setContainerOpen,
   } = useContext(DatePickerElementsPropsContext);
-  const { inputsProps } = useDateTimePickerProps();
+  const { inputsProps } = useDateTimePickerContext();
 
   return (
     <Container id="picker-inputContainer" position="relative" width="100%">

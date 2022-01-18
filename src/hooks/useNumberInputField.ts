@@ -1,10 +1,9 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useCallback, useState } from 'react';
 type Props = {
   value: number;
   min?: number;
   max?: number;
   step?: number;
-  customOnChange?: true;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 export const useNumberInputField = ({
@@ -13,11 +12,9 @@ export const useNumberInputField = ({
   min,
   step,
   onChange,
-  customOnChange,
 }: Props) => {
   const [newValue, setValue] = useState(value);
   const increase = () =>
-    customOnChange &&
     setValue(prev => {
       if (step) {
         if (max) {
@@ -32,7 +29,6 @@ export const useNumberInputField = ({
       }
     });
   const decrease = () =>
-    customOnChange &&
     setValue(prev => {
       if (step) {
         if (min) {
@@ -46,12 +42,12 @@ export const useNumberInputField = ({
         return (prev -= 1);
       }
     });
-  useEffect(() => {
+  useCallback(() => {
     onChange &&
       onChange({ target: { value: String(newValue) } } as ChangeEvent<
         HTMLInputElement
       >);
-  }, [newValue]);
+  }, [newValue, onChange]);
   return {
     newValue,
     setValue,

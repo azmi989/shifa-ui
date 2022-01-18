@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, MouseEventHandler } from 'react';
 import { useNumberInputField } from '../../../hooks';
 import ExpandLess from '../../../icons/ExpandLess';
 import ExpandMore from '../../../icons/ExpandMore';
@@ -18,7 +18,7 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
   onChange,
   increaseButtonProps,
   decreaseButtonProps,
-  customOnChange,
+  customOnChange = false,
   ...props
 }) => {
   const { increase, decrease, newValue, setValue } = useNumberInputField({
@@ -27,8 +27,19 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
     max: props.max,
     step: props.step,
     onChange,
-    customOnChange,
   });
+  const handelOnIncreaseClicked: MouseEventHandler<HTMLButtonElement> = e => {
+    customOnChange
+      ? increaseButtonProps?.onClick && increaseButtonProps.onClick(e)
+      : undefined;
+    increase();
+  };
+  const handelOnDecreaseClicked: MouseEventHandler<HTMLButtonElement> = e => {
+    customOnChange
+      ? decreaseButtonProps?.onClick && decreaseButtonProps.onClick(e)
+      : undefined;
+    decrease();
+  };
   return (
     <FormElementContainer
       name={props.name}
@@ -45,20 +56,14 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
           rounded="rectangle"
           transform="scale(0.8)"
           icon={<ExpandLess />}
-          onClick={e => {
-            increaseButtonProps?.onClick && increaseButtonProps?.onClick(e);
-            increase();
-          }}
           {...increaseButtonProps}
+          onClick={handelOnIncreaseClicked}
         />
         <IconButton
           rounded="rectangle"
           transform="scale(0.8)"
           icon={<ExpandMore />}
-          onClick={e => {
-            decreaseButtonProps?.onClick && decreaseButtonProps?.onClick(e);
-            decrease();
-          }}
+          onClick={handelOnDecreaseClicked}
           {...decreaseButtonProps}
         />
       </Container>

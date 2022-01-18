@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { useMediaQuery, useOnClickOutside } from 'usehooks-ts';
 import { DateTimePickerProps } from '../components/Forms/DateTimePickerField/DateTimePicker.types';
 
@@ -20,7 +20,7 @@ type Props = { date: Date } & Pick<
   | 'onChange'
 >;
 
-export const useDateTimePickerField = ({ date, ...props }: Props) => {
+export const useDateTimePickerField = ({ date, onChange, ...props }: Props) => {
   const [containerOpen, setContainerOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [currentCalendarTab, setCurrentCalendarTab] = useState(1);
@@ -37,9 +37,9 @@ export const useDateTimePickerField = ({ date, ...props }: Props) => {
   useOnClickOutside(containerRef, () => {
     setContainerOpen(false);
   });
-  useEffect(() => {
-    date && props.onChange(date);
-  }, [date, props.onChange]);
+  useCallback(() => {
+    date && onChange(date);
+  }, [date, onChange]);
   return {
     containerOpen,
     containerRef,
@@ -51,6 +51,7 @@ export const useDateTimePickerField = ({ date, ...props }: Props) => {
     pickerCurrentTab,
     setPickerCurrentTab,
     matchesScreen,
+    onChange,
     ...props,
   };
 };

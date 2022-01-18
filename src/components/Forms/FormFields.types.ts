@@ -61,7 +61,7 @@ export type NumberInputFieldProps = {
   step?: number;
   increaseButtonProps?: ButtonProps;
   decreaseButtonProps?: ButtonProps;
-  customOnChange?: true;
+  customOnChange?: boolean;
 } & Omit<CommonFieldProps, 'type'> &
   Omit<
     InputHTMLAttributes<HTMLInputElement>,

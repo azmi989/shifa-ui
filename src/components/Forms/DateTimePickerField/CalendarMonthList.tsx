@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useContext } from 'react';
-import { useDateTimePickerProps } from 'use-datetime-picker';
+import { useDateTimePickerContext } from 'use-datetime-picker';
 import Clock from '../../../icons/Clock';
 import DateIcon from '../../../icons/DateIcon';
 import { Button } from '../../Button';
@@ -15,7 +15,7 @@ export const CalendarMonthList = ({
   const { type, setCurrentCalendarTab } = useContext(
     DatePickerElementsPropsContext
   );
-  const { yearProps, goToMonth, monthProps } = useDateTimePickerProps();
+  const { yearProps, goToMonth, monthProps } = useDateTimePickerContext();
   console.log('CalendarMonthList');
 
   return (

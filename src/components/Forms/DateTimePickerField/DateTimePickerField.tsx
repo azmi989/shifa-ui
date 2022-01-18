@@ -1,5 +1,8 @@
 import React from 'react';
-import { useDateTimePickerProps, DateTimeProvider } from 'use-datetime-picker';
+import {
+  useDateTimePickerContext,
+  DateTimeProvider,
+} from 'use-datetime-picker';
 import { useDateTimePickerField } from '../../../hooks';
 import { DatePickerElementsPropsProvider } from './DatePickerElementsPropsContext';
 import { DateTimePickerProps } from './DateTimePicker.types';
@@ -21,7 +24,7 @@ export const DateTimePickerField = ({
   forceFocus,
   onChange,
 }: DateTimePickerProps) => {
-  const { date } = useDateTimePickerProps();
+  const { date } = useDateTimePickerContext();
   const picker = useDateTimePickerField({
     date,
     type,

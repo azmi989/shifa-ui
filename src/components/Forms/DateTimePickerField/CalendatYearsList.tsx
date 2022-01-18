@@ -6,7 +6,7 @@ import { Container } from '../../Container';
 import { IconButton } from '../../IconButton';
 import { Button } from '../../Button';
 import { DatePickerElementsPropsContext } from './DatePickerElementsPropsContext';
-import { useDateTimePickerProps } from 'use-datetime-picker';
+import { useDateTimePickerContext } from 'use-datetime-picker';
 
 export const CalendatYearsList = ({
   setCurrentTab,
@@ -15,7 +15,7 @@ export const CalendatYearsList = ({
 }) => {
   const currentYear = new Date().getFullYear();
   const { type } = useContext(DatePickerElementsPropsContext);
-  const { goToYear, yearProps } = useDateTimePickerProps();
+  const { goToYear, yearProps } = useDateTimePickerContext();
 
   const maxYear = currentYear + 10;
   const minYear = currentYear - 70;

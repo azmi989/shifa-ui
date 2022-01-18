@@ -9,7 +9,7 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-taqweem": "^0.1.83"
+    "shifa-ui": "link:.."
   },
   "devDependencies": {
     "@types/react": "^17.0.33",
