@@ -8,40 +8,16 @@ type Props = {
 };
 export const useNumberInputField = ({
   value,
-  max,
-  min,
-  step,
+  max = Infinity,
+  min = Infinity,
+  step = 1,
   onChange,
 }: Props) => {
   const [newValue, setValue] = useState(value);
   const increase = () =>
-    setValue(prev => {
-      if (step) {
-        if (max) {
-          if (prev >= max || prev >= max - step) return prev;
-        }
-        return (prev += step);
-      } else {
-        if (max) {
-          if (prev >= max) return prev;
-        }
-        return (prev += 1);
-      }
-    });
+    setValue(prev => (prev >= max ? prev : (prev += step)));
   const decrease = () =>
-    setValue(prev => {
-      if (step) {
-        if (min) {
-          if (prev <= min - step) return prev;
-        }
-        return (prev -= step);
-      } else {
-        if (min) {
-          if (prev <= min) return prev;
-        }
-        return (prev -= 1);
-      }
-    });
+    setValue(prev => (prev <= min ? prev : (prev -= step)));
   useCallback(() => {
     onChange &&
       onChange({ target: { value: String(newValue) } } as ChangeEvent<

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDateTimePickerContext } from 'use-datetime-picker';
+import { useInterval } from 'usehooks-ts';
 import { Arrow } from '../../../assets/images/svg/Arrow';
 import Clock from '../../../assets/images/svg/Clock/Clock';
 import { getColor } from '../../../theme/utils';
@@ -10,12 +11,18 @@ import { NumberInputField } from '../NumberInputField';
 
 export const ClockComponent = () => {
   const {
-    inputsProps,
+    date,
+    decreaseHours,
+    decreaseMinutes,
+    increaseHours,
+    increaseMinutes,
     timeProps,
+    inputsProps,
+    setPickClockArrow,
     pickClockArrow,
     timeFormatArg,
-    setPickClockArrow,
   } = useDateTimePickerContext();
+  // useInterval(() => hoursInputChange((timeProps.hours += 1)), 1000);
   return (
     <Container
       fillContainer
@@ -57,8 +64,18 @@ export const ClockComponent = () => {
         <NumberInputField
           name="clockHours"
           label="Hours"
-          increaseButtonProps={{ onClick: () => setPickClockArrow('hours') }}
-          decreaseButtonProps={{ onClick: () => setPickClockArrow('hours') }}
+          increaseButtonProps={{
+            onClick: () => {
+              setPickClockArrow('hours');
+              increaseHours();
+            },
+          }}
+          decreaseButtonProps={{
+            onClick: () => {
+              setPickClockArrow('hours');
+              decreaseHours();
+            },
+          }}
           customOnChange
           {...inputsProps.hours}
         />
@@ -66,8 +83,19 @@ export const ClockComponent = () => {
         <NumberInputField
           name="clockMinutes"
           label="Minutes"
-          increaseButtonProps={{ onClick: () => setPickClockArrow('minutes') }}
-          decreaseButtonProps={{ onClick: () => setPickClockArrow('minutes') }}
+          increaseButtonProps={{
+            onClick: () => {
+              setPickClockArrow('minutes');
+              increaseMinutes();
+            },
+          }}
+          decreaseButtonProps={{
+            onClick: () => {
+              setPickClockArrow('minutes');
+
+              decreaseMinutes();
+            },
+          }}
           customOnChange
           {...inputsProps.minutes}
         />

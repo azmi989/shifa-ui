@@ -6625,10 +6625,10 @@ urix@^0.1.0:
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
 
-use-datetime-picker@^1.0.13:
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/use-datetime-picker/-/use-datetime-picker-1.0.13.tgz#5b8c46b9342df1b423e5c98dca34dab13303697a"
-  integrity sha512-blWUp+YnY/0B9s3Bbl3V11fpYALj0iwQ6i4sR7WITvuf1n1E+iOzlzDW9RwK6c/PvqfwoetDmobXgSN7Ve1j8g==
+use-datetime-picker@^1.0.17:
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/use-datetime-picker/-/use-datetime-picker-1.0.17.tgz#991999344f86bb0caac3c8da75f35579ce4aaed4"
+  integrity sha512-ROlZF6PZ6pscdRf0kgmexDAb41AcL0OQObdUT4+/6kwFaqpYCob2V0FPjgYpLnFN3XyiuQXvQAhK7d+oilx0EQ==
 
 use@^3.1.0:
   version "3.1.1"

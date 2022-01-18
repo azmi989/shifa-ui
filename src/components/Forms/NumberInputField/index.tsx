@@ -16,30 +16,33 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
   forceFocus,
   value = 0,
   onChange,
-  increaseButtonProps,
-  decreaseButtonProps,
+  increaseButtonProps = {},
+  decreaseButtonProps = {},
   customOnChange = false,
+  min = Infinity,
+  max = Infinity,
+  step = 1,
   ...props
 }) => {
   const { increase, decrease, newValue, setValue } = useNumberInputField({
     value,
-    min: props.min,
-    max: props.max,
-    step: props.step,
+    min,
+    max,
+    step,
     onChange,
   });
-  const handelOnIncreaseClicked: MouseEventHandler<HTMLButtonElement> = e => {
-    customOnChange
-      ? increaseButtonProps?.onClick && increaseButtonProps.onClick(e)
-      : undefined;
-    increase();
-  };
-  const handelOnDecreaseClicked: MouseEventHandler<HTMLButtonElement> = e => {
-    customOnChange
-      ? decreaseButtonProps?.onClick && decreaseButtonProps.onClick(e)
-      : undefined;
-    decrease();
-  };
+  const {
+    onClick: onIncreaseClick,
+    ...increaseButtonOwnProps
+  } = increaseButtonProps;
+  const {
+    onClick: onDecreaseClick,
+    ...decreaseButtonOwnProps
+  } = decreaseButtonProps;
+  const handelOnIncreaseClicked: MouseEventHandler<HTMLButtonElement> = e =>
+    customOnChange ? onIncreaseClick && onIncreaseClick(e) : increase();
+  const handelOnDecreaseClicked: MouseEventHandler<HTMLButtonElement> = e =>
+    customOnChange ? onDecreaseClick && onDecreaseClick(e) : decrease();
   return (
     <FormElementContainer
       name={props.name}
@@ -56,26 +59,33 @@ export const NumberInputField: FC<NumberInputFieldProps> = ({
           rounded="rectangle"
           transform="scale(0.8)"
           icon={<ExpandLess />}
-          {...increaseButtonProps}
           onClick={handelOnIncreaseClicked}
+          {...increaseButtonOwnProps}
         />
         <IconButton
           rounded="rectangle"
           transform="scale(0.8)"
           icon={<ExpandMore />}
           onClick={handelOnDecreaseClicked}
-          {...decreaseButtonProps}
+          {...decreaseButtonOwnProps}
         />
       </Container>
       <StyledInput
         type="number"
         id={props.name}
         value={newValue}
+        min={min}
+        max={max}
+        step={step}
         onChange={e => {
-          if (!customOnChange) {
-            setValue(Number(e.target.value));
-            onChange && onChange(e);
-          }
+          setValue(
+            Number(e.target.value) >= max
+              ? Number(e.target.value)
+              : Number(e.target.value) <= min
+              ? Number(e.target.value)
+              : Number(e.target.value)
+          );
+          onChange && onChange(e);
         }}
         {...props}
       />
