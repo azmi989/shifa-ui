@@ -11,18 +11,18 @@ import { NumberInputField } from '../NumberInputField';
 
 export const ClockComponent = () => {
   const {
-    date,
-    decreaseHours,
-    decreaseMinutes,
     increaseHours,
+    decreaseHours,
     increaseMinutes,
+    decreaseMinutes,
     timeProps,
     inputsProps,
     setPickClockArrow,
     pickClockArrow,
     timeFormatArg,
   } = useDateTimePickerContext();
-  // useInterval(() => hoursInputChange((timeProps.hours += 1)), 1000);
+  console.log(decreaseHours);
+
   return (
     <Container
       fillContainer
