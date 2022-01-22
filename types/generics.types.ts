@@ -30,7 +30,7 @@ export type UnitsType =
 
 type OriginXType = "left" | "center" | "right";
 type OriginYType = "top" | "center" | "bottom";
-
+export type CB<P,R> = (e?:P) => R
 export type TransformOrigin =
   | `${OriginXType} ${OriginYType} ${`${UnitsType | "initial" | "inherit"}`}`
   | `${OriginXType} ${OriginYType}`;

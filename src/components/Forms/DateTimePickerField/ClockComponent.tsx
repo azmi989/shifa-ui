@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDateTimePickerContext } from 'use-datetime-picker';
-import { useInterval } from 'usehooks-ts';
 import { Arrow } from '../../../assets/images/svg/Arrow';
 import Clock from '../../../assets/images/svg/Clock/Clock';
 import { getColor } from '../../../theme/utils';
@@ -11,17 +10,16 @@ import { NumberInputField } from '../NumberInputField';
 
 export const ClockComponent = () => {
   const {
-    increaseHours,
-    decreaseHours,
-    increaseMinutes,
-    decreaseMinutes,
     timeProps,
     inputsProps,
-    setPickClockArrow,
     pickClockArrow,
-    timeFormatArg,
+    setPickClockArrow,
+    updateDate,
+    date,
   } = useDateTimePickerContext();
-  console.log(decreaseHours);
+  useEffect(() => {
+    console.log(date);
+  }, [date]);
 
   return (
     <Container
@@ -62,44 +60,26 @@ export const ClockComponent = () => {
         width="50%"
       >
         <NumberInputField
-          name="clockHours"
-          label="Hours"
-          increaseButtonProps={{
-            onClick: () => {
-              setPickClockArrow('hours');
-              increaseHours();
-            },
+          onIncreaseClicked={() => {
+            setPickClockArrow('hours');
+            const newHours = new Date(date.setHours(date.getHours() + 1));
+            timeProps.hours >= inputsProps.hours.min &&
+            timeProps.hours <= inputsProps.hours.max
+              ? updateDate(newHours)
+              : null;
           }}
-          decreaseButtonProps={{
-            onClick: () => {
-              setPickClockArrow('hours');
-              decreaseHours();
-            },
+          onDecreaseClicked={() => {
+            setPickClockArrow('hours');
+            timeProps.hours >= inputsProps.hours.min &&
+            timeProps.hours <= inputsProps.hours.max
+              ? updateDate(new Date(date.setHours(date.getHours() - 1)))
+              : null;
           }}
-          customOnChange
           {...inputsProps.hours}
         />
         <Typography>:</Typography>
-        <NumberInputField
-          name="clockMinutes"
-          label="Minutes"
-          increaseButtonProps={{
-            onClick: () => {
-              setPickClockArrow('minutes');
-              increaseMinutes();
-            },
-          }}
-          decreaseButtonProps={{
-            onClick: () => {
-              setPickClockArrow('minutes');
-
-              decreaseMinutes();
-            },
-          }}
-          customOnChange
-          {...inputsProps.minutes}
-        />
-        {timeFormatArg === '12' ? (
+        <NumberInputField {...inputsProps.minutes} />
+        {timeProps.meridiem && (
           <StyledPaginationButton
             size="md"
             varient={timeProps.meridiem === 'pm' ? 'contained' : 'outlined'}
@@ -109,7 +89,7 @@ export const ClockComponent = () => {
           >
             {timeProps.meridiem}
           </StyledPaginationButton>
-        ) : null}
+        )}
       </Container>
     </Container>
   );

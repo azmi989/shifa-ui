@@ -14,20 +14,22 @@ export const useNumberInputField = ({
   onChange,
 }: Props) => {
   const [newValue, setValue] = useState(value);
-  const increase = () =>
-    setValue(prev => (prev >= max ? prev : (prev += step)));
-  const decrease = () =>
-    setValue(prev => (prev <= min ? prev : (prev -= step)));
   useCallback(() => {
     onChange &&
       onChange({ target: { value: String(newValue) } } as ChangeEvent<
         HTMLInputElement
       >);
   }, [newValue, onChange]);
+  const dispatch = (type: 'increase' | 'decrease'): void | null => {
+    if (type === 'increase') {
+      setValue(prev => (prev >= max ? prev : (prev += step)));
+    } else if (type === 'decrease') {
+      setValue(prev => (prev <= min ? prev : (prev -= step)));
+    }
+  };
   return {
     newValue,
     setValue,
-    increase,
-    decrease,
+    dispatch,
   };
 };

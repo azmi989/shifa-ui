@@ -23,7 +23,6 @@ export const PickerInput: FC = memo(({ children }) => {
   return (
     <Container id="picker-inputContainer" position="relative" width="100%">
       <TextInputField
-        name="dateTimePickerInput"
         varient={varient}
         label={label}
         disableFloat

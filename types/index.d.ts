@@ -25,7 +25,7 @@ export type {
   Colors,
   Elevation,
   Opacity,
-  WithOpenState,OrientationType
+  WithOpenState,OrientationType,CB
 } from "./generics.types";
 export type { GutterAndSizeType } from "./gutterAndSize.types";
 export type { InsetType } from "./inset.types";

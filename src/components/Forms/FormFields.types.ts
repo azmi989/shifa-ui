@@ -1,11 +1,12 @@
 import {
   InputHTMLAttributes,
+  MouseEvent,
   ReactNode,
   SelectHTMLAttributes,
   TextareaHTMLAttributes,
 } from 'react';
-import { OrientationType } from '../../../types';
-import { ButtonProps, ButtonVarientType } from '../Button/Button.types';
+import { CB, OrientationType } from '../../../types';
+import { ButtonVarientType } from '../Button/Button.types';
 
 export type SelectOptionType = {
   id: string | number;
@@ -59,9 +60,8 @@ export type NumberInputFieldProps = {
   min?: number;
   max?: number;
   step?: number;
-  increaseButtonProps?: ButtonProps;
-  decreaseButtonProps?: ButtonProps;
-  customOnChange?: boolean;
+  onIncreaseClicked?: CB<MouseEvent<HTMLButtonElement>, unknown>;
+  onDecreaseClicked?: CB<MouseEvent<HTMLButtonElement>, unknown>;
 } & Omit<CommonFieldProps, 'type'> &
   Omit<
     InputHTMLAttributes<HTMLInputElement>,
