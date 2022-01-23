@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useDateTimePickerContext } from 'use-datetime-picker';
 import { Arrow } from '../../../assets/images/svg/Arrow';
 import Clock from '../../../assets/images/svg/Clock/Clock';
@@ -16,6 +16,10 @@ export const ClockComponent = () => {
     setPickClockArrow,
     updateDate,
     date,
+    increaseHours,
+    increaseMinutes,
+    decreaseHours,
+    decreaseMinutes,
   } = useDateTimePickerContext();
   useEffect(() => {
     console.log(date);
@@ -41,7 +45,9 @@ export const ClockComponent = () => {
           transform={`translateX(-50%) translateY(-100%) rotate(${
             pickClockArrow === 'minutes'
               ? inputsProps.minutes.value * 6
-              : inputsProps.hours.value * 30
+              : pickClockArrow === 'hours'
+              ? inputsProps.hours.value * 30
+              : '0'
           }deg)`}
           transformOrigin="center bottom"
         />
@@ -60,25 +66,16 @@ export const ClockComponent = () => {
         width="50%"
       >
         <NumberInputField
-          onIncreaseClicked={() => {
-            setPickClockArrow('hours');
-            const newHours = new Date(date.setHours(date.getHours() + 1));
-            timeProps.hours >= inputsProps.hours.min &&
-            timeProps.hours <= inputsProps.hours.max
-              ? updateDate(newHours)
-              : null;
-          }}
-          onDecreaseClicked={() => {
-            setPickClockArrow('hours');
-            timeProps.hours >= inputsProps.hours.min &&
-            timeProps.hours <= inputsProps.hours.max
-              ? updateDate(new Date(date.setHours(date.getHours() - 1)))
-              : null;
-          }}
+          onIncreaseClicked={increaseHours}
+          onDecreaseClicked={decreaseHours}
           {...inputsProps.hours}
         />
         <Typography>:</Typography>
-        <NumberInputField {...inputsProps.minutes} />
+        <NumberInputField
+          onIncreaseClicked={increaseMinutes}
+          onDecreaseClicked={decreaseMinutes}
+          {...inputsProps.minutes}
+        />
         {timeProps.meridiem && (
           <StyledPaginationButton
             size="md"

@@ -3,7 +3,7 @@ import { Container } from '../../Container';
 import { StyledSwipableView } from '../../Styles';
 import { CalendarMain } from './CalendarMain';
 import { CalendarMonthList } from './CalendarMonthList';
-import { CalendatYearsList } from './CalendatYearsList';
+import { CalendarYearsList } from './CalendarYearsList';
 
 export const CalendarComponent = () => {
   const [currentTab, setCurrentTab] = useState(1);
@@ -17,7 +17,7 @@ export const CalendarComponent = () => {
         <CalendarMonthList setCurrentTab={setCurrentTab} />
       </StyledSwipableView>
       <StyledSwipableView currentTabID={currentTab} tab={3} direction="left">
-        <CalendatYearsList setCurrentTab={setCurrentTab} />
+        <CalendarYearsList setCurrentTab={setCurrentTab} />
       </StyledSwipableView>
     </Container>
   );

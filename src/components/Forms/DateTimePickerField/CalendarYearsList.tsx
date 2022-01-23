@@ -8,7 +8,7 @@ import { Button } from '../../Button';
 import { DatePickerElementsPropsContext } from './DatePickerElementsPropsContext';
 import { useDateTimePickerContext } from 'use-datetime-picker';
 
-export const CalendatYearsList = ({
+export const CalendarYearsList = ({
   setCurrentTab,
 }: {
   setCurrentTab: Dispatch<SetStateAction<number>>;
